@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://dfpp2mxpjle8h"]
+
+[ext_resource type="Script" path="res://companion/companion_controller.gd" id="1_d0g5o"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_fwnev"]
+radius = 0.25
+height = 0.5
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4i6o0"]
+albedo_color = Color(1, 0.368627, 0.219608, 1)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_wd1mp"]
+radius = 0.25
+
+[node name="Companion" type="CharacterBody3D"]
+script = ExtResource("1_d0g5o")
+
+[node name="Body" type="MeshInstance3D" parent="."]
+mesh = SubResource("SphereMesh_fwnev")
+surface_material_override/0 = SubResource("StandardMaterial3D_4i6o0")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_wd1mp")
