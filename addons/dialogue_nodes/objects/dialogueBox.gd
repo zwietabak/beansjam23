@@ -8,6 +8,8 @@ signal dialogue_proceeded(node_type: String)
 signal dialogue_signal(value: String)
 signal dialogue_ended
 signal variable_changed(var_name: String, value)
+signal who_is_talking(var_name: String)
+signal dialogue_skiped()
 
 @export_subgroup('Data')
 ## Dialigue file created in the Dialogue Nodes editor
@@ -135,6 +137,7 @@ func _input(event):
 	if Input.is_action_just_pressed(skip_input_action):
 		custom_effects[0].skip = true
 		options.show()
+		dialogue_skiped.emit()
 
 
 func load_data(new_data : DialogueData):
@@ -262,6 +265,7 @@ func set_dialogue(dict):
 			speaker.modulate = characterList.characters[idx].color
 			if characterList.characters[idx].image:
 				portrait.texture = characterList.characters[idx].image
+	who_is_talking.emit(speaker.text)
 	
 	dialogue.text = '' # workaround for bug
 	dialogue.text = process_text(dict['dialogue'])

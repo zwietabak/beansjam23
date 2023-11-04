@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://yavxtyrnwqid"]
+[gd_scene load_steps=20 format=3 uid="uid://yavxtyrnwqid"]
 
 [ext_resource type="Script" path="res://dialog_system/dialog_testing.gd" id="1_0es8y"]
 [ext_resource type="Script" path="res://addons/dialogue_nodes/objects/dialogueBox.gd" id="1_7mr08"]
@@ -8,10 +8,12 @@
 [ext_resource type="Script" path="res://addons/dialogue_nodes/objects/bbcodeGhost.gd" id="3_3p7dt"]
 [ext_resource type="Resource" uid="uid://d11bc8kfceyer" path="res://dialog_system/dialog_test.tres" id="5_m68mt"]
 [ext_resource type="PackedScene" uid="uid://4lxomsp4iwxc" path="res://dialog_system/dialog_trigger.tscn" id="8_s4hq1"]
-[ext_resource type="AudioStream" uid="uid://bk8pxlos8vx0g" path="res://audio/sound_files/ambiance.wav" id="9_5ri4y"]
-[ext_resource type="AudioStream" uid="uid://bl2colui7kd47" path="res://audio/sound_files/stone_steps.wav" id="10_shgsu"]
-[ext_resource type="AudioStream" uid="uid://dqop5jj8oi04i" path="res://audio/sound_files/battle_music.mp3" id="11_xv4f0"]
+[ext_resource type="AudioStream" uid="uid://bk8pxlos8vx0g" path="res://audio/sound_files/ambiance/ambiance.wav" id="9_4go5v"]
+[ext_resource type="AudioStream" uid="uid://dqop5jj8oi04i" path="res://audio/sound_files/ambiance/battle_music.mp3" id="9_23kpd"]
 [ext_resource type="Script" path="res://audio/BattleMusic.gd" id="12_jg558"]
+[ext_resource type="Script" path="res://dialog_system/audio_dialog_manager.gd" id="13_61vsd"]
+[ext_resource type="Resource" uid="uid://by4nx71uw8osm" path="res://dialog_system/speaker/Jon.tres" id="13_b6e4i"]
+[ext_resource type="Resource" uid="uid://ce61j3arplo35" path="res://dialog_system/speaker/Fairy.tres" id="14_tsw3r"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_j6r23"]
 size = Vector2(15, 15)
@@ -65,6 +67,7 @@ grow_horizontal = 2
 grow_vertical = 0
 script = ExtResource("1_7mr08")
 dialogue_file = ExtResource("5_m68mt")
+skip_input_action = "ui_accept"
 custom_effects = Array[RichTextEffect]([SubResource("RichTextEffect_d7aap"), SubResource("RichTextEffect_sgu68")])
 
 [node name="dialog_trigger" parent="." node_paths=PackedStringArray("dialogue_box") instance=ExtResource("8_s4hq1")]
@@ -73,12 +76,11 @@ dialogue_box = NodePath("../DialogueBox")
 dialogue_id = "FAIRY_GREETING"
 
 [node name="Ambience" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("9_5ri4y")
+stream = ExtResource("9_4go5v")
 autoplay = true
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.8716, -0.238361, -22.1964)
-stream = ExtResource("10_shgsu")
 
 [node name="Area3D" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.60553, -1.46831, 18.3396)
@@ -88,10 +90,16 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0203304, -0.00543928, 0.01
 shape = SubResource("BoxShape3D_igqi2")
 
 [node name="BattleMusic" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("11_xv4f0")
+stream = ExtResource("9_23kpd")
 script = ExtResource("12_jg558")
 
-[connection signal="dialogue_signal" from="DialogueBox" to="." method="_on_dialogue_box_dialogue_signal"]
-[connection signal="variable_changed" from="DialogueBox" to="." method="_on_dialogue_box_variable_changed"]
+[node name="AudioDialogManager" type="AudioStreamPlayer" parent="."]
+bus = &"Voice"
+script = ExtResource("13_61vsd")
+player = ExtResource("13_b6e4i")
+fairy = ExtResource("14_tsw3r")
+
+[connection signal="dialogue_skiped" from="DialogueBox" to="AudioDialogManager" method="_on_dialogue_box_dialogue_skiped"]
+[connection signal="who_is_talking" from="DialogueBox" to="AudioDialogManager" method="_on_dialogue_box_who_is_talking"]
 [connection signal="finished" from="AudioStreamPlayer3D" to="." method="_on_audio_stream_player_3d_finished"]
 [connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
