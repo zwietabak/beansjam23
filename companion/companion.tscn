@@ -13,6 +13,7 @@ albedo_color = Color(1, 0.368627, 0.219608, 1)
 radius = 0.25
 
 [node name="Companion" type="CharacterBody3D"]
+motion_mode = 1
 script = ExtResource("1_d0g5o")
 
 [node name="Body" type="MeshInstance3D" parent="."]
@@ -21,3 +22,4 @@ surface_material_override/0 = SubResource("StandardMaterial3D_4i6o0")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("SphereShape3D_wd1mp")
+disabled = true

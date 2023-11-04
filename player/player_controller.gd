@@ -10,7 +10,7 @@ var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
 @onready var camera_pivot = $Camera_Pivot
 @onready var camera = $Camera_Pivot/Camera3D
-@onready var companion_pivot = $Companion_Pivot
+@onready var attack_location = $Attack_Location
 
 @export var companion: CharacterBody3D
 
@@ -51,19 +51,18 @@ func _physics_process(delta):
 		
 	if Input.is_action_just_pressed("attack"):
 		if !in_attack_animation:
-			print("ATTACK")
 			in_attack_animation = true
-			var start_position = companion.position
+			companion.get_node("CollisionShape3D").disabled = false
 			var tween = create_tween()
-			tween.tween_property(companion, 'position', Vector3(self.position.x, self.position.y + 3, self.position.z - 3), companion.attack_speed)
+			tween.tween_property(companion, 'position', attack_location.global_position, companion.attack_speed)
 			tween.tween_property(companion, 'position', companion.transform.origin, companion.attack_speed)
 			tween.connect("finished", on_tween_finished)
 	
 func _input(event):
 	if event is InputEventMouseMotion:
 		# Swap out the below code lines to have the player rotate with the camera or not
-		#rotate_y(-event.relative.x * LOOK_SENSITIVITY)
-		camera_pivot.rotate_y(-event.relative.x * LOOK_SENSITIVITY)
+		rotate_y(-event.relative.x * LOOK_SENSITIVITY)
+		#camera_pivot.rotate_y(-event.relative.x * LOOK_SENSITIVITY)
 		
 func rotate_around(rotation_center: Transform3D, rotator: Transform3D):
 	theta += dtheta
@@ -74,3 +73,4 @@ func rotate_around(rotation_center: Transform3D, rotator: Transform3D):
 	
 func on_tween_finished():
 	in_attack_animation = false
+	companion.get_node("CollisionShape3D").disabled = true
