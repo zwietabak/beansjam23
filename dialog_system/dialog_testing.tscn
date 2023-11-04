@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://yavxtyrnwqid"]
+[gd_scene load_steps=23 format=3 uid="uid://yavxtyrnwqid"]
 
 [ext_resource type="Script" path="res://dialog_system/dialog_testing.gd" id="1_0es8y"]
 [ext_resource type="Script" path="res://addons/dialogue_nodes/objects/dialogueBox.gd" id="1_7mr08"]
@@ -17,12 +17,6 @@
 [ext_resource type="PackedScene" uid="uid://dbls8kubhonhs" path="res://environment/wooden_door.tscn" id="15_6b754"]
 [ext_resource type="PackedScene" uid="uid://deeryhksmvs2m" path="res://enemy/enemy.tscn" id="16_4s5rj"]
 
-[sub_resource type="PlaneMesh" id="PlaneMesh_j6r23"]
-size = Vector2(15, 15)
-
-[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_5efkm"]
-data = PackedVector3Array(7.5, 0, 7.5, -7.5, 0, 7.5, 7.5, 0, -7.5, -7.5, 0, 7.5, -7.5, 0, -7.5, 7.5, 0, -7.5)
-
 [sub_resource type="RichTextEffect" id="RichTextEffect_d7aap"]
 script = ExtResource("2_klslt")
 
@@ -32,21 +26,22 @@ script = ExtResource("3_3p7dt")
 [sub_resource type="BoxShape3D" id="BoxShape3D_igqi2"]
 size = Vector3(12.5642, 10.6451, 1)
 
+[sub_resource type="NavigationMesh" id="NavigationMesh_lwxc3"]
+vertices = PackedVector3Array(-3.97562, 0.5, -3.21993, -10.9756, 0.5, 3.78007, -10.9756, 0.5, 10.7801, -3.97562, 0.5, 10.7801, 3.02438, 0.5, 3.78007, 3.02438, 0.5, -3.21993, -3.97562, 0.5, 10.7801, 3.02438, 0.5, 10.7801, 3.02438, 0.5, 3.78007, -3.97562, 0.5, -3.21993, -10.9756, 0.5, -3.21993, -10.9756, 0.5, 3.78007)
+polygons = [PackedInt32Array(5, 4, 0), PackedInt32Array(0, 4, 3), PackedInt32Array(0, 3, 1), PackedInt32Array(1, 3, 2), PackedInt32Array(8, 7, 6), PackedInt32Array(11, 10, 9)]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_j6r23"]
+size = Vector2(15, 15)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_5efkm"]
+data = PackedVector3Array(7.5, 0, 7.5, -7.5, 0, 7.5, 7.5, 0, -7.5, -7.5, 0, 7.5, -7.5, 0, -7.5, 7.5, 0, -7.5)
+
 [node name="World" type="Node"]
 script = ExtResource("1_0es8y")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 11.0313, 0)
 shadow_enabled = true
-
-[node name="Ground" type="MeshInstance3D" parent="."]
-mesh = SubResource("PlaneMesh_j6r23")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="Ground"]
-collision_layer = 3
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground/StaticBody3D"]
-shape = SubResource("ConcavePolygonShape3D_5efkm")
 
 [node name="Player" parent="." node_paths=PackedStringArray("companion") instance=ExtResource("1_8oj1e")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0185642, 0, -0.00067997)
@@ -108,6 +103,21 @@ fairy = ExtResource("14_tsw3r")
 
 [node name="WoodenDoor" parent="." instance=ExtResource("15_6b754")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.34391, 2.38419e-07, -5.28932)
+
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.97562, 0, -3.78007)
+navigation_mesh = SubResource("NavigationMesh_lwxc3")
+
+[node name="Ground" type="MeshInstance3D" parent="NavigationRegion3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.97562, 0, 3.78007)
+mesh = SubResource("PlaneMesh_j6r23")
+skeleton = NodePath("../..")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="NavigationRegion3D/Ground"]
+collision_layer = 3
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/Ground/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_5efkm")
 
 [node name="Enemy" parent="." node_paths=PackedStringArray("follow_target") instance=ExtResource("16_4s5rj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.97562, 0, -3.78007)

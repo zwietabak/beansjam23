@@ -101,7 +101,6 @@ func take_damage(amount: int):
 	print("OUCH! I got hit!")
 	walkink_sounds.stop_walking()
 	sound_effects.start_sound("GOT_HIT")
-	# TODO: Play player gets hit sound
 	in_hit_animation = true
 	in_attack_animation = false
 	on_hit.emit()

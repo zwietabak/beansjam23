@@ -57,10 +57,12 @@ path_height_offset = 0.5
 
 [node name="Face_Direction" type="Node3D" parent="."]
 
-[node name="EnemySoundEffects" type="AudioStreamPlayer" parent="."]
+[node name="EnemySoundEffects" type="AudioStreamPlayer3D" parent="."]
+bus = &"SoundEffects"
 script = ExtResource("2_jaulv")
 
-[node name="EnemyWalkingSounds" type="AudioStreamPlayer" parent="."]
+[node name="EnemyWalkingSounds" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("3_wgj4f")
 pitch_scale = 1.4
+bus = &"SoundEffects"
 script = ExtResource("3_ruucy")
