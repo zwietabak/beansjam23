@@ -46,6 +46,15 @@ func _physics_process(delta):
 		if direction:
 			velocity.x = direction.x * SPEED
 			velocity.z = direction.z * SPEED
+			
+			# TODO: Turning isn't smooth
+			# Make look_at rotation smooth instead of chopy
+			# Maybe something with lerp
+			$MainCharacter.look_at(self.position - direction)
+#			var tween_rotate = create_tween()
+#			tween_rotate.tween_property($MainCharacter, "rotation_degrees", self.position - direction, 0.1)
+	
+			
 			if(velocity.length() > 0):
 				walkink_sounds.start_walking()
 		else:
@@ -64,6 +73,9 @@ func _physics_process(delta):
 		walkink_sounds.stop_walking()
 		
 		if !in_attack_animation and !in_hit_animation:
+			var tween_rotate = create_tween()
+			tween_rotate.tween_property($MainCharacter, "rotation_degrees", Vector3(0, 180, 0), 0.1)
+
 			sound_effects.start_sound("HIT", true)
 			in_attack_animation = true
 			companion.get_node("CollisionShape3D").disabled = false
@@ -77,9 +89,10 @@ func _physics_process(delta):
 
 func _input(event):
 	if event is InputEventMouseMotion:
-		# Swap out the below code lines to have the player rotate with the camera or not
-		rotate_y(-event.relative.x * LOOK_SENSITIVITY)
-		#camera_pivot.rotate_y(-event.relative.x * LOOK_SENSITIVITY)
+		if !in_attack_animation and !in_hit_animation:
+			# Swap out the below code lines to have the player rotate with the camera or not
+			rotate_y(-event.relative.x * LOOK_SENSITIVITY)
+			#camera_pivot.rotate_y(-event.relative.x * LOOK_SENSITIVITY)
 
 func rotate_around(rotation_center: Transform3D, rotator: Transform3D):
 	theta += dtheta
