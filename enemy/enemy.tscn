@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://deeryhksmvs2m"]
+[gd_scene load_steps=8 format=3 uid="uid://deeryhksmvs2m"]
 
 [ext_resource type="Script" path="res://enemy/enemy_controller.gd" id="1_pi25j"]
 
@@ -14,6 +14,9 @@ size = Vector3(1, 2, 1)
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_164af"]
 radius = 7.0
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_3c80v"]
+size = Vector3(1, 1.5, 0.5)
 
 [node name="Enemy" type="CharacterBody3D"]
 script = ExtResource("1_pi25j")
@@ -37,6 +40,12 @@ shape = SubResource("BoxShape3D_m7tor")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Player_Detection"]
 shape = SubResource("SphereShape3D_164af")
+
+[node name="Damage_Detection" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Damage_Detection"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -0.75)
+shape = SubResource("BoxShape3D_3c80v")
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
 path_height_offset = 0.5

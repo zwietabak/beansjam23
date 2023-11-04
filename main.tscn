@@ -37,8 +37,9 @@ companion = NodePath("../Companion")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.66851, 1.37351, 5)
 circle_speed = 175.0
 
-[node name="Enemy" parent="." instance=ExtResource("3_nb1ho")]
+[node name="Enemy" parent="." node_paths=PackedStringArray("follow_target") instance=ExtResource("3_nb1ho")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -6)
+follow_target = NodePath("../Player")
 
 [node name="Enemy_NavMesh" type="NavigationRegion3D" parent="."]
 navigation_mesh = SubResource("NavigationMesh_2cdwm")
