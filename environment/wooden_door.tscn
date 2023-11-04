@@ -15,42 +15,34 @@ collision = NodePath("Door/DoorColision/CollisionShape3D")
 [node name="DoorPiece-rigid" parent="Door" index="4" groups=["rigid_bodies"]]
 collision_layer = 2
 collision_mask = 2
-freeze = true
 
 [node name="DoorPiece_001-rigid" parent="Door" index="5" groups=["rigid_bodies"]]
 collision_layer = 2
 collision_mask = 2
-freeze = true
 
 [node name="DoorPiece_002-rigid" parent="Door" index="6" groups=["rigid_bodies"]]
 collision_layer = 2
 collision_mask = 2
-freeze = true
 
 [node name="DoorPiece_003-rigid" parent="Door" index="7" groups=["rigid_bodies"]]
 collision_layer = 2
 collision_mask = 2
-freeze = true
 
 [node name="DoorPiece_004-rigid" parent="Door" index="8" groups=["rigid_bodies"]]
 collision_layer = 2
 collision_mask = 2
-freeze = true
 
 [node name="DoorPiece_005-rigid" parent="Door" index="9" groups=["rigid_bodies"]]
 collision_layer = 2
 collision_mask = 2
-freeze = true
 
 [node name="DoorPiece_006-rigid" parent="Door" index="10" groups=["rigid_bodies"]]
 collision_layer = 2
 collision_mask = 2
-freeze = true
 
 [node name="DoorPiece_007-rigid" parent="Door" index="11" groups=["rigid_bodies"]]
 collision_layer = 2
 collision_mask = 2
-freeze = true
 
 [node name="Area3D" type="Area3D" parent="." index="1"]
 

@@ -111,3 +111,8 @@ func _on_animation_tree_animation_finished(anim_name):
 		in_hit_animation = false
 	elif anim_name == "Pointing":
 		in_attack_animation = false
+
+
+func _on_dialog_trigger_3_dialog_entered():
+	companion = get_tree().get_first_node_in_group("Companion")
+	init_companion_rotation()

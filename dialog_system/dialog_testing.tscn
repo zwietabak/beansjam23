@@ -49,8 +49,6 @@ companion = NodePath("../Companion")
 
 [node name="Companion" parent="." instance=ExtResource("2_fqvgr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.66851, 1.37351, 0)
-collision_layer = 3
-collision_mask = 3
 
 [node name="DialogueBox" type="Panel" parent="."]
 visible = false
