@@ -22,6 +22,8 @@ enum State {
 @export var follow_target: CharacterBody3D
 @export var health_points: int = 3
 @export var damage_points: int = 1
+@export var sound_effects: EnemySoundEffects
+@export var walking_sound: EnemyWalkingSounds
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
@@ -56,26 +58,31 @@ func _physics_process(delta):
 		rotate_y(deg_to_rad(face_direction.rotation.y * TURN_SPEED))
 		navigation_agent.set_target_position(start_position)
 		velocity = (navigation_agent.get_next_path_position() - transform.origin).normalized() * SPEED * delta
+		if int(self.position.x) == int(start_position.x) and int(self.position.z) == int(start_position.z):
+			current_state = State.IDLE
 	elif  current_state == State.ATTACK and !in_attack_animation:
 		velocity.x = 0
 		velocity.z = 0
 		follow_target.take_damage(damage_points)
+		sound_effects.start_sound("HIT")
 		# Play enemy attack animation here instead of waiting...
 		in_attack_animation = true
 		await get_tree().create_timer(2.0).timeout
 		in_attack_animation = false
 
 	move_and_slide()
-
-	if int(self.position.x) == start_position.x and int(self.position.z) == start_position.z:
-		current_state = State.IDLE
+	
+	if(velocity.length() > 0):
+		walking_sound.start_walking()
+	else:
+		walking_sound.stop_walking() 
 
 	if health_points <= 0:
 		queue_free()
 
 func take_damage(amount: int):
 	print("HIT")
-	# TODO: Play enemy got hit sound
+	sound_effects.start_sound("GOT_HIT")
 	health_points -= amount
 	invincible = true
 	await get_tree().create_timer(0.5).timeout
@@ -86,6 +93,7 @@ func hitbox_body_entered(body):
 		take_damage(body.attack_damage)
 		
 func player_detection_area_body_entered(body):
+	print(body)
 	if body.name == "Player":
 		current_state = State.FOLLOW
 	

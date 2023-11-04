@@ -14,6 +14,8 @@ var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 @onready var attack_location = $Attack_Location
 
 @export var companion: CharacterBody3D
+@export var walkink_sounds: PlayerWalkingSounds
+@export var sound_effects: PlayerSoundEffects
 
 signal on_attack
 signal on_hit
@@ -32,10 +34,6 @@ func _physics_process(delta):
 	# Add the gravity.
 	if not is_on_floor():
 		velocity.y -= gravity * delta
-
-	# Handle Jump.
-	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
-		velocity.y = JUMP_VELOCITY
 		
 	if companion != null and companion.get_state_as_string() == "IDLE":
 		companion.transform = rotate_around(self.transform, companion.transform)
@@ -48,20 +46,25 @@ func _physics_process(delta):
 		if direction:
 			velocity.x = direction.x * SPEED
 			velocity.z = direction.z * SPEED
-			$WalkingSteps.start_walking()
+			if(velocity.length() > 0):
+				walkink_sounds.start_walking()
 		else:
 			velocity.x = move_toward(velocity.x, 0, SPEED)
 			velocity.z = move_toward(velocity.z, 0, SPEED)
-			$WalkingSteps.stop_walking()
 
 		move_and_slide()
+		
+	if (velocity.length() <= 0): 
+		walkink_sounds.stop_walking()
 	
 	if Input.is_action_just_pressed("ui_cancel"):
 		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED if Input.mouse_mode == Input.MOUSE_MODE_VISIBLE else Input.MOUSE_MODE_VISIBLE
 
 	if Input.is_action_just_pressed("attack") and companion != null:
-		$WalkingSteps.stop_walking()
+		walkink_sounds.stop_walking()
+		
 		if !in_attack_animation and !in_hit_animation:
+			sound_effects.start_sound("HIT", true)
 			in_attack_animation = true
 			companion.get_node("CollisionShape3D").disabled = false
 			var tween = create_tween()
@@ -96,8 +99,8 @@ func init_companion_rotation():
 
 func take_damage(amount: int):
 	print("OUCH! I got hit!")
-	$WalkingSteps.stop_walking()
-	# TODO: Play player gets hit sound
+	walkink_sounds.stop_walking()
+	sound_effects.start_sound("GOT_HIT")
 	in_hit_animation = true
 	in_attack_animation = false
 	on_hit.emit()
