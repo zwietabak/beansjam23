@@ -43,7 +43,7 @@ nodes/Running/position = Vector2(-40, 100)
 nodes/TimeScale/node = SubResource("AnimationNodeTimeScale_j22gr")
 nodes/TimeScale/position = Vector2(400, 500)
 nodes/output/position = Vector2(900, 400)
-node_connections = [&"output", 0, &"Attack", &"TimeScale", 0, &"Animation 4", &"GetHit", 0, &"Running", &"GetHit", 1, &"Animation", &"Attack", 0, &"GetHit", &"Attack", 1, &"TimeScale", &"Running", 0, &"Animation 2", &"Running", 1, &"Animation 3"]
+node_connections = [&"output", 0, &"Attack", &"Attack", 0, &"GetHit", &"Attack", 1, &"TimeScale", &"GetHit", 0, &"Running", &"GetHit", 1, &"Animation", &"Running", 0, &"Animation 2", &"Running", 1, &"Animation 3", &"TimeScale", 0, &"Animation 4"]
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_m4kr6"]
 animation = &"Death"
@@ -69,4 +69,4 @@ states/Death/position = Vector2(480, 378)
 states/End/position = Vector2(740, 224)
 states/Start/position = Vector2(258, 231)
 transitions = ["Start", "BlendTree", SubResource("AnimationNodeStateMachineTransition_esq04"), "BlendTree", "Death", SubResource("AnimationNodeStateMachineTransition_5r1re"), "Death", "BlendTree", SubResource("AnimationNodeStateMachineTransition_i3rj0")]
-graph_offset = Vector2(-287, 0)
+graph_offset = Vector2(-321, 148)
