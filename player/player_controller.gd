@@ -20,7 +20,8 @@ var in_attack_animation = false
 
 func _ready():
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
-	dtheta = (2 * PI / companion.circle_speed)
+	if companion != null:
+		init_companion_rotation()
 
 func _physics_process(delta):
 	# Add the gravity.
@@ -44,12 +45,14 @@ func _physics_process(delta):
 			velocity.z = move_toward(velocity.z, 0, SPEED)
 
 		move_and_slide()
-		companion.transform = rotate_around(self.transform, companion.transform)
+		
+		if companion != null:
+			companion.transform = rotate_around(self.transform, companion.transform)
 	
 	if Input.is_action_just_pressed("ui_cancel"):
 		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED if Input.mouse_mode == Input.MOUSE_MODE_VISIBLE else Input.MOUSE_MODE_VISIBLE
 		
-	if Input.is_action_just_pressed("attack"):
+	if Input.is_action_just_pressed("attack") and companion != null:
 		if !in_attack_animation:
 			in_attack_animation = true
 			companion.get_node("CollisionShape3D").disabled = false
@@ -74,3 +77,6 @@ func rotate_around(rotation_center: Transform3D, rotator: Transform3D):
 func on_tween_finished():
 	in_attack_animation = false
 	companion.get_node("CollisionShape3D").disabled = true
+	
+func init_companion_rotation():
+	dtheta = (2 * PI / companion.circle_speed)
