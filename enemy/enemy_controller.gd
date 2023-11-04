@@ -36,7 +36,8 @@ func _physics_process(delta):
 	# Temporary state machine
 	# TODO: Replace with state machine addon
 	if current_state == State.IDLE:
-		pass
+		velocity.x = 0
+		velocity.z = 0
 	elif current_state == State.FOLLOW:
 		face_direction.look_at(follow_target.global_transform.origin, Vector3.UP)
 		rotate_y(deg_to_rad(face_direction.rotation.y * TURN_SPEED))
@@ -67,4 +68,5 @@ func player_detection_area_body_entered(body):
 		current_state = State.FOLLOW
 	
 func player_detection_area_body_exited(body):
-	pass
+	if body.name == "Player":
+		current_state = State.IDLE
