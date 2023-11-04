@@ -1,25 +1,53 @@
-[gd_scene load_steps=5 format=3 uid="uid://dfpp2mxpjle8h"]
+[gd_scene load_steps=9 format=3 uid="uid://dfpp2mxpjle8h"]
 
 [ext_resource type="Script" path="res://companion/companion_controller.gd" id="1_d0g5o"]
+[ext_resource type="Material" uid="uid://criprma7l3y5x" path="res://companion/FairyMaterial.tres" id="2_0tiby"]
 
 [sub_resource type="SphereMesh" id="SphereMesh_fwnev"]
 radius = 0.25
 height = 0.5
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4i6o0"]
-albedo_color = Color(1, 0.368627, 0.219608, 1)
+albedo_color = Color(0, 0, 0, 1)
+emission_enabled = true
+emission = Color(0.576471, 0.898039, 0.960784, 1)
+emission_energy_multiplier = 1.5
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_wd1mp"]
 radius = 0.25
+
+[sub_resource type="QuadMesh" id="QuadMesh_nrx3y"]
+size = Vector2(0.05, 0.05)
+
+[sub_resource type="Curve" id="Curve_c82m1"]
+_data = [Vector2(0, 1), 0.0, -1.0, 0, 1, Vector2(1, 0), -1.0, 0.0, 1, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_g30ha"]
+offsets = PackedFloat32Array(0.196891, 0.580311, 0.800518, 1)
+colors = PackedColorArray(0, 0.862745, 0.898039, 0, 0.0595868, 0.869095, 0.905579, 1, 0.860104, 0.980527, 0.985954, 1, 1, 1, 1, 0)
 
 [node name="Companion" type="CharacterBody3D"]
 motion_mode = 1
 script = ExtResource("1_d0g5o")
 
 [node name="Body" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.23042, 0, 0, 0, 0.23042, 0, 0, 0, 0.23042, 0, 0, 0)
 mesh = SubResource("SphereMesh_fwnev")
 surface_material_override/0 = SubResource("StandardMaterial3D_4i6o0")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("SphereShape3D_wd1mp")
 disabled = true
+
+[node name="CPUParticles3D" type="CPUParticles3D" parent="."]
+material_override = ExtResource("2_0tiby")
+amount = 30
+lifetime = 0.8
+mesh = SubResource("QuadMesh_nrx3y")
+emission_shape = 1
+emission_sphere_radius = 0.08
+gravity = Vector3(0, 0.5, 0)
+scale_amount_curve = SubResource("Curve_c82m1")
+color = Color(0.894118, 0.980392, 0.996078, 1)
+color_ramp = SubResource("Gradient_g30ha")

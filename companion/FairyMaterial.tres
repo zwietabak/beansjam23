@@ -1,0 +1,8 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://criprma7l3y5x"]
+
+[ext_resource type="Shader" uid="uid://ddq1vfjbt7yfw" path="res://companion/FairyShader.tres" id="1_y5t12"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_y5t12")
+shader_parameter/ParticleSize = 0.5
