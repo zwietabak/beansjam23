@@ -41,6 +41,63 @@ companion = NodePath("../Companion")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.66851, 1.37351, 1.83155)
 circle_speed = 175.0
 
+[node name="Doors" type="Node" parent="."]
+
+[node name="WoodenDoor" parent="." instance=ExtResource("6_nqacp")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 8, 0, 26)
+
+[node name="WoodenDoor2" parent="." node_paths=PackedStringArray("collision") instance=ExtResource("6_nqacp")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 42, 0, 26)
+collision = NodePath("../WoodenDoor/Door/DoorColision/CollisionShape3D")
+
+[node name="WoodenDoor3" parent="." node_paths=PackedStringArray("collision") instance=ExtResource("6_nqacp")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 40, 0, 12)
+collision = NodePath("../WoodenDoor/Door/DoorColision/CollisionShape3D")
+
+[node name="WoodenDoor4" parent="." node_paths=PackedStringArray("collision") instance=ExtResource("6_nqacp")]
+transform = Transform3D(1, 0, -7.10543e-15, 0, 1, 0, 7.10543e-15, 0, 1, 78, 0, 8)
+collision = NodePath("../WoodenDoor/Door/DoorColision/CollisionShape3D")
+
+[node name="WoodenDoor5" parent="." node_paths=PackedStringArray("collision") instance=ExtResource("6_nqacp")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 70, 0, 54)
+collision = NodePath("../WoodenDoor/Door/DoorColision/CollisionShape3D")
+
+[node name="WoodenDoor6" parent="." node_paths=PackedStringArray("collision") instance=ExtResource("6_nqacp")]
+transform = Transform3D(1, 0, -7.10543e-15, 0, 1, 0, 7.10543e-15, 0, 1, 4, 0, 58)
+collision = NodePath("../WoodenDoor/Door/DoorColision/CollisionShape3D")
+
+[node name="WoodenDoor7" parent="." node_paths=PackedStringArray("collision") instance=ExtResource("6_nqacp")]
+transform = Transform3D(1, 0, -7.10543e-15, 0, 1, 0, 7.10543e-15, 0, 1, 4, 0, 80)
+collision = NodePath("../WoodenDoor/Door/DoorColision/CollisionShape3D")
+
+[node name="WoodenDoor8" parent="." node_paths=PackedStringArray("collision") instance=ExtResource("6_nqacp")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 8, 0, 88)
+collision = NodePath("../WoodenDoor/Door/DoorColision/CollisionShape3D")
+
+[node name="WoodenDoor9" parent="." node_paths=PackedStringArray("collision") instance=ExtResource("6_nqacp")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 8, 0, 96)
+collision = NodePath("../WoodenDoor/Door/DoorColision/CollisionShape3D")
+
+[node name="WoodenDoor10" parent="." node_paths=PackedStringArray("collision") instance=ExtResource("6_nqacp")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 8, 0, 104)
+collision = NodePath("../WoodenDoor/Door/DoorColision/CollisionShape3D")
+
+[node name="WoodenDoor11" parent="." node_paths=PackedStringArray("collision") instance=ExtResource("6_nqacp")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 8, 0, 112)
+collision = NodePath("../WoodenDoor/Door/DoorColision/CollisionShape3D")
+
+[node name="WoodenDoor12" parent="." node_paths=PackedStringArray("collision") instance=ExtResource("6_nqacp")]
+transform = Transform3D(1, 0, -7.10543e-15, 0, 1, 0, 7.10543e-15, 0, 1, 4, 0, 120)
+collision = NodePath("../WoodenDoor/Door/DoorColision/CollisionShape3D")
+
+[node name="WoodenDoor13" parent="." node_paths=PackedStringArray("collision") instance=ExtResource("6_nqacp")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 58, 0, 130)
+collision = NodePath("../WoodenDoor/Door/DoorColision/CollisionShape3D")
+
+[node name="WoodenDoor14" parent="." node_paths=PackedStringArray("collision") instance=ExtResource("6_nqacp")]
+transform = Transform3D(4.37114e-08, 0, 1, 0, 1, 0, 1, 0, -4.37114e-08, 58, 0, 132)
+collision = NodePath("../WoodenDoor/Door/DoorColision/CollisionShape3D")
+
 [node name="Enemy_NavMesh" type="NavigationRegion3D" parent="."]
 navigation_mesh = SubResource("NavigationMesh_2cdwm")
 
@@ -52,7 +109,6 @@ skeleton = NodePath("../..")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Enemy_NavMesh/Ground"]
 collision_layer = 3
-collision_mask = 3
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Enemy_NavMesh/Ground/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_so1cf")
@@ -68,60 +124,3 @@ data = {
 "cells": PackedInt32Array(65533, 65535, 655360, 65534, 65535, 655360, 65535, 65535, 655360, 0, 65535, 655360, 1, 65535, 655360, 2, 65535, 655360, 3, 65535, 655360, 65533, 0, 655360, 65533, 1, 655360, 65533, 2, 655360, 65533, 3, 655360, 65533, 4, 655360, 65533, 7, 655360, 3, 0, 655360, 3, 1, 655360, 3, 2, 655360, 3, 7, 655360, 2, 7, 655360, 65534, 7, 655360, 65533, 5, 655360, 65533, 6, 655360, 3, 3, 655360, 3, 4, 655360, 3, 5, 655360, 3, 6, 655360, 65534, 0, 655360, 2, 0, 655360, 65533, 15, 655360, 3, 15, 655360, 4, 7, 655360, 4, 8, 655360, 4, 9, 655360, 4, 10, 655360, 4, 11, 655360, 4, 12, 655360, 4, 14, 655360, 4, 15, 655360, 65532, 7, 655360, 65532, 8, 655360, 65532, 9, 655360, 65532, 10, 655360, 65532, 11, 655360, 65532, 12, 655360, 65532, 13, 655360, 65532, 14, 655360, 65532, 15, 655360, 65534, 15, 655360, 65535, 15, 655360, 0, 15, 655360, 1, 15, 655360, 2, 15, 655360, 5, 11, 655360, 6, 11, 655360, 7, 11, 655360, 8, 11, 655360, 9, 11, 655360, 10, 11, 655360, 11, 11, 655360, 12, 11, 655360, 13, 11, 655360, 14, 11, 655360, 15, 11, 655360, 5, 15, 655360, 6, 15, 655360, 7, 15, 655360, 8, 15, 655360, 9, 15, 655360, 10, 15, 655360, 11, 15, 655360, 12, 15, 655360, 13, 15, 655360, 14, 15, 655360, 15, 15, 655360, 15, 14, 655360, 15, 12, 655360, 15, 16, 655360, 15, 17, 655360, 15, 18, 655360, 16, 18, 655360, 17, 18, 655360, 18, 18, 655360, 19, 18, 655360, 20, 18, 655360, 21, 18, 655360, 22, 18, 655360, 23, 18, 655360, 23, 17, 655360, 23, 16, 655360, 24, 16, 655360, 25, 16, 655360, 25, 15, 655360, 25, 14, 655360, 26, 14, 655360, 27, 14, 655360, 27, 13, 655360, 27, 12, 655360, 27, 11, 655360, 15, 10, 655360, 15, 9, 655360, 15, 8, 655360, 15, 7, 655360, 15, 6, 655360, 16, 6, 655360, 17, 6, 655360, 18, 6, 655360, 19, 6, 655360, 21, 6, 655360, 22, 6, 655360, 23, 6, 655360, 24, 6, 655360, 25, 6, 655360, 26, 6, 655360, 27, 6, 655360, 27, 7, 655360, 27, 8, 655360, 27, 9, 655360, 27, 10, 655360, 14, 6, 655360, 13, 6, 655360, 12, 6, 655360, 12, 5, 655360, 12, 4, 655360, 12, 3, 655360, 12, 2, 655360, 12, 1, 655360, 12, 0, 655360, 12, 65535, 655360, 12, 65534, 655360, 12, 65533, 655360, 12, 65532, 655360, 13, 65532, 655360, 14, 65532, 655360, 15, 65532, 655360, 16, 65532, 655360, 17, 65532, 655360, 18, 65532, 655360, 19, 65532, 655360, 20, 65532, 655360, 21, 65532, 655360, 22, 65532, 655360, 23, 65532, 655360, 24, 65532, 655360, 25, 65532, 655360, 26, 65532, 655360, 27, 65532, 655360, 28, 65532, 655360, 29, 65532, 655360, 29, 65533, 655360, 29, 5, 655360, 29, 6, 655360, 28, 6, 655360, 29, 4, 655360, 29, 65534, 655360, 29, 65535, 655360, 30, 65535, 655360, 31, 65535, 655360, 32, 65535, 655360, 33, 65535, 655360, 34, 65535, 655360, 35, 65535, 655360, 36, 65535, 655360, 37, 65535, 655360, 38, 65535, 655360, 30, 4, 655360, 31, 4, 655360, 32, 4, 655360, 33, 4, 655360, 34, 4, 655360, 35, 4, 655360, 36, 4, 655360, 37, 4, 655360, 38, 4, 655360, 40, 4, 655360, 41, 4, 655360, 42, 4, 655360, 42, 3, 655360, 42, 2, 655360, 42, 1, 655360, 42, 0, 655360, 42, 65535, 655360, 39, 65535, 655360, 40, 65535, 655360, 41, 65535, 655360, 35, 5, 655360, 35, 6, 655360, 35, 7, 655360, 35, 8, 655360, 35, 9, 655360, 35, 10, 655360, 35, 11, 655360, 36, 10, 655360, 43, 4, 655360, 43, 5, 655360, 43, 6, 655360, 43, 7, 655360, 43, 8, 655360, 43, 9, 655360, 43, 10, 655360, 43, 11, 655360, 42, 10, 655360, 35, 12, 655360, 35, 13, 655360, 35, 14, 655360, 35, 15, 655360, 35, 16, 655360, 36, 16, 655360, 43, 12, 655360, 43, 13, 655360, 43, 14, 655360, 43, 15, 655360, 43, 16, 655360, 42, 16, 655360, 35, 17, 655360, 35, 18, 655360, 35, 19, 655360, 35, 20, 655360, 35, 21, 655360, 35, 22, 655360, 36, 22, 655360, 43, 17, 655360, 43, 18, 655360, 43, 19, 655360, 43, 20, 655360, 43, 21, 655360, 43, 22, 655360, 42, 22, 655360, 35, 23, 655360, 35, 24, 655360, 35, 25, 655360, 35, 26, 655360, 35, 28, 655360, 35, 29, 655360, 36, 29, 655360, 37, 29, 655360, 38, 29, 655360, 39, 29, 655360, 40, 29, 655360, 41, 29, 655360, 42, 29, 655360, 43, 29, 655360, 43, 28, 655360, 43, 27, 655360, 43, 26, 655360, 43, 25, 655360, 43, 24, 655360, 43, 23, 655360, 34, 25, 1441792, 33, 25, 1441792, 32, 25, 1441792, 31, 25, 1441792, 30, 25, 1441792, 29, 25, 1441792, 34, 29, 1441792, 33, 29, 1441792, 32, 29, 1441792, 31, 29, 1441792, 30, 29, 1441792, 29, 29, 1441792, 29, 30, 1441792, 28, 30, 1441792, 27, 30, 1441792, 26, 30, 1441792, 25, 30, 1441792, 25, 29, 1441792, 24, 29, 1441792, 23, 29, 1441792, 22, 29, 1441792, 29, 24, 1441792, 28, 24, 1441792, 27, 24, 1441792, 26, 24, 1441792, 25, 24, 1441792, 25, 25, 1441792, 24, 25, 1441792, 23, 25, 1441792, 22, 25, 1441792, 21, 25, 1441792, 21, 29, 1441792, 20, 29, 1441792, 20, 25, 1441792, 20, 30, 1441792, 19, 30, 1441792, 18, 30, 1441792, 17, 30, 1441792, 16, 30, 1441792, 20, 24, 1441792, 19, 24, 1441792, 18, 24, 1441792, 17, 24, 1441792, 16, 24, 1441792, 16, 25, 1441792, 15, 25, 1441792, 14, 25, 1441792, 13, 25, 1441792, 12, 25, 1441792, 11, 25, 1441792, 16, 29, 1441792, 15, 29, 1441792, 14, 29, 1441792, 13, 29, 1441792, 12, 29, 1441792, 11, 29, 1441792, 11, 30, 1441792, 10, 30, 1441792, 9, 30, 1441792, 8, 30, 1441792, 7, 30, 1441792, 11, 24, 1441792, 10, 24, 1441792, 9, 24, 1441792, 8, 24, 1441792, 7, 24, 1441792, 7, 25, 1441792, 6, 25, 1441792, 5, 25, 1441792, 4, 25, 1441792, 7, 29, 1441792, 6, 29, 1441792, 5, 29, 1441792, 4, 29, 1441792, 3, 29, 1441792, 0, 29, 1441792, 0, 25, 1441792, 0, 24, 1441792, 1, 24, 1441792, 2, 24, 1441792, 3, 24, 1441792, 4, 24, 1441792, 65535, 25, 1441792, 65534, 25, 1441792, 65534, 26, 1441792, 65534, 27, 1441792, 65534, 28, 1441792, 65534, 29, 1441792, 65535, 29, 1441792, 1, 29, 1441792, 65533, 29, 1441792, 65533, 30, 1441792, 65533, 31, 1441792, 65533, 32, 1441792, 65533, 33, 1441792, 65533, 34, 1441792, 65533, 35, 1441792, 65533, 36, 1441792, 65533, 37, 1441792, 65533, 38, 1441792, 65533, 39, 1441792, 65533, 40, 1441792, 65534, 40, 1441792, 65535, 40, 1441792, 0, 40, 1441792, 1, 40, 1441792, 3, 40, 1441792, 4, 40, 1441792, 5, 40, 1441792, 6, 40, 1441792, 7, 40, 1441792, 7, 39, 1441792, 7, 38, 1441792, 7, 37, 1441792, 7, 36, 1441792, 7, 35, 1441792, 7, 34, 1441792, 7, 33, 1441792, 7, 32, 1441792, 7, 31, 1441792, 65534, 30, 1441792, 65534, 39, 1441792, 6, 30, 1441792, 6, 39, 1441792, 0, 41, 1441792, 0, 42, 1441792, 0, 43, 1441792, 0, 44, 1441792, 0, 45, 1441792, 0, 46, 1441792, 4, 41, 1441792, 4, 42, 1441792, 4, 43, 1441792, 5, 42, 1441792, 6, 42, 1441792, 7, 42, 1441792, 7, 43, 1441792, 7, 44, 1441792, 7, 45, 1441792, 4, 45, 1441792, 4, 46, 1441792, 5, 46, 1441792, 6, 46, 1441792, 7, 46, 1441792, 4, 47, 1441792, 7, 47, 1441792, 7, 48, 1441792, 7, 49, 1441792, 7, 50, 1441792, 6, 50, 1441792, 5, 50, 1441792, 4, 50, 1441792, 4, 49, 1441792, 7, 51, 1441792, 7, 52, 1441792, 7, 53, 1441792, 7, 54, 1441792, 6, 54, 1441792, 5, 54, 1441792, 4, 54, 1441792, 4, 53, 1441792, 4, 51, 1441792, 4, 55, 1441792, 7, 55, 1441792, 7, 56, 1441792, 7, 57, 1441792, 7, 58, 1441792, 6, 58, 1441792, 5, 58, 1441792, 4, 58, 1441792, 4, 57, 1441792, 0, 47, 1441792, 0, 48, 1441792, 0, 49, 1441792, 0, 50, 1441792, 0, 51, 1441792, 0, 52, 1441792, 0, 53, 1441792, 0, 54, 1441792, 0, 55, 1441792, 0, 56, 1441792, 0, 57, 1441792, 0, 58, 1441792, 4, 59, 1441792, 4, 60, 1441792, 3, 60, 1441792, 0, 59, 1441792, 0, 60, 1441792, 1, 60, 1441792, 65535, 60, 1441792, 65535, 61, 1441792, 65535, 62, 1441792, 65535, 63, 1441792, 65535, 64, 1441792, 65535, 65, 1441792, 65535, 66, 1441792, 65535, 67, 1441792, 65535, 68, 1441792, 65535, 69, 1441792, 0, 69, 1441792, 1, 69, 1441792, 2, 69, 1441792, 3, 69, 1441792, 4, 69, 1441792, 5, 60, 1441792, 6, 60, 1441792, 6, 61, 1441792, 6, 62, 1441792, 7, 62, 1441792, 8, 62, 1441792, 9, 62, 1441792, 5, 69, 1441792, 6, 69, 1441792, 7, 69, 1441792, 8, 69, 1441792, 9, 69, 1441792, 9, 63, 1441792, 9, 68, 1441792, 10, 69, 1441792, 11, 69, 1441792, 12, 69, 1441792, 13, 69, 1441792, 14, 69, 1441792, 15, 69, 1441792, 15, 68, 1441792, 10, 62, 1441792, 11, 62, 1441792, 12, 62, 1441792, 13, 62, 1441792, 14, 62, 1441792, 15, 62, 1441792, 15, 63, 1441792, 16, 62, 1441792, 17, 62, 1441792, 18, 62, 1441792, 19, 62, 1441792, 20, 62, 1441792, 21, 62, 1441792, 21, 63, 1441792, 16, 69, 1441792, 17, 69, 1441792, 18, 69, 1441792, 19, 69, 1441792, 20, 69, 1441792, 21, 69, 1441792, 21, 68, 1441792, 21, 61, 1441792, 21, 60, 1441792, 22, 60, 1441792, 23, 60, 1441792, 24, 60, 1441792, 25, 60, 1441792, 26, 60, 1441792, 27, 60, 1441792, 28, 60, 1441792, 29, 60, 1441792, 29, 61, 1441792, 29, 62, 1441792, 29, 63, 1441792, 29, 64, 1441792, 29, 68, 1441792, 29, 69, 1441792, 29, 70, 1441792, 29, 71, 1441792, 28, 71, 1441792, 27, 71, 1441792, 26, 71, 1441792, 25, 71, 1441792, 24, 71, 1441792, 23, 71, 1441792, 22, 71, 1441792, 21, 71, 1441792, 21, 70, 1441792, 29, 67, 1441792, 30, 63, 1441792, 31, 63, 1441792, 32, 63, 1441792, 33, 63, 1441792, 33, 64, 1441792, 33, 65, 1441792, 33, 66, 1441792, 33, 67, 1441792, 33, 68, 1441792, 32, 68, 1441792, 31, 68, 1441792, 30, 68, 1441792)
 }
 metadata/_editor_floor_ = Vector3(0, 0, 0)
-
-[node name="Doors" type="Node" parent="."]
-
-[node name="WoodenDoor" parent="Doors" instance=ExtResource("6_nqacp")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 8, 0, 26)
-
-[node name="WoodenDoor2" parent="Doors" node_paths=PackedStringArray("collision") instance=ExtResource("6_nqacp")]
-transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 30, 0, 26)
-collision = NodePath("../WoodenDoor/Door/DoorColision/CollisionShape3D")
-
-[node name="WoodenDoor3" parent="Doors" node_paths=PackedStringArray("collision") instance=ExtResource("6_nqacp")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 40, 0, 12)
-collision = NodePath("../WoodenDoor/Door/DoorColision/CollisionShape3D")
-
-[node name="WoodenDoor4" parent="Doors" node_paths=PackedStringArray("collision") instance=ExtResource("6_nqacp")]
-transform = Transform3D(1, 0, -7.10543e-15, 0, 1, 0, 7.10543e-15, 0, 1, 78, 0, 8)
-collision = NodePath("../WoodenDoor/Door/DoorColision/CollisionShape3D")
-
-[node name="WoodenDoor5" parent="Doors" node_paths=PackedStringArray("collision") instance=ExtResource("6_nqacp")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 70, 0, 54)
-collision = NodePath("../WoodenDoor/Door/DoorColision/CollisionShape3D")
-
-[node name="WoodenDoor6" parent="Doors" node_paths=PackedStringArray("collision") instance=ExtResource("6_nqacp")]
-transform = Transform3D(1, 0, -7.10543e-15, 0, 1, 0, 7.10543e-15, 0, 1, 4, 0, 58)
-collision = NodePath("../WoodenDoor/Door/DoorColision/CollisionShape3D")
-
-[node name="WoodenDoor7" parent="Doors" node_paths=PackedStringArray("collision") instance=ExtResource("6_nqacp")]
-transform = Transform3D(1, 0, -7.10543e-15, 0, 1, 0, 7.10543e-15, 0, 1, 4, 0, 80)
-collision = NodePath("../WoodenDoor/Door/DoorColision/CollisionShape3D")
-
-[node name="WoodenDoor8" parent="Doors" node_paths=PackedStringArray("collision") instance=ExtResource("6_nqacp")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 8, 0, 88)
-collision = NodePath("../WoodenDoor/Door/DoorColision/CollisionShape3D")
-
-[node name="WoodenDoor9" parent="Doors" node_paths=PackedStringArray("collision") instance=ExtResource("6_nqacp")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 8, 0, 96)
-collision = NodePath("../WoodenDoor/Door/DoorColision/CollisionShape3D")
-
-[node name="WoodenDoor10" parent="Doors" node_paths=PackedStringArray("collision") instance=ExtResource("6_nqacp")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 8, 0, 104)
-collision = NodePath("../WoodenDoor/Door/DoorColision/CollisionShape3D")
-
-[node name="WoodenDoor11" parent="Doors" node_paths=PackedStringArray("collision") instance=ExtResource("6_nqacp")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 8, 0, 112)
-collision = NodePath("../WoodenDoor/Door/DoorColision/CollisionShape3D")
-
-[node name="WoodenDoor12" parent="Doors" node_paths=PackedStringArray("collision") instance=ExtResource("6_nqacp")]
-transform = Transform3D(1, 0, -7.10543e-15, 0, 1, 0, 7.10543e-15, 0, 1, 4, 0, 120)
-collision = NodePath("../WoodenDoor/Door/DoorColision/CollisionShape3D")
-
-[node name="WoodenDoor13" parent="Doors" node_paths=PackedStringArray("collision") instance=ExtResource("6_nqacp")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 58, 0, 130)
-collision = NodePath("../WoodenDoor/Door/DoorColision/CollisionShape3D")
-
-[node name="WoodenDoor14" parent="Doors" node_paths=PackedStringArray("collision") instance=ExtResource("6_nqacp")]
-transform = Transform3D(4.37114e-08, 0, 1, 0, 1, 0, 1, 0, -4.37114e-08, 58, 0, 132)
-collision = NodePath("../WoodenDoor/Door/DoorColision/CollisionShape3D")
