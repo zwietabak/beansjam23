@@ -7,3 +7,14 @@ https://itch.io/jam/minibeansjam9
 Music by <a href="https://pixabay.com/users/magnetic_trailer-27466606/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=114918">Magnetic_Trailer</a> from <a href="https://pixabay.com//?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=114918">Pixabay</a>
 Sound Effect from <a href="https://pixabay.com/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=6752">Pixabay</a>
 
+https://directory.audio/sound-effects/horror/633-female-monster-growls
+
+https://freesound.org/people/egomassive/sounds/536777/
+
+https://freesound.org/people/EminYILDIRIM/sounds/541295/
+
+Sound Effect from <a href="https://pixabay.com/sound-effects/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=83735">Pixabay</a>
+
+Sound Effect from <a href="https://pixabay.com/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=98242">Pixabay</a>
+
+Sound Effect by <a href="https://pixabay.com/users/universfield-28281460/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=142375">UNIVERSFIELD</a> from <a href="https://pixabay.com/sound-effects//?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=142375">Pixabay</a>

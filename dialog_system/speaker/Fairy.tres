@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="Character" load_steps=2 format=3 uid="uid://ce61j3arplo35"]
+
+[ext_resource type="Script" path="res://addons/dialogue_nodes/objects/Character.gd" id="1_kmtbw"]
+
+[resource]
+script = ExtResource("1_kmtbw")
+name = "Fairy"
+color = Color(0.25098, 0.67451, 0.670588, 1)
