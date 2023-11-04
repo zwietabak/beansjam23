@@ -17,6 +17,6 @@ func _on_area_3d_body_entered(body):
 			rigid_body.set_freeze_enabled(false)
 		if not $AudioStreamPlayer3D.playing and not broken:
 			$AudioStreamPlayer3D.play()
-		broken = true			
+		broken = true
 		
 
