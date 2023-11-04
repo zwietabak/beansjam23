@@ -1,5 +1,5 @@
 extends CharacterBody3D
-
+class_name Enemy
 
 const SPEED = 150
 const TURN_SPEED = 5.0
@@ -28,8 +28,10 @@ enum State {
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
-var invincible = false
+var invincible = true
 var in_attack_animation = false
+
+signal on_died
 
 func _ready():
 	hitbox.connect("body_entered", hitbox_body_entered)
@@ -37,6 +39,8 @@ func _ready():
 	player_detection.connect("body_exited", player_detection_area_body_exited)
 	damage_detection.connect("body_entered", damage_detection_area_body_entered)
 	damage_detection.connect("body_exited", damage_detection_area_body_exited)
+	set_process(false)
+	set_physics_process(false)
 
 func _physics_process(delta):
 	# Add the gravity.
@@ -78,6 +82,7 @@ func _physics_process(delta):
 		walking_sound.stop_walking() 
 
 	if health_points <= 0:
+		on_died.emit()
 		queue_free()
 
 func take_damage(amount: int):
@@ -93,7 +98,6 @@ func hitbox_body_entered(body):
 		take_damage(body.attack_damage)
 		
 func player_detection_area_body_entered(body):
-	print(body)
 	if body.name == "Player":
 		current_state = State.FOLLOW
 	
@@ -108,3 +112,9 @@ func damage_detection_area_body_entered(body):
 func damage_detection_area_body_exited(body):
 	if body.name == "Player":
 		current_state = State.FOLLOW
+
+
+func _on_door_smashed():
+	set_process(true)
+	set_physics_process(true)
+	invincible = false

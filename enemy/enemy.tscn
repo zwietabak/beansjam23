@@ -16,7 +16,7 @@ albedo_color = Color(1, 0, 0.160784, 1)
 size = Vector3(1, 2, 1)
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_164af"]
-radius = 7.0
+radius = 23.8479
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_3c80v"]
 size = Vector3(1, 1.5, 0.5)
