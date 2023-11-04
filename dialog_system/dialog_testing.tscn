@@ -94,6 +94,7 @@ stream = ExtResource("9_23kpd")
 script = ExtResource("12_jg558")
 
 [node name="AudioDialogManager" type="AudioStreamPlayer" parent="."]
+bus = &"Voice"
 script = ExtResource("13_61vsd")
 player = ExtResource("13_b6e4i")
 fairy = ExtResource("14_tsw3r")
