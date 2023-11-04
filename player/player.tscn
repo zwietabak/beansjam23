@@ -4,7 +4,7 @@
 [ext_resource type="AudioStream" uid="uid://c80pmk54xucir" path="res://audio/sound_files/player/concrete-footsteps.mp3" id="2_hh8vl"]
 [ext_resource type="PackedScene" uid="uid://clklbaiidbl6i" path="res://meshes/character/main_character.tscn" id="2_hk04r"]
 [ext_resource type="Script" path="res://player/player_sound_effects.gd" id="3_fpkaa"]
-[ext_resource type="Script" path="res://player/player_walking_sounds.gd" id="4_fxb2m"]
+[ext_resource type="Script" path="res://player/player_walk_sounds.gd" id="4_jf37w"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_qxhbo"]
 
@@ -34,7 +34,7 @@ script = ExtResource("3_fpkaa")
 [node name="WalkingSounds" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_hh8vl")
 bus = &"SoundEffects"
-script = ExtResource("4_fxb2m")
+script = ExtResource("4_jf37w")
 
 [node name="MainCharacter" parent="." instance=ExtResource("2_hk04r")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
