@@ -3,6 +3,9 @@ extends AnimationTree
 @export
 var player : PlayerController
 
+func _ready():
+	active = true
+
 func _process(delta):
 	if player == null:
 		return
