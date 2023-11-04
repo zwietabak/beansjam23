@@ -96,6 +96,8 @@ func init_companion_rotation():
 
 func take_damage(amount: int):
 	print("OUCH! I got hit!")
+	$WalkingSteps.stop_walking()
+	# TODO: Play player gets hit sound
 	in_hit_animation = true
 	in_attack_animation = false
 	on_hit.emit()
