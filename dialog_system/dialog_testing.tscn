@@ -1,0 +1,111 @@
+[gd_scene load_steps=18 format=3 uid="uid://yavxtyrnwqid"]
+
+[ext_resource type="Script" path="res://dialog_system/dialog_testing.gd" id="1_0es8y"]
+[ext_resource type="Script" path="res://addons/dialogue_nodes/objects/dialogueBox.gd" id="1_7mr08"]
+[ext_resource type="PackedScene" uid="uid://c374f2n2m818j" path="res://player/player.tscn" id="1_8oj1e"]
+[ext_resource type="PackedScene" uid="uid://dfpp2mxpjle8h" path="res://companion/companion.tscn" id="2_fqvgr"]
+[ext_resource type="Script" path="res://addons/dialogue_nodes/objects/bbcodeWait.gd" id="2_klslt"]
+[ext_resource type="Script" path="res://addons/dialogue_nodes/objects/bbcodeGhost.gd" id="3_3p7dt"]
+[ext_resource type="Resource" uid="uid://d11bc8kfceyer" path="res://dialog_system/dialog_test.tres" id="5_m68mt"]
+[ext_resource type="PackedScene" uid="uid://4lxomsp4iwxc" path="res://dialog_system/dialog_trigger.tscn" id="8_s4hq1"]
+[ext_resource type="AudioStream" uid="uid://bk8pxlos8vx0g" path="res://audio/sound_files/ambiance.wav" id="9_5ri4y"]
+[ext_resource type="AudioStream" uid="uid://bl2colui7kd47" path="res://audio/sound_files/stone_steps.wav" id="10_shgsu"]
+[ext_resource type="AudioStream" uid="uid://dqop5jj8oi04i" path="res://audio/sound_files/battle_music.mp3" id="11_xv4f0"]
+[ext_resource type="Script" path="res://audio/BattleMusic.gd" id="12_jg558"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_j6r23"]
+size = Vector2(15, 15)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_5efkm"]
+data = PackedVector3Array(7.5, 0, 7.5, -7.5, 0, 7.5, 7.5, 0, -7.5, -7.5, 0, 7.5, -7.5, 0, -7.5, 7.5, 0, -7.5)
+
+[sub_resource type="RichTextEffect" id="RichTextEffect_d7aap"]
+script = ExtResource("2_klslt")
+
+[sub_resource type="RichTextEffect" id="RichTextEffect_sgu68"]
+script = ExtResource("3_3p7dt")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_igqi2"]
+size = Vector3(12.5642, 10.6451, 1)
+
+[node name="World" type="Node"]
+script = ExtResource("1_0es8y")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 11.0313, 0)
+shadow_enabled = true
+
+[node name="Ground" type="MeshInstance3D" parent="."]
+mesh = SubResource("PlaneMesh_j6r23")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Ground"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_5efkm")
+
+[node name="Player" parent="." node_paths=PackedStringArray("companion") instance=ExtResource("1_8oj1e")]
+companion = NodePath("../Companion")
+
+[node name="Companion" parent="." instance=ExtResource("2_fqvgr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.66851, 1.37351, 0)
+
+[node name="DialogueBox" type="Panel" parent="."]
+visible = false
+custom_minimum_size = Vector2(256, 128)
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -250.0
+offset_top = -212.0
+offset_right = 250.0
+offset_bottom = -63.0
+grow_horizontal = 2
+grow_vertical = 0
+script = ExtResource("1_7mr08")
+dialogue_file = ExtResource("5_m68mt")
+custom_effects = Array[RichTextEffect]([SubResource("RichTextEffect_d7aap"), SubResource("RichTextEffect_sgu68")])
+
+[node name="dialog_trigger" parent="." node_paths=PackedStringArray("dialogue_box") instance=ExtResource("8_s4hq1")]
+transform = Transform3D(8.96348, 0, 0, 0, 3.05194, 0, 0, 0, 1.33024, -0.086404, 1.7323, -3.87481)
+dialogue_box = NodePath("../DialogueBox")
+dialogue_id = "FAIRY_GREETING"
+
+[node name="Ambience" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_5ri4y")
+autoplay = true
+bus = &"Ambience"
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.8716, -0.238361, -22.1964)
+stream = ExtResource("10_shgsu")
+
+[node name="Area3D" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.60553, -1.46831, 18.3396)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0203304, -0.00543928, 0.0144925)
+shape = SubResource("BoxShape3D_igqi2")
+
+[node name="BattleMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_xv4f0")
+bus = &"Battle Music"
+script = ExtResource("12_jg558")
+
+[node name="Timer2" type="Timer" parent="."]
+wait_time = 8.131
+one_shot = true
+autostart = true
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.681
+one_shot = true
+autostart = true
+
+[connection signal="dialogue_signal" from="DialogueBox" to="." method="_on_dialogue_box_dialogue_signal"]
+[connection signal="variable_changed" from="DialogueBox" to="." method="_on_dialogue_box_variable_changed"]
+[connection signal="finished" from="AudioStreamPlayer3D" to="." method="_on_audio_stream_player_3d_finished"]
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
+[connection signal="timeout" from="Timer2" to="." method="_on_timer_2_timeout"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
