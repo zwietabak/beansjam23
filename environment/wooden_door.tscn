@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://deupjuw3i4g0w"]
+
+[ext_resource type="PackedScene" uid="uid://dyuwpv31bmwa0" path="res://meshes/environment/WoodenDoor.glb" id="1_8dlpw"]
+
+[node name="WoodenDoor" instance=ExtResource("1_8dlpw")]
