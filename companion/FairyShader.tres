@@ -1,0 +1,126 @@
+[gd_resource type="VisualShader" load_steps=10 format=3 uid="uid://ddq1vfjbt7yfw"]
+
+[sub_resource type="VisualShaderNodeInput" id="VisualShaderNodeInput_b63qt"]
+input_name = "color"
+
+[sub_resource type="VisualShaderNodeInput" id="VisualShaderNodeInput_4agys"]
+input_name = "uv"
+
+[sub_resource type="VisualShaderNodeVectorOp" id="VisualShaderNodeVectorOp_01f3o"]
+default_input_values = [0, Vector2(0, 0), 1, Vector2(0.5, 0.5)]
+op_type = 0
+operator = 1
+
+[sub_resource type="VisualShaderNodeVectorLen" id="VisualShaderNodeVectorLen_q4nwt"]
+default_input_values = [0, Vector2(0, 0)]
+op_type = 0
+
+[sub_resource type="VisualShaderNodeCompare" id="VisualShaderNodeCompare_nq2jv"]
+default_input_values = [0, 0.0, 1, 0.5, 2, 1e-05]
+function = 5
+
+[sub_resource type="VisualShaderNodeFloatParameter" id="VisualShaderNodeFloatParameter_2tsx8"]
+parameter_name = "ParticleSize"
+default_value_enabled = true
+default_value = 0.5
+
+[sub_resource type="VisualShaderNodeVectorDecompose" id="VisualShaderNodeVectorDecompose_80dsc"]
+default_input_values = [0, Quaternion(0, 0, 0, 0)]
+op_type = 2
+
+[sub_resource type="VisualShaderNodeFloatOp" id="VisualShaderNodeFloatOp_f7j07"]
+operator = 2
+
+[sub_resource type="VisualShaderNodeBillboard" id="VisualShaderNodeBillboard_6sjh3"]
+billboard_type = 3
+
+[resource]
+code = "shader_type spatial;
+render_mode blend_mix, depth_draw_opaque, cull_back, diffuse_lambert, specular_schlick_ggx;
+
+uniform float ParticleSize = 0.5;
+
+
+
+void vertex() {
+	mat4 n_out2p0;
+// GetBillboardMatrix:2
+	{
+		mat4 __wm = mat4(normalize(INV_VIEW_MATRIX[0]), normalize(INV_VIEW_MATRIX[1]), normalize(INV_VIEW_MATRIX[2]), MODEL_MATRIX[3]);
+		__wm = __wm * mat4(vec4(cos(INSTANCE_CUSTOM.x), -sin(INSTANCE_CUSTOM.x), 0.0, 0.0), vec4(sin(INSTANCE_CUSTOM.x), cos(INSTANCE_CUSTOM.x), 0.0, 0.0), vec4(0.0, 0.0, 1.0, 0.0), vec4(0.0, 0.0, 0.0, 1.0));
+		n_out2p0 = VIEW_MATRIX * __wm;
+	}
+
+
+// Output:0
+	MODELVIEW_MATRIX = n_out2p0;
+
+
+}
+
+void fragment() {
+// Input:2
+	vec4 n_out2p0 = COLOR;
+
+
+// VectorDecompose:8
+	float n_out8p0 = n_out2p0.x;
+	float n_out8p1 = n_out2p0.y;
+	float n_out8p2 = n_out2p0.z;
+	float n_out8p3 = n_out2p0.w;
+
+
+// Input:3
+	vec2 n_out3p0 = UV;
+
+
+// VectorOp:4
+	vec2 n_in4p1 = vec2(0.50000, 0.50000);
+	vec2 n_out4p0 = n_out3p0 - n_in4p1;
+
+
+// VectorLen:5
+	float n_out5p0 = length(n_out4p0);
+
+
+// FloatParameter:7
+	float n_out7p0 = ParticleSize;
+
+
+// Compare:6
+	bool n_out6p0 = n_out5p0 <= n_out7p0;
+
+
+// FloatOp:9
+	float n_out9p0 = n_out8p3 * (n_out6p0 ? 1.0 : 0.0);
+
+
+// Output:0
+	ALPHA = n_out9p0;
+	EMISSION = vec3(n_out2p0.xyz);
+
+
+}
+"
+graph_offset = Vector2(-362.201, 90.6245)
+nodes/vertex/2/node = SubResource("VisualShaderNodeBillboard_6sjh3")
+nodes/vertex/2/position = Vector2(65, 269)
+nodes/vertex/connections = PackedInt32Array(2, 0, 0, 10)
+nodes/fragment/0/position = Vector2(700, 180)
+nodes/fragment/2/node = SubResource("VisualShaderNodeInput_b63qt")
+nodes/fragment/2/position = Vector2(-220, 180)
+nodes/fragment/3/node = SubResource("VisualShaderNodeInput_4agys")
+nodes/fragment/3/position = Vector2(-460, 360)
+nodes/fragment/4/node = SubResource("VisualShaderNodeVectorOp_01f3o")
+nodes/fragment/4/position = Vector2(-160, 380)
+nodes/fragment/5/node = SubResource("VisualShaderNodeVectorLen_q4nwt")
+nodes/fragment/5/position = Vector2(0, 400)
+nodes/fragment/6/node = SubResource("VisualShaderNodeCompare_nq2jv")
+nodes/fragment/6/position = Vector2(180, 380)
+nodes/fragment/7/node = SubResource("VisualShaderNodeFloatParameter_2tsx8")
+nodes/fragment/7/position = Vector2(-160, 560)
+nodes/fragment/8/node = SubResource("VisualShaderNodeVectorDecompose_80dsc")
+nodes/fragment/8/position = Vector2(120, 200)
+nodes/fragment/9/node = SubResource("VisualShaderNodeFloatOp_f7j07")
+nodes/fragment/9/position = Vector2(435.799, 214.624)
+nodes/fragment/connections = PackedInt32Array(2, 0, 0, 5, 3, 0, 4, 0, 4, 0, 5, 0, 5, 0, 6, 0, 7, 0, 6, 1, 2, 0, 8, 0, 8, 3, 9, 0, 6, 0, 9, 1, 9, 0, 0, 1)

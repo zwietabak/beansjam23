@@ -1,0 +1,18 @@
+[gd_resource type="ShaderMaterial" load_steps=6 format=3 uid="uid://bq1pcmh250gky"]
+
+[ext_resource type="Shader" uid="uid://lmp62lk54s5n" path="res://materials/Triplanar.tres" id="1_y287g"]
+[ext_resource type="Texture2D" uid="uid://bg8cis5yo67jg" path="res://textures/TCom_Pavement_RomanRoad_New_1K_albedo.png" id="2_8anu2"]
+[ext_resource type="Texture2D" uid="uid://bs4a2v34j6l6m" path="res://textures/TCom_Pavement_RomanRoad_New_1K_ao.png" id="3_g85kq"]
+[ext_resource type="Texture2D" uid="uid://bivh040mkjryt" path="res://textures/TCom_Pavement_RomanRoad_New_1K_normal.png" id="4_ep073"]
+[ext_resource type="Texture2D" uid="uid://dqsx8grhkcgub" path="res://textures/TCom_Pavement_RomanRoad_New_1K_roughness.png" id="5_36s0c"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_y287g")
+shader_parameter/triplanar_scale = Vector3(0.5, 0.5, 0.5)
+shader_parameter/triplanar_offset = null
+shader_parameter/triplanar_sharpness = 0.5
+shader_parameter/Albedo = ExtResource("2_8anu2")
+shader_parameter/Roughness = ExtResource("5_36s0c")
+shader_parameter/Ambient_Occlusion = ExtResource("3_g85kq")
+shader_parameter/Normal = ExtResource("4_ep073")

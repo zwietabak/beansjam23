@@ -1,0 +1,14 @@
+[gd_resource type="MeshLibrary" load_steps=3 format=3 uid="uid://dnxhbc8cap5he"]
+
+[ext_resource type="ArrayMesh" uid="uid://nscgux14uj0b" path="res://meshes/environment/Wall_Cube.res" id="1_b7xvw"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_4tm1h"]
+size = Vector3(2, 2, 2)
+
+[resource]
+item/0/name = "BrickWall"
+item/0/mesh = ExtResource("1_b7xvw")
+item/0/mesh_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+item/0/shapes = [SubResource("BoxShape3D_4tm1h"), Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)]
+item/0/navigation_mesh_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+item/0/navigation_layers = 1
