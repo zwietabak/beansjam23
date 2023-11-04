@@ -1,5 +1,62 @@
-[gd_scene load_steps=2 format=3 uid="uid://deupjuw3i4g0w"]
+[gd_scene load_steps=5 format=3 uid="uid://dbls8kubhonhs"]
 
-[ext_resource type="PackedScene" uid="uid://dyuwpv31bmwa0" path="res://meshes/environment/WoodenDoor.glb" id="1_8dlpw"]
+[ext_resource type="PackedScene" uid="uid://dyuwpv31bmwa0" path="res://meshes/environment/WoodenDoor.glb" id="1_cqgf1"]
+[ext_resource type="Script" path="res://environment/wooden_door.gd" id="2_xh6fw"]
+[ext_resource type="PackedScene" uid="uid://dp8yd7v6o00t2" path="res://environment/door_arc.tscn" id="3_b2jrs"]
 
-[node name="WoodenDoor" instance=ExtResource("1_8dlpw")]
+[sub_resource type="BoxShape3D" id="BoxShape3D_6g7dr"]
+size = Vector3(1.72442, 2.85057, 0.376283)
+
+[node name="WoodenDoor" node_paths=PackedStringArray("collision") instance=ExtResource("1_cqgf1")]
+script = ExtResource("2_xh6fw")
+collision = NodePath("Door/DoorColision/CollisionShape3D")
+
+[node name="DoorPiece-rigid" parent="Door" index="4" groups=["rigid_bodies"]]
+collision_layer = 2
+collision_mask = 2
+freeze = true
+
+[node name="DoorPiece_001-rigid" parent="Door" index="5" groups=["rigid_bodies"]]
+collision_layer = 2
+collision_mask = 2
+freeze = true
+
+[node name="DoorPiece_002-rigid" parent="Door" index="6" groups=["rigid_bodies"]]
+collision_layer = 2
+collision_mask = 2
+freeze = true
+
+[node name="DoorPiece_003-rigid" parent="Door" index="7" groups=["rigid_bodies"]]
+collision_layer = 2
+collision_mask = 2
+freeze = true
+
+[node name="DoorPiece_004-rigid" parent="Door" index="8" groups=["rigid_bodies"]]
+collision_layer = 2
+collision_mask = 2
+freeze = true
+
+[node name="DoorPiece_005-rigid" parent="Door" index="9" groups=["rigid_bodies"]]
+collision_layer = 2
+collision_mask = 2
+freeze = true
+
+[node name="DoorPiece_006-rigid" parent="Door" index="10" groups=["rigid_bodies"]]
+collision_layer = 2
+collision_mask = 2
+freeze = true
+
+[node name="DoorPiece_007-rigid" parent="Door" index="11" groups=["rigid_bodies"]]
+collision_layer = 2
+collision_mask = 2
+freeze = true
+
+[node name="Area3D" type="Area3D" parent="." index="1"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.09098, 0)
+shape = SubResource("BoxShape3D_6g7dr")
+
+[node name="DoorArc" parent="." index="2" instance=ExtResource("3_b2jrs")]
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]

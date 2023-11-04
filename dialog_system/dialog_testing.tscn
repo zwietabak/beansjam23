@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://yavxtyrnwqid"]
+[gd_scene load_steps=21 format=3 uid="uid://yavxtyrnwqid"]
 
 [ext_resource type="Script" path="res://dialog_system/dialog_testing.gd" id="1_0es8y"]
 [ext_resource type="Script" path="res://addons/dialogue_nodes/objects/dialogueBox.gd" id="1_7mr08"]
@@ -14,6 +14,7 @@
 [ext_resource type="Script" path="res://dialog_system/audio_dialog_manager.gd" id="13_61vsd"]
 [ext_resource type="Resource" uid="uid://by4nx71uw8osm" path="res://dialog_system/speaker/Jon.tres" id="13_b6e4i"]
 [ext_resource type="Resource" uid="uid://ce61j3arplo35" path="res://dialog_system/speaker/Fairy.tres" id="14_tsw3r"]
+[ext_resource type="PackedScene" uid="uid://dbls8kubhonhs" path="res://environment/wooden_door.tscn" id="15_6b754"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_j6r23"]
 size = Vector2(15, 15)
@@ -41,15 +42,20 @@ shadow_enabled = true
 mesh = SubResource("PlaneMesh_j6r23")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Ground"]
+collision_layer = 3
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Ground/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_5efkm")
 
 [node name="Player" parent="." node_paths=PackedStringArray("companion") instance=ExtResource("1_8oj1e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0185642, 0, -0.00067997)
+platform_on_leave = 2
 companion = NodePath("../Companion")
 
 [node name="Companion" parent="." instance=ExtResource("2_fqvgr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.66851, 1.37351, 0)
+collision_layer = 3
+collision_mask = 3
 
 [node name="DialogueBox" type="Panel" parent="."]
 visible = false
@@ -98,6 +104,9 @@ bus = &"Voice"
 script = ExtResource("13_61vsd")
 player = ExtResource("13_b6e4i")
 fairy = ExtResource("14_tsw3r")
+
+[node name="WoodenDoor" parent="." instance=ExtResource("15_6b754")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.34391, 2.38419e-07, -5.28932)
 
 [connection signal="dialogue_skiped" from="DialogueBox" to="AudioDialogManager" method="_on_dialogue_box_dialogue_skiped"]
 [connection signal="who_is_talking" from="DialogueBox" to="AudioDialogManager" method="_on_dialogue_box_who_is_talking"]
