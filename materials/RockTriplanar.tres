@@ -1,0 +1,18 @@
+[gd_resource type="ShaderMaterial" load_steps=6 format=3 uid="uid://uglhu4wi54r0"]
+
+[ext_resource type="Shader" uid="uid://lmp62lk54s5n" path="res://materials/Triplanar.tres" id="1_bmyd7"]
+[ext_resource type="Texture2D" uid="uid://cpaqyhlunej3h" path="res://textures/TCom_Rock_CliffGranite_1K_albedo.png" id="2_ohd3q"]
+[ext_resource type="Texture2D" uid="uid://dcam4wkex3jba" path="res://textures/TCom_Rock_CliffGranite_1K_ao.png" id="3_8pcph"]
+[ext_resource type="Texture2D" uid="uid://cbs5duai421yh" path="res://textures/TCom_Rock_CliffGranite_1K_normal.png" id="4_m66il"]
+[ext_resource type="Texture2D" uid="uid://mmmxyhhnyxm2" path="res://textures/TCom_Rock_CliffGranite_1K_roughness.png" id="5_tckkr"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_bmyd7")
+shader_parameter/triplanar_scale = Vector3(1, 1, 1)
+shader_parameter/triplanar_offset = null
+shader_parameter/triplanar_sharpness = 0.5
+shader_parameter/Albedo = ExtResource("2_ohd3q")
+shader_parameter/Roughness = ExtResource("5_tckkr")
+shader_parameter/Ambient_Occlusion = ExtResource("3_8pcph")
+shader_parameter/Normal = ExtResource("4_m66il")
