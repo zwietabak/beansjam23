@@ -1,4 +1,5 @@
 extends CharacterBody3D
+class_name PlayerController
 
 
 const SPEED = 5.0
@@ -10,9 +11,12 @@ var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
 @onready var camera_pivot = $Camera_Pivot
 @onready var camera = $Camera_Pivot/Camera3D
-@onready var companion_pivot = $Companion_Pivot
 
 @export var companion: CharacterBody3D
+
+signal on_attack
+# TODO
+signal on_hit
 
 var theta = 0
 var dtheta = 0
@@ -58,6 +62,7 @@ func _physics_process(delta):
 			tween.tween_property(companion, 'position', Vector3(self.position.x, self.position.y + 3, self.position.z - 3), companion.attack_speed)
 			tween.tween_property(companion, 'position', companion.transform.origin, companion.attack_speed)
 			tween.connect("finished", on_tween_finished)
+			on_attack.emit()
 	
 func _input(event):
 	if event is InputEventMouseMotion:

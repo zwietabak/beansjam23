@@ -1,5 +1,14 @@
 extends AnimationTree
 
+@export
+var player : PlayerController
+
+func _process(delta):
+	if player == null:
+		return
+		
+	SetRunning(player.velocity.length_squared() > 1)
+
 func Kill():
 	set("parameters/conditions/IsDead", true)
 	
