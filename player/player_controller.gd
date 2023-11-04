@@ -14,7 +14,7 @@ var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 @onready var attack_location = $Attack_Location
 
 @export var companion: CharacterBody3D
-@export var walkink_sounds: WalkingSounds
+@export var walkink_sounds: PlayerWalkingSounds
 @export var sound_effects: PlayerSoundEffects
 
 signal on_attack
@@ -34,10 +34,6 @@ func _physics_process(delta):
 	# Add the gravity.
 	if not is_on_floor():
 		velocity.y -= gravity * delta
-
-	# Handle Jump.
-	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
-		velocity.y = JUMP_VELOCITY
 		
 	if companion != null and companion.get_state_as_string() == "IDLE":
 		companion.transform = rotate_around(self.transform, companion.transform)
@@ -66,9 +62,9 @@ func _physics_process(delta):
 
 	if Input.is_action_just_pressed("attack") and companion != null:
 		walkink_sounds.stop_walking()
-		sound_effects.start_sound("HIT")
 		
 		if !in_attack_animation and !in_hit_animation:
+			sound_effects.start_sound("HIT", true)
 			in_attack_animation = true
 			companion.get_node("CollisionShape3D").disabled = false
 			var tween = create_tween()

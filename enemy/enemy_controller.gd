@@ -22,6 +22,8 @@ enum State {
 @export var follow_target: CharacterBody3D
 @export var health_points: int = 3
 @export var damage_points: int = 1
+@export var sound_effects: EnemySoundEffects
+@export var walking_sound: EnemyWalkingSounds
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
@@ -66,6 +68,11 @@ func _physics_process(delta):
 		in_attack_animation = false
 
 	move_and_slide()
+	
+	if(velocity.length() > 0):
+		walking_sound.start_walking()
+	else:
+		walking_sound.stop_walking() 
 
 	if int(self.position.x) == start_position.x and int(self.position.z) == start_position.z:
 		current_state = State.IDLE
@@ -86,6 +93,7 @@ func hitbox_body_entered(body):
 		take_damage(body.attack_damage)
 		
 func player_detection_area_body_entered(body):
+	print(body)
 	if body.name == "Player":
 		current_state = State.FOLLOW
 	

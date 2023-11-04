@@ -1,4 +1,4 @@
-class_name PlayerWalkingSounds
+class_name EnemyWalkingSounds
 extends CharacterAudio
 
 var playback_pos = 0

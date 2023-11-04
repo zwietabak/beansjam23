@@ -1,4 +1,4 @@
-class_name PlayerSoundEffects
+class_name EnemySoundEffects
 extends CharacterAudio
 
 var fairy_hit = load("res://audio/sound_files/player/fairy_hit.mp3")

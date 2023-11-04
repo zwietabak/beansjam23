@@ -1,6 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://deeryhksmvs2m"]
+[gd_scene load_steps=11 format=3 uid="uid://deeryhksmvs2m"]
 
 [ext_resource type="Script" path="res://enemy/enemy_controller.gd" id="1_pi25j"]
+[ext_resource type="Script" path="res://enemy/enemy_sound_effects.gd" id="2_jaulv"]
+[ext_resource type="Script" path="res://enemy/enemy_walking_sounds.gd" id="3_ruucy"]
+[ext_resource type="AudioStream" uid="uid://c46xfjlsommfp" path="res://audio/sound_files/monster/Monster_Footsteps.mp3" id="3_wgj4f"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_dpnv4"]
 
@@ -18,8 +21,10 @@ radius = 7.0
 [sub_resource type="BoxShape3D" id="BoxShape3D_3c80v"]
 size = Vector3(1, 1.5, 0.5)
 
-[node name="Enemy" type="CharacterBody3D"]
+[node name="Enemy" type="CharacterBody3D" node_paths=PackedStringArray("sound_effects", "walking_sound")]
 script = ExtResource("1_pi25j")
+sound_effects = NodePath("EnemySoundEffects")
+walking_sound = NodePath("EnemyWalkingSounds")
 
 [node name="Body" type="MeshInstance3D" parent="."]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 1, 0)
@@ -51,3 +56,11 @@ shape = SubResource("BoxShape3D_3c80v")
 path_height_offset = 0.5
 
 [node name="Face_Direction" type="Node3D" parent="."]
+
+[node name="EnemySoundEffects" type="AudioStreamPlayer" parent="."]
+script = ExtResource("2_jaulv")
+
+[node name="EnemyWalkingSounds" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_wgj4f")
+pitch_scale = 1.4
+script = ExtResource("3_ruucy")

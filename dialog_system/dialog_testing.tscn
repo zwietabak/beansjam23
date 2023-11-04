@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://yavxtyrnwqid"]
+[gd_scene load_steps=22 format=3 uid="uid://yavxtyrnwqid"]
 
 [ext_resource type="Script" path="res://dialog_system/dialog_testing.gd" id="1_0es8y"]
 [ext_resource type="Script" path="res://addons/dialogue_nodes/objects/dialogueBox.gd" id="1_7mr08"]
@@ -15,6 +15,7 @@
 [ext_resource type="Resource" uid="uid://by4nx71uw8osm" path="res://dialog_system/speaker/Jon.tres" id="13_b6e4i"]
 [ext_resource type="Resource" uid="uid://ce61j3arplo35" path="res://dialog_system/speaker/Fairy.tres" id="14_tsw3r"]
 [ext_resource type="PackedScene" uid="uid://dbls8kubhonhs" path="res://environment/wooden_door.tscn" id="15_6b754"]
+[ext_resource type="PackedScene" uid="uid://deeryhksmvs2m" path="res://enemy/enemy.tscn" id="16_4s5rj"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_j6r23"]
 size = Vector2(15, 15)
@@ -107,6 +108,10 @@ fairy = ExtResource("14_tsw3r")
 
 [node name="WoodenDoor" parent="." instance=ExtResource("15_6b754")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.34391, 2.38419e-07, -5.28932)
+
+[node name="Enemy" parent="." node_paths=PackedStringArray("follow_target") instance=ExtResource("16_4s5rj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.97562, 0, -3.78007)
+follow_target = NodePath("../Player")
 
 [connection signal="dialogue_skiped" from="DialogueBox" to="AudioDialogManager" method="_on_dialogue_box_dialogue_skiped"]
 [connection signal="who_is_talking" from="DialogueBox" to="AudioDialogManager" method="_on_dialogue_box_who_is_talking"]
