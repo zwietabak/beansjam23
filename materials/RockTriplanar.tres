@@ -9,7 +9,7 @@
 [resource]
 render_priority = 0
 shader = ExtResource("1_bmyd7")
-shader_parameter/triplanar_scale = Vector3(1, 1, 1)
+shader_parameter/triplanar_scale = Vector3(0.5, 0.5, 0.5)
 shader_parameter/triplanar_offset = null
 shader_parameter/triplanar_sharpness = 0.5
 shader_parameter/Albedo = ExtResource("2_ohd3q")
