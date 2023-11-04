@@ -1,0 +1,72 @@
+[gd_resource type="AnimationNodeStateMachine" load_steps=14 format=3 uid="uid://dwgnryweji136"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_a875n"]
+animation = &"Idle"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_0im4p"]
+animation = &"Running"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_e3ctt"]
+animation = &"Pointing"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_k53fy"]
+animation = &"GetHit"
+
+[sub_resource type="AnimationNodeOneShot" id="AnimationNodeOneShot_fkjkw"]
+fadein_time = 0.2
+fadeout_time = 0.2
+
+[sub_resource type="AnimationNodeOneShot" id="AnimationNodeOneShot_ins5e"]
+fadein_time = 0.2
+fadeout_time = 0.2
+
+[sub_resource type="AnimationNodeBlend2" id="AnimationNodeBlend2_6wy67"]
+
+[sub_resource type="AnimationNodeTimeScale" id="AnimationNodeTimeScale_j22gr"]
+
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_d8cgj"]
+graph_offset = Vector2(-727.954, -67.2518)
+nodes/Animation/node = SubResource("AnimationNodeAnimation_k53fy")
+nodes/Animation/position = Vector2(40, 340)
+"nodes/Animation 2/node" = SubResource("AnimationNodeAnimation_a875n")
+"nodes/Animation 2/position" = Vector2(-280, 100)
+"nodes/Animation 3/node" = SubResource("AnimationNodeAnimation_0im4p")
+"nodes/Animation 3/position" = Vector2(-280, 240)
+"nodes/Animation 4/node" = SubResource("AnimationNodeAnimation_e3ctt")
+"nodes/Animation 4/position" = Vector2(200, 540)
+nodes/Attack/node = SubResource("AnimationNodeOneShot_fkjkw")
+nodes/Attack/position = Vector2(620, 400)
+nodes/GetHit/node = SubResource("AnimationNodeOneShot_ins5e")
+nodes/GetHit/position = Vector2(320, 240)
+nodes/Running/node = SubResource("AnimationNodeBlend2_6wy67")
+nodes/Running/position = Vector2(-40, 100)
+nodes/TimeScale/node = SubResource("AnimationNodeTimeScale_j22gr")
+nodes/TimeScale/position = Vector2(400, 500)
+nodes/output/position = Vector2(900, 400)
+node_connections = [&"output", 0, &"Attack", &"TimeScale", 0, &"Animation 4", &"GetHit", 0, &"Running", &"GetHit", 1, &"Animation", &"Attack", 0, &"GetHit", &"Attack", 1, &"TimeScale", &"Running", 0, &"Animation 2", &"Running", 1, &"Animation 3"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_m4kr6"]
+animation = &"Death"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_esq04"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_5r1re"]
+advance_mode = 2
+advance_condition = &"IsDead"
+advance_expression = "IsDead == true"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_i3rj0"]
+advance_mode = 2
+advance_condition = &"IsDead"
+advance_expression = "IsDead == false"
+
+[resource]
+states/BlendTree/node = SubResource("AnimationNodeBlendTree_d8cgj")
+states/BlendTree/position = Vector2(480, 231)
+states/Death/node = SubResource("AnimationNodeAnimation_m4kr6")
+states/Death/position = Vector2(480, 378)
+states/End/position = Vector2(740, 224)
+states/Start/position = Vector2(258, 231)
+transitions = ["Start", "BlendTree", SubResource("AnimationNodeStateMachineTransition_esq04"), "BlendTree", "Death", SubResource("AnimationNodeStateMachineTransition_5r1re"), "Death", "BlendTree", SubResource("AnimationNodeStateMachineTransition_i3rj0")]
+graph_offset = Vector2(-287, 0)
