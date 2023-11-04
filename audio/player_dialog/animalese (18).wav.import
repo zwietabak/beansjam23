@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bl0tdave8coi7"
+path="res://.godot/imported/animalese (18).wav-e3572e3d44d80ecf4c6b73eead0bed5b.sample"
+
+[deps]
+
+source_file="res://audio/player_dialog/animalese (18).wav"
+dest_files=["res://.godot/imported/animalese (18).wav-e3572e3d44d80ecf4c6b73eead0bed5b.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

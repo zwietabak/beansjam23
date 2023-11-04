@@ -1,18 +1,9 @@
-[gd_resource type="Resource" script_class="CharacterList" load_steps=5 format=3 uid="uid://w04i00ewufyg"]
+[gd_resource type="Resource" script_class="CharacterList" load_steps=4 format=3 uid="uid://w04i00ewufyg"]
 
-[ext_resource type="Script" path="res://addons/dialogue_nodes/objects/Character.gd" id="1_1e412"]
 [ext_resource type="Script" path="res://addons/dialogue_nodes/objects/CharacterList.gd" id="1_mnete"]
-
-[sub_resource type="Resource" id="Resource_dsrs0"]
-script = ExtResource("1_1e412")
-name = "Jon"
-color = Color(0.341176, 0.635294, 0.32549, 1)
-
-[sub_resource type="Resource" id="Resource_d7he2"]
-script = ExtResource("1_1e412")
-name = "Fairy"
-color = Color(0.25098, 0.67451, 0.670588, 1)
+[ext_resource type="Resource" uid="uid://by4nx71uw8osm" path="res://dialog_system/speaker/Jon.tres" id="1_sfak8"]
+[ext_resource type="Resource" uid="uid://ce61j3arplo35" path="res://dialog_system/speaker/Fairy.tres" id="2_bbu80"]
 
 [resource]
 script = ExtResource("1_mnete")
-characters = Array[ExtResource("1_1e412")]([SubResource("Resource_dsrs0"), SubResource("Resource_d7he2")])
+characters = Array[Resource("res://addons/dialogue_nodes/objects/Character.gd")]([ExtResource("1_sfak8"), ExtResource("2_bbu80")])

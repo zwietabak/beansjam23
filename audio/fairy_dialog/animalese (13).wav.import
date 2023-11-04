@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bvgpf7rld0gvb"
+path="res://.godot/imported/animalese (13).wav-1add84c23e64e097b88892e10f11b61f.sample"
+
+[deps]
+
+source_file="res://audio/fairy_dialog/animalese (13).wav"
+dest_files=["res://.godot/imported/animalese (13).wav-1add84c23e64e097b88892e10f11b61f.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

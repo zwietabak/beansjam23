@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://c374f2n2m818j"]
 
 [ext_resource type="Script" path="res://player/player_controller.gd" id="1_c0u81"]
-[ext_resource type="AudioStream" uid="uid://c80pmk54xucir" path="res://audio/sound_files/concrete-footsteps.mp3" id="2_5wsbg"]
+[ext_resource type="AudioStream" uid="uid://c80pmk54xucir" path="res://audio/sound_files/player/concrete-footsteps.mp3" id="2_hh8vl"]
 [ext_resource type="Script" path="res://player/walking_steps.gd" id="3_1prrv"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_u7ws1"]
@@ -38,5 +38,5 @@ transform = Transform3D(1, 0, 0, 0, 0.580248, 0.81444, 0, -0.81444, 0.580248, 0,
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, -5)
 
 [node name="WalkingSteps" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("2_5wsbg")
+stream = ExtResource("2_hh8vl")
 script = ExtResource("3_1prrv")
