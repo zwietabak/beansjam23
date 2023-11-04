@@ -1,0 +1,44 @@
+[gd_scene load_steps=7 format=3 uid="uid://deeryhksmvs2m"]
+
+[ext_resource type="Script" path="res://enemy/enemy_controller.gd" id="1_pi25j"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_dpnv4"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u7fiu"]
+albedo_color = Color(1, 0, 0.160784, 1)
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_x8y0j"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_m7tor"]
+size = Vector3(1, 2, 1)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_164af"]
+radius = 7.0
+
+[node name="Enemy" type="CharacterBody3D"]
+script = ExtResource("1_pi25j")
+
+[node name="Body" type="MeshInstance3D" parent="."]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 1, 0)
+mesh = SubResource("CapsuleMesh_dpnv4")
+surface_material_override/0 = SubResource("StandardMaterial3D_u7fiu")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CapsuleShape3D_x8y0j")
+
+[node name="Hitbox" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Hitbox"]
+shape = SubResource("BoxShape3D_m7tor")
+
+[node name="Player_Detection" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Player_Detection"]
+shape = SubResource("SphereShape3D_164af")
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
+path_height_offset = 0.5
+
+[node name="Face_Direction" type="Node3D" parent="."]

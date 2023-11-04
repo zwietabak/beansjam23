@@ -1,8 +1,15 @@
-[gd_scene load_steps=4 format=3 uid="uid://c374f2n2m818j"]
+[gd_scene load_steps=8 format=3 uid="uid://c374f2n2m818j"]
 
 [ext_resource type="Script" path="res://player/player_controller.gd" id="1_c0u81"]
+[ext_resource type="AudioStream" uid="uid://c80pmk54xucir" path="res://audio/sound_files/concrete-footsteps.mp3" id="2_5wsbg"]
+[ext_resource type="Script" path="res://player/walking_steps.gd" id="3_1prrv"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_u7ws1"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_a04e3"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_k6ytf"]
+albedo_color = Color(0.309804, 0.180392, 0.0117647, 1)
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_qxhbo"]
 
@@ -13,12 +20,23 @@ script = ExtResource("1_c0u81")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 mesh = SubResource("CapsuleMesh_u7ws1")
 
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.295367, 0, 0, 0, 0.26163, 0, 0, 0, 1.02416, 0, 1.5, -0.866)
+mesh = SubResource("BoxMesh_a04e3")
+surface_material_override/0 = SubResource("StandardMaterial3D_k6ytf")
+
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("CapsuleShape3D_qxhbo")
 
 [node name="Camera_Pivot" type="Marker3D" parent="."]
-transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, 0, 0, 0)
 
 [node name="Camera3D" type="Camera3D" parent="Camera_Pivot"]
 transform = Transform3D(1, 0, 0, 0, 0.580248, 0.81444, 0, -0.81444, 0.580248, 0, 15.4433, 7.60442)
+
+[node name="Attack_Location" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, -5)
+
+[node name="WalkingSteps" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_5wsbg")
+script = ExtResource("3_1prrv")

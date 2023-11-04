@@ -17,11 +17,3 @@ func _on_area_3d_body_entered(body):
 
 func _on_audio_stream_player_3d_finished():
 	$DialogueBox.start('WEIRD_NOISE')
-
-
-func _on_timer_2_timeout():
-	$BattleMusic.fade_out();
-
-
-func _on_timer_timeout():
-	$BattleMusic.play()
