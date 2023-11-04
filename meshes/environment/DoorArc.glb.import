@@ -33,6 +33,10 @@ _subresources={
 "BrickWall": {
 "use_external/enabled": true,
 "use_external/path": "res://materials/BrickWallTriplanar.tres"
+},
+"Rock": {
+"use_external/enabled": true,
+"use_external/path": "res://materials/RockTriplanar.tres"
 }
 }
 }

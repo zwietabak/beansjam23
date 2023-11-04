@@ -29,6 +29,16 @@ animation/trimming=false
 animation/remove_immutable_tracks=true
 import_script/path=""
 _subresources={
+"materials": {
+"BrickWall": {
+"use_external/enabled": true,
+"use_external/path": "res://materials/BrickWallTriplanar.tres"
+},
+"Rock": {
+"use_external/enabled": true,
+"use_external/path": "res://materials/RockTriplanar.tres"
+}
+},
 "meshes": {
 "Wall_Cube": {
 "generate/lightmap_uv": 0,
