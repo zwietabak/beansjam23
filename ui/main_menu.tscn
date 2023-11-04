@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://bk1axuitx33vy"]
+[gd_scene load_steps=3 format=3 uid="uid://bk1axuitx33vy"]
 
 [ext_resource type="Script" path="res://ui/main_menu_controller.gd" id="1_lp0pl"]
+[ext_resource type="FontFile" uid="uid://cfpb8p1e0pltp" path="res://ui/fonts/Volcanic Dungeon.ttf" id="2_u63ar"]
 
 [node name="Main_Menu" type="Control"]
 layout_mode = 3
@@ -34,13 +35,17 @@ theme_override_constants/margin_bottom = 10
 [node name="Label" type="Label" parent="MarginContainer"]
 layout_mode = 2
 size_flags_vertical = 0
-theme_override_font_sizes/font_size = 100
-text = "Scary Dark Dungeon"
+theme_override_colors/font_color = Color(0.501961, 0.101961, 0.129412, 1)
+theme_override_fonts/font = ExtResource("2_u63ar")
+theme_override_font_sizes/font_size = 50
+text = "Scary
+Dark
+Dungeon"
 horizontal_alignment = 1
 
 [node name="MarginContainer" type="MarginContainer" parent="MarginContainer"]
 layout_mode = 2
-theme_override_constants/margin_top = 100
+theme_override_constants/margin_top = 275
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/MarginContainer"]
 layout_mode = 2
@@ -49,18 +54,30 @@ alignment = 1
 
 [node name="btn_start" type="Button" parent="MarginContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_colors/font_pressed_color = Color(0.619608, 0.541176, 0.0470588, 1)
+theme_override_colors/font_hover_color = Color(0.87451, 0.768627, 0.0862745, 1)
+theme_override_fonts/font = ExtResource("2_u63ar")
 text = "Start Game"
 
 [node name="btn_options" type="Button" parent="MarginContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_colors/font_pressed_color = Color(0.619608, 0.541176, 0.0470588, 1)
+theme_override_colors/font_hover_color = Color(0.87451, 0.768627, 0.0862745, 1)
+theme_override_fonts/font = ExtResource("2_u63ar")
 text = "Options"
 
 [node name="btn_credits" type="Button" parent="MarginContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_colors/font_pressed_color = Color(0.619608, 0.541176, 0.0470588, 1)
+theme_override_colors/font_hover_color = Color(0.87451, 0.768627, 0.0862745, 1)
+theme_override_fonts/font = ExtResource("2_u63ar")
 text = "Credits"
 
 [node name="btn_exit" type="Button" parent="MarginContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_colors/font_pressed_color = Color(0.619608, 0.541176, 0.0470588, 1)
+theme_override_colors/font_hover_color = Color(0.87451, 0.768627, 0.0862745, 1)
+theme_override_fonts/font = ExtResource("2_u63ar")
 text = "Exit Game"
 
 [connection signal="pressed" from="MarginContainer/MarginContainer/VBoxContainer/btn_start" to="." method="_on_btn_start_pressed"]
