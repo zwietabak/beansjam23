@@ -1,4 +1,4 @@
-[gd_resource type="AnimationNodeStateMachine" load_steps=17 format=3 uid="uid://dwgnryweji136"]
+[gd_resource type="AnimationNodeStateMachine" load_steps=16 format=3 uid="uid://dwgnryweji136"]
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_a875n"]
 animation = &"Idle"
@@ -27,7 +27,7 @@ fadeout_time = 0.2
 [sub_resource type="AnimationNodeTimeScale" id="AnimationNodeTimeScale_j22gr"]
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_d8cgj"]
-graph_offset = Vector2(-315.818, 92.4545)
+graph_offset = Vector2(-610.681, 2.56474)
 nodes/Animation/node = SubResource("AnimationNodeAnimation_k53fy")
 nodes/Animation/position = Vector2(-40, 360)
 "nodes/Animation 2/node" = SubResource("AnimationNodeAnimation_a875n")
@@ -58,12 +58,6 @@ animation = &"StandUp"
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_5r1re"]
 advance_mode = 2
 advance_condition = &"IsDead"
-advance_expression = "IsDead == true"
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_i3rj0"]
-advance_mode = 2
-advance_condition = &"IsDead"
-advance_expression = "IsDead == false"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_2t6g0"]
 advance_mode = 2
@@ -82,5 +76,5 @@ states/End/position = Vector2(740, 224)
 states/StandUp/node = SubResource("AnimationNodeAnimation_w8qe5")
 states/StandUp/position = Vector2(214, 231)
 states/Start/position = Vector2(-9, 231)
-transitions = ["BlendTree", "Death", SubResource("AnimationNodeStateMachineTransition_5r1re"), "Death", "BlendTree", SubResource("AnimationNodeStateMachineTransition_i3rj0"), "Start", "StandUp", SubResource("AnimationNodeStateMachineTransition_2t6g0"), "StandUp", "BlendTree", SubResource("AnimationNodeStateMachineTransition_am7sp")]
-graph_offset = Vector2(-371, 71)
+transitions = ["BlendTree", "Death", SubResource("AnimationNodeStateMachineTransition_5r1re"), "Start", "StandUp", SubResource("AnimationNodeStateMachineTransition_2t6g0"), "StandUp", "BlendTree", SubResource("AnimationNodeStateMachineTransition_am7sp")]
+graph_offset = Vector2(-238, 162)

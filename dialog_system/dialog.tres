@@ -646,7 +646,7 @@ nodes = {
 "speaker": 1
 },
 "1_41": {
-"dialogue": "What? Only a Ladder? ",
+"dialogue": "What? Only some stairs??? ",
 "offset": Vector2(600, 4300),
 "options": {
 0: {

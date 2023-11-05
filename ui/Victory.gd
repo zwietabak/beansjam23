@@ -1,5 +1,7 @@
 extends Control
 
+func _ready():
+	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED if Input.mouse_mode == Input.MOUSE_MODE_VISIBLE else Input.MOUSE_MODE_VISIBLE
 
 func _on_btn_restart_pressed():
 	SceneTransition.change_scene("res://level.tscn")

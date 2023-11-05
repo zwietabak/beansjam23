@@ -9,7 +9,7 @@ func _ready():
 func _process(delta):
 	if player == null:
 		return
-		
+
 	SetRunning(player.velocity.length_squared() > 1)
 
 func Kill():
