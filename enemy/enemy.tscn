@@ -63,6 +63,7 @@ script = ExtResource("3_ruucy")
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
 
 [node name="BoneAttachment3D" parent="Enemy_Mesh/Armature/Skeleton3D" index="2"]
+
 transform = Transform3D(0.998955, 0.0325972, -0.0320333, 0.025568, 0.182355, 0.9829, 0.0378812, -0.982692, 0.181331, 2.71546, 19.1349, -152.965)
 
 [node name="BoneAttachment3D2" parent="Enemy_Mesh/Armature/Skeleton3D" index="3"]
