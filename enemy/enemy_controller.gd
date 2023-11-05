@@ -30,6 +30,8 @@ var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
 var invincible = true
 var in_attack_animation = false
+var battle_music: BattleMusicPlayer
+var is_active = false
 
 signal on_died
 
@@ -41,6 +43,8 @@ func _ready():
 	damage_detection.connect("body_exited", damage_detection_area_body_exited)
 	set_process(false)
 	set_physics_process(false)
+	battle_music = get_tree().get_first_node_in_group("BattleMusic") as BattleMusicPlayer
+	battle_music.enemies.append(self)
 
 func _physics_process(delta):
 	# Add the gravity.
@@ -115,6 +119,8 @@ func damage_detection_area_body_exited(body):
 
 
 func _on_door_smashed():
+	is_active = true
 	set_process(true)
 	set_physics_process(true)
 	invincible = false
+	battle_music.fade_in()
