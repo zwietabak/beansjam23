@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://cxrr7it8fbjc7"]
+[gd_scene load_steps=37 format=3 uid="uid://cxrr7it8fbjc7"]
 
 [ext_resource type="PackedScene" uid="uid://c374f2n2m818j" path="res://player/player.tscn" id="1_wy8p3"]
 [ext_resource type="Script" path="res://level.gd" id="1_xxsr4"]
@@ -26,6 +26,7 @@
 [ext_resource type="PackedScene" uid="uid://rkoad6ekqo74" path="res://environment/pillar.tscn" id="24_jipjm"]
 [ext_resource type="PackedScene" uid="uid://umewr82juvtu" path="res://meshes/environment/Pillar.glb" id="25_swxd5"]
 [ext_resource type="PackedScene" uid="uid://bpaiy3ae38xka" path="res://environment/stairs.tscn" id="26_myqkk"]
+[ext_resource type="PackedScene" uid="uid://1s434e4nkwb2" path="res://environment/big_door.tscn" id="27_xgx17"]
 
 [sub_resource type="Environment" id="Environment_l2luy"]
 background_mode = 2
@@ -1140,6 +1141,9 @@ spot_angle = 23.743
 
 [node name="Stairs" parent="." instance=ExtResource("26_myqkk")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 67, 0, 131)
+
+[node name="BigDoor" parent="." instance=ExtResource("27_xgx17")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 57.4449, 0, 131)
 
 [connection signal="door_smashed" from="Doors/WoodenDoor" to="." method="trigger_smashed_door_dialog"]
 [connection signal="door_smashed" from="Doors/WoodenDoor3" to="Enemy" method="_on_door_smashed"]
