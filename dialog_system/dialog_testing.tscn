@@ -906,12 +906,9 @@ collision = NodePath("../WoodenDoor/Door/DoorColision/CollisionShape3D")
 [node name="Enemy" parent="." node_paths=PackedStringArray("follow_target") instance=ExtResource("16_heggs")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.26594, 0, -4.17325)
 follow_target = NodePath("../Player")
-health_points = null
-damage_points = null
 
 [connection signal="dialogue_skiped" from="DialogueBox" to="AudioDialogManager" method="_on_dialogue_box_dialogue_skiped"]
 [connection signal="who_is_talking" from="DialogueBox" to="AudioDialogManager" method="_on_dialogue_box_who_is_talking"]
 [connection signal="finished" from="AudioStreamPlayer3D" to="." method="_on_audio_stream_player_3d_finished"]
 [connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
 [connection signal="door_smashed" from="WoodenDoor" to="Enemy" method="_on_door_smashed"]
-[connection signal="door_smashed" from="WoodenDoor" to="Enemy" method="_on_wooden_door_door_smashed"]

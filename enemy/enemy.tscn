@@ -63,18 +63,23 @@ script = ExtResource("3_ruucy")
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
 
 [node name="BoneAttachment3D" parent="Enemy_Mesh/Armature/Skeleton3D" index="2"]
-transform = Transform3D(0.993249, -0.0602716, -0.0991096, 0.106622, 0.137861, 0.984696, -0.0456859, -0.988616, 0.143356, 0.645926, 0.379671, -157.702)
+transform = Transform3D(0.998955, 0.0325972, -0.0320333, 0.025568, 0.182355, 0.9829, 0.0378812, -0.982692, 0.181331, 2.71546, 19.1349, -152.965)
 
 [node name="BoneAttachment3D2" parent="Enemy_Mesh/Armature/Skeleton3D" index="3"]
-transform = Transform3D(0.521774, 0.283471, -0.804609, -0.841764, 0.0179436, -0.539547, -0.138509, 0.958813, 0.247979, 19.585, -4.4779, -140.748)
+transform = Transform3D(0.121989, 0.558095, -0.820761, -0.910691, -0.265881, -0.316147, -0.394665, 0.786026, 0.475817, 18.869, 0.880048, -140.487)
 
 [node name="BoneAttachment3D4" parent="Enemy_Mesh/Armature/Skeleton3D" index="4"]
-transform = Transform3D(0.367313, -0.303577, 0.87916, 0.923926, 0.0103811, -0.382431, 0.10697, 0.952751, 0.284295, -17.7778, -7.44015, -140.913)
+transform = Transform3D(0.166254, -0.628831, 0.75956, 0.690019, -0.476084, -0.545177, 0.704438, 0.614749, 0.354755, -17.1979, 8.6774, -138.068)
 
 [node name="BoneAttachment3D3" parent="Enemy_Mesh/Armature/Skeleton3D" index="5"]
-transform = Transform3D(-0.972521, 0.0231297, 0.231665, 0.216397, -0.277258, 0.936109, 0.0858831, 0.960517, 0.264634, 10.9996, 8.53547, -50.965)
+transform = Transform3D(-0.994843, -0.0998119, 0.0180523, 0.0705175, -0.552669, 0.830412, -0.0729081, 0.827402, 0.556857, 17.9319, 15.4235, -57.1681)
 
 [node name="BoneAttachment3D5" parent="Enemy_Mesh/Armature/Skeleton3D" index="6"]
-transform = Transform3D(-0.961227, -0.0405105, -0.272769, -0.25724, -0.224662, 0.939869, -0.0993554, 0.973595, 0.205531, -13.8687, 7.20569, -51.4808)
+transform = Transform3D(-0.97768, -0.0335752, -0.207397, -0.189375, -0.286663, 0.939128, -0.0909846, 0.957443, 0.273907, -7.92646, 5.93432, -51.0037)
+
+[connection signal="attack" from="." to="Enemy_Mesh/AnimationTree" method="SetAttack"]
+[connection signal="attack2" from="." to="Enemy_Mesh/AnimationTree" method="SetAttack2"]
+[connection signal="on_died" from="." to="Enemy_Mesh/AnimationTree" method="Kill"]
+[connection signal="running" from="." to="Enemy_Mesh/AnimationTree" method="SetRunning"]
 
 [editable path="Enemy_Mesh"]

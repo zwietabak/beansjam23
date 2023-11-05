@@ -32,7 +32,11 @@ var invincible = true
 var in_attack_animation = false
 var battle_music: BattleMusicPlayer
 var is_active = false
+var combo = false
 
+signal running(is_running: bool)
+signal attack
+signal attack2
 signal on_died
 
 func _ready():
@@ -70,6 +74,12 @@ func _physics_process(delta):
 		if int(self.position.x) == int(start_position.x) and int(self.position.z) == int(start_position.z):
 			current_state = State.IDLE
 	elif  current_state == State.ATTACK and !in_attack_animation:
+		if combo:
+			attack.emit()
+		else:
+			attack2.emit()
+			
+		combo = !combo
 		velocity.x = 0
 		velocity.z = 0
 		follow_target.take_damage(damage_points)
@@ -83,14 +93,16 @@ func _physics_process(delta):
 	
 	if(velocity.length() > 0):
 		walking_sound.start_walking()
+		running.emit(true)
 	else:
 		walking_sound.stop_walking() 
+		running.emit(false)		
 
 	if health_points <= 0:
-		on_died.emit()
-		queue_free()
+		die()
 
 func take_damage(amount: int):
+	print("HIT")
 	sound_effects.start_sound("GOT_HIT", true, 0.8, 1.2)
 	health_points -= amount
 	invincible = true
@@ -116,7 +128,15 @@ func damage_detection_area_body_entered(body):
 func damage_detection_area_body_exited(body):
 	if body.name == "Player":
 		current_state = State.FOLLOW
-
+		
+func die():
+	set_process(false)
+	set_physics_process(false)	
+	velocity.x = 0
+	velocity.z = 0
+	set_disable_mode(1)
+	walking_sound.stop_walking() 
+	on_died.emit()	
 
 func _on_door_smashed():
 	is_active = true
