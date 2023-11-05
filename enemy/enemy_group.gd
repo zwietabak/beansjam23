@@ -20,5 +20,4 @@ func check_if_all_dead():
 	print(enemies.size())
 	if counter == enemies.size():
 		all_dead.emit()
-		queue_free()
 	

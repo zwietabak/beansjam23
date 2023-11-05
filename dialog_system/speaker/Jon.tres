@@ -5,6 +5,6 @@
 
 [resource]
 script = ExtResource("1_dgmaa")
-name = "Jon"
+name = "John"
 image = ExtResource("1_t5o8s")
 color = Color(0.341176, 0.635294, 0.32549, 1)
