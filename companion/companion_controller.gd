@@ -5,7 +5,7 @@ extends CharacterBody3D
 @export var circle_speed: float = 225
 @export var bounce_height: float = 0.02
 @export var bounce_speed: float = 1
-@export var attack_speed: float = 0.85
+@export var attack_speed: float = 0.55
 @export var attack_damage: int = 1
 
 @onready var current_state: State = State.IDLE

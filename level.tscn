@@ -80,7 +80,7 @@ circle_radius = 0.5
 circle_speed = 350.0
 bounce_height = 0.001
 bounce_speed = 0.5
-attack_damage = 3
+attack_speed = 0.49
 
 [node name="Doors" type="Node" parent="."]
 
