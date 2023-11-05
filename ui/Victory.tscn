@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://ddh3gf3p73qm3"]
 
 [ext_resource type="Script" path="res://ui/Victory.gd" id="1_k6wtd"]
-[ext_resource type="Texture2D" uid="uid://dl1kyovrbxvru" path="res://ui/beansjam23.jpg" id="2_5w825"]
+[ext_resource type="Texture2D" uid="uid://58q7hxd8sjgo" path="res://ui/main_menu_background.png" id="2_04tpb"]
 [ext_resource type="FontFile" uid="uid://cfpb8p1e0pltp" path="res://ui/fonts/Volcanic Dungeon.ttf" id="3_rs0nr"]
 
 [node name="Victory" type="Control"]
@@ -20,7 +20,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_5w825")
+texture = ExtResource("2_04tpb")
+expand_mode = 1
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
@@ -30,19 +31,24 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/margin_left = 10
-theme_override_constants/margin_top = 100
+theme_override_constants/margin_top = 0
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
 
-[node name="Label" type="Label" parent="MarginContainer"]
+[node name="MarginContainer2" type="MarginContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 25
+theme_override_constants/margin_right = 25
+
+[node name="Label" type="Label" parent="MarginContainer/MarginContainer2"]
 layout_mode = 2
 size_flags_vertical = 0
-theme_override_colors/font_color = Color(0.501961, 0.101961, 0.129412, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("3_rs0nr")
 theme_override_font_sizes/font_size = 50
 text = "THANKS FOR 
 PLAYING"
-horizontal_alignment = 1
+horizontal_alignment = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="MarginContainer"]
 layout_mode = 2
