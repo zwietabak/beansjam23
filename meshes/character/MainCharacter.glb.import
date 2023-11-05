@@ -31,7 +31,7 @@ import_script/path=""
 _subresources={
 "animations": {
 "Armature_001|mixamo_com|Layer0": {
-"save_to_file/enabled": true,
+"save_to_file/enabled": false,
 "save_to_file/keep_custom_tracks": false,
 "save_to_file/path": "res://meshes/animations/Armature_001|mixamo_com|Layer0.res",
 "settings/loop_mode": 0,

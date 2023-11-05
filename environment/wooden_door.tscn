@@ -13,6 +13,8 @@ script = ExtResource("2_xh6fw")
 collision = NodePath("Door/DoorColision/CollisionShape3D")
 rigid_bodies = [NodePath("Door/DoorPiece-rigid"), NodePath("Door/DoorPiece_001-rigid"), NodePath("Door/DoorPiece_002-rigid"), NodePath("Door/DoorPiece_003-rigid"), NodePath("Door/DoorPiece_004-rigid"), NodePath("Door/DoorPiece_005-rigid"), NodePath("Door/DoorPiece_006-rigid"), NodePath("Door/DoorPiece_007-rigid")]
 
+[node name="DoorColision" parent="Door" index="3" groups=["door"]]
+
 [node name="DoorPiece-rigid" parent="Door" index="4" groups=["rigid_bodies"]]
 collision_layer = 2
 collision_mask = 2
