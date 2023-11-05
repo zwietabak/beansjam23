@@ -52,6 +52,7 @@ particles_anim_loop = false
 material = SubResource("StandardMaterial3D_fu2ov")
 
 [node name="Tmp_Flare" type="Node3D"]
+transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, 0, 0, 0)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.148013, 0, 0, 0, 1, 0, 0, 0, 0.142986, 0, 0, 0)
@@ -69,4 +70,4 @@ draw_pass_1 = SubResource("QuadMesh_55ft7")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.657075, 0)
 light_color = Color(0.894118, 0.639216, 0.239216, 1)
 shadow_enabled = true
-omni_range = 4.5
+omni_range = 6.5

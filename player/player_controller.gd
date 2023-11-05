@@ -83,6 +83,7 @@ func _physics_process(delta):
 			
 			var tween = create_tween()
 			var collider = raycast.get_collider()
+			if collider != null: print(collider.name)
 			if collider != null and !collider.is_in_group("enemy") and !collider.is_in_group("door"):
 				var target = raycast.get_collision_point()
 				tween.tween_property(companion, 'position', target, companion.attack_speed)

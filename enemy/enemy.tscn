@@ -17,7 +17,7 @@ radius = 23.8479
 [sub_resource type="BoxShape3D" id="BoxShape3D_3c80v"]
 size = Vector3(1, 1.5, 0.5)
 
-[node name="Enemy" type="CharacterBody3D" node_paths=PackedStringArray("sound_effects", "walking_sound")]
+[node name="Enemy" type="CharacterBody3D" node_paths=PackedStringArray("sound_effects", "walking_sound") groups=["enemy"]]
 script = ExtResource("1_pi25j")
 sound_effects = NodePath("EnemySoundEffects")
 walking_sound = NodePath("EnemyWalkingSounds")

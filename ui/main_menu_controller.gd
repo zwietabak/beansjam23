@@ -2,8 +2,7 @@ extends Control
 
 
 func _on_btn_start_pressed():
-	print("oink")
-	SceneTransition.change_scene("res://main.tscn")
+	SceneTransition.change_scene("res://level.tscn")
 
 func _on_btn_options_pressed():
 	pass # Replace with function body.
