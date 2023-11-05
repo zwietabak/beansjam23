@@ -20,6 +20,7 @@ var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 signal on_attack
 signal on_hit
 
+var in_dialog = false
 var theta = 0
 var dtheta = 0
 var in_attack_animation = false
@@ -72,10 +73,9 @@ func _physics_process(delta):
 	if Input.is_action_just_pressed("attack") and companion != null:
 		walkink_sounds.stop_walking()
 		
-		if !in_attack_animation and !in_hit_animation:
+		if !in_attack_animation and !in_hit_animation and !in_dialog:
 			var tween_rotate = create_tween()
 			tween_rotate.tween_property($MainCharacter, "rotation_degrees", Vector3(0, 180, 0), 0.1)
-
 			sound_effects.start_sound("HIT", true)
 			in_attack_animation = true
 			companion.get_node("CollisionShape3D").disabled = false
@@ -124,3 +124,16 @@ func _on_animation_tree_animation_finished(anim_name):
 		in_hit_animation = false
 	elif anim_name == "Pointing":
 		in_attack_animation = false
+
+
+func _on_dialog_trigger_3_dialog_entered():
+	companion = get_tree().get_first_node_in_group("Companion")
+	init_companion_rotation()
+
+
+func _on_dialogue_box_dialogue_started(id):
+	in_dialog = true
+
+
+func _on_dialogue_box_dialogue_ended():
+	in_dialog = false
