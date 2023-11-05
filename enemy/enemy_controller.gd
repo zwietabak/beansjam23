@@ -44,7 +44,8 @@ func _ready():
 	set_process(false)
 	set_physics_process(false)
 	battle_music = get_tree().get_first_node_in_group("BattleMusic") as BattleMusicPlayer
-	battle_music.enemies.append(self)
+	if battle_music != null:
+		battle_music.enemies.append(self)
 
 func _physics_process(delta):
 	# Add the gravity.
@@ -122,4 +123,5 @@ func _on_door_smashed():
 	set_process(true)
 	set_physics_process(true)
 	invincible = false
-	battle_music.fade_in()
+	if battle_music != null:
+		battle_music.fade_in()

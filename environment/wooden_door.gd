@@ -17,7 +17,7 @@ func destroy_door():
 	for rigid_body in rigid_bodies:
 		rigid_body.set_freeze_enabled(false)
 	if not broken:
-		door_smashed.emit()		
+		door_smashed.emit()
 		$AudioStreamPlayer3D.set_pitch_scale(rng.randf_range(0.8, 1.2))
 		$AudioStreamPlayer3D.play()
 	broken = true

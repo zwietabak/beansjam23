@@ -247,10 +247,14 @@ shape = SubResource("BoxShape3D_qa0sr")
 [node name="Enemy" parent="." node_paths=PackedStringArray("follow_target") instance=ExtResource("19_iv7qs")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 40.1433, 0.0142541, 10.0663)
 follow_target = NodePath("../Player")
+health_points = null
+damage_points = null
 
 [node name="Enemy2" parent="." node_paths=PackedStringArray("follow_target") instance=ExtResource("19_iv7qs")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 81.7065, 0.0142526, 3.15688)
 follow_target = NodePath("../Player")
+health_points = null
+damage_points = null
 
 [node name="EnemyGroup" type="Node" parent="." node_paths=PackedStringArray("trigger")]
 script = ExtResource("20_pj1ht")
@@ -259,18 +263,26 @@ trigger = NodePath("../Doors/WoodenDoor4")
 [node name="Enemy3" parent="EnemyGroup" node_paths=PackedStringArray("follow_target") instance=ExtResource("19_iv7qs")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 82.0104, 0.0142531, 23.3445)
 follow_target = NodePath("../../Player")
+health_points = null
+damage_points = null
 
 [node name="Enemy4" parent="EnemyGroup" node_paths=PackedStringArray("follow_target") instance=ExtResource("19_iv7qs")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 73.1649, 0.0142512, 22.1416)
 follow_target = NodePath("../../Player")
+health_points = null
+damage_points = null
 
 [node name="Enemy5" parent="EnemyGroup" node_paths=PackedStringArray("follow_target") instance=ExtResource("19_iv7qs")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 81.1139, 0.0142526, 42.743)
 follow_target = NodePath("../../Player")
+health_points = null
+damage_points = null
 
 [node name="Enemy6" parent="EnemyGroup" node_paths=PackedStringArray("follow_target") instance=ExtResource("19_iv7qs")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 73.5366, 0.0142512, 46.4052)
 follow_target = NodePath("../../Player")
+health_points = null
+damage_points = null
 
 [node name="EnemyGroup2" type="Node" parent="." node_paths=PackedStringArray("trigger")]
 script = ExtResource("20_pj1ht")
@@ -279,30 +291,44 @@ trigger = NodePath("../Doors/WoodenDoor6")
 [node name="Enemy6" parent="EnemyGroup2" node_paths=PackedStringArray("follow_target") instance=ExtResource("19_iv7qs")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.59317, 0.0142521, 70.9673)
 follow_target = NodePath("../../Player")
+health_points = null
+damage_points = null
 
 [node name="Enemy3" parent="EnemyGroup2" node_paths=PackedStringArray("follow_target") instance=ExtResource("19_iv7qs")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.13147, 0.0142531, 72.7541)
 follow_target = NodePath("../../Player")
+health_points = null
+damage_points = null
 
 [node name="Enemy4" parent="EnemyGroup2" node_paths=PackedStringArray("follow_target") instance=ExtResource("19_iv7qs")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.48561, 0.0142531, 74.2547)
 follow_target = NodePath("../../Player")
+health_points = null
+damage_points = null
 
 [node name="Enemy5" parent="EnemyGroup2" node_paths=PackedStringArray("follow_target") instance=ExtResource("19_iv7qs")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.45601, 0.0142531, 73.5213)
 follow_target = NodePath("../../Player")
+health_points = null
+damage_points = null
 
 [node name="Enemy3" parent="." node_paths=PackedStringArray("follow_target") instance=ExtResource("19_iv7qs")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.58, 0.0142531, 88.2151)
 follow_target = NodePath("../Player")
+health_points = null
+damage_points = null
 
 [node name="Enemy4" parent="." node_paths=PackedStringArray("follow_target") instance=ExtResource("19_iv7qs")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.6639, 0.0142531, 96.1028)
 follow_target = NodePath("../Player")
+health_points = null
+damage_points = null
 
 [node name="Enemy5" parent="." node_paths=PackedStringArray("follow_target") instance=ExtResource("19_iv7qs")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.7896, 0.0142531, 104.454)
 follow_target = NodePath("../Player")
+health_points = null
+damage_points = null
 
 [node name="EnemyGroup3" type="Node" parent="." node_paths=PackedStringArray("trigger")]
 script = ExtResource("20_pj1ht")
@@ -311,18 +337,26 @@ trigger = NodePath("../Doors/WoodenDoor12")
 [node name="Enemy6" parent="EnemyGroup3" node_paths=PackedStringArray("follow_target") instance=ExtResource("19_iv7qs")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.1425, 0.0142531, 135.333)
 follow_target = NodePath("../../Player")
+health_points = null
+damage_points = null
 
 [node name="Enemy7" parent="EnemyGroup3" node_paths=PackedStringArray("follow_target") instance=ExtResource("19_iv7qs")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.5023, 0.0142531, 126.394)
 follow_target = NodePath("../../Player")
+health_points = null
+damage_points = null
 
 [node name="Enemy8" parent="EnemyGroup3" node_paths=PackedStringArray("follow_target") instance=ExtResource("19_iv7qs")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 44.5942, 0.0142531, 136.003)
 follow_target = NodePath("../../Player")
+health_points = null
+damage_points = null
 
 [node name="Enemy9" parent="EnemyGroup3" node_paths=PackedStringArray("follow_target") instance=ExtResource("19_iv7qs")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 44.6084, 0.0142521, 124.706)
 follow_target = NodePath("../../Player")
+health_points = null
+damage_points = null
 
 [node name="WoodenDoor" parent="." instance=ExtResource("6_nqacp")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 58, 0, 4)
