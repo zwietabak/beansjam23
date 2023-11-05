@@ -1,4 +1,4 @@
-[gd_resource type="VisualShader" load_steps=5 format=3 uid="uid://lmp62lk54s5n"]
+[gd_resource type="VisualShader" load_steps=7 format=3 uid="uid://lmp62lk54s5n"]
 
 [sub_resource type="VisualShaderNodeTextureParameterTriplanar" id="VisualShaderNodeTextureParameterTriplanar_vkv33"]
 parameter_name = "Albedo"
@@ -22,10 +22,18 @@ parameter_name = "Ambient_Occlusion"
 color_default = 1
 texture_repeat = 1
 
+[sub_resource type="VisualShaderNodeColorParameter" id="VisualShaderNodeColorParameter_kooqu"]
+parameter_name = "ColorParameter"
+default_value_enabled = true
+
+[sub_resource type="VisualShaderNodeVectorOp" id="VisualShaderNodeVectorOp_kkkwb"]
+operator = 2
+
 [resource]
 code = "shader_type spatial;
 render_mode blend_mix, depth_draw_opaque, cull_back, diffuse_lambert, specular_schlick_ggx, world_vertex_coords;
 
+uniform vec4 ColorParameter : source_color = vec4(1.000000, 1.000000, 1.000000, 1.000000);
 uniform sampler2D Albedo : source_color, hint_default_black, repeat_enable;
 uniform sampler2D Roughness : hint_default_black, repeat_enable;
 uniform sampler2D Ambient_Occlusion : hint_default_black, repeat_enable;
@@ -59,8 +67,16 @@ void vertex() {
 }
 
 void fragment() {
+// ColorParameter:6
+	vec4 n_out6p0 = ColorParameter;
+
+
 // TextureParameterTriplanar:2
 	vec4 n_out2p0 = triplanar_texture(Albedo, triplanar_power_normal, triplanar_pos);
+
+
+// VectorOp:7
+	vec3 n_out7p0 = vec3(n_out6p0.xyz) * vec3(n_out2p0.xyz);
 
 
 // TextureParameterTriplanar:4
@@ -76,7 +92,7 @@ void fragment() {
 
 
 // Output:0
-	ALBEDO = vec3(n_out2p0.xyz);
+	ALBEDO = n_out7p0;
 	ROUGHNESS = n_out4p0.x;
 	AO = n_out5p0.x;
 	NORMAL_MAP = vec3(n_out3p0.xyz);
@@ -93,4 +109,8 @@ nodes/fragment/4/node = SubResource("VisualShaderNodeTextureParameterTriplanar_r
 nodes/fragment/4/position = Vector2(-240, 240)
 nodes/fragment/5/node = SubResource("VisualShaderNodeTextureParameterTriplanar_lexxt")
 nodes/fragment/5/position = Vector2(-240, 840)
-nodes/fragment/connections = PackedInt32Array(2, 0, 0, 0, 3, 0, 0, 9, 4, 0, 0, 3, 5, 0, 0, 6)
+nodes/fragment/6/node = SubResource("VisualShaderNodeColorParameter_kooqu")
+nodes/fragment/6/position = Vector2(-200, -300)
+nodes/fragment/7/node = SubResource("VisualShaderNodeVectorOp_kkkwb")
+nodes/fragment/7/position = Vector2(180, 0)
+nodes/fragment/connections = PackedInt32Array(3, 0, 0, 9, 4, 0, 0, 3, 5, 0, 0, 6, 6, 0, 7, 0, 2, 0, 7, 1, 7, 0, 0, 0)

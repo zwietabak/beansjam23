@@ -1,0 +1,9 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://d18f7vnqpdbok"]
+
+[ext_resource type="Shader" uid="uid://cebwjhu0uuk15" path="res://materials/FabricShader.tres" id="1_pet8s"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_pet8s")
+shader_parameter/Scale = 20.0
+shader_parameter/ColorParameter = Color(0.333333, 0.313726, 0.286275, 1)

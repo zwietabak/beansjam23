@@ -36,7 +36,7 @@ _subresources={
 },
 "Rock": {
 "use_external/enabled": true,
-"use_external/path": "res://materials/RockTriplanar.tres"
+"use_external/path": "res://materials/ConcreteTriplanar.tres"
 }
 }
 }

@@ -1,0 +1,11 @@
+[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://lu24jni810wp"]
+
+[ext_resource type="Shader" uid="uid://cebwjhu0uuk15" path="res://materials/FabricShader.tres" id="1_ns2h1"]
+[ext_resource type="Texture2D" uid="uid://c2hvco51ldwdm" path="res://meshes/enemy/ShirtMask.png" id="2_3axe0"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_ns2h1")
+shader_parameter/Scale = 20.0
+shader_parameter/ColorParameter = Color(0.298039, 0.32549, 0.290196, 1)
+shader_parameter/Aplha = ExtResource("2_3axe0")
