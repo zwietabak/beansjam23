@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://cxrr7it8fbjc7"]
+[gd_scene load_steps=33 format=3 uid="uid://cxrr7it8fbjc7"]
 
 [ext_resource type="PackedScene" uid="uid://c374f2n2m818j" path="res://player/player.tscn" id="1_wy8p3"]
 [ext_resource type="Script" path="res://level.gd" id="1_xxsr4"]
@@ -18,6 +18,7 @@
 [ext_resource type="Resource" uid="uid://ce61j3arplo35" path="res://dialog_system/speaker/Fairy.tres" id="11_t252j"]
 [ext_resource type="AudioStream" uid="uid://dy2e1hwg7xkox" path="res://audio/sound_files/monster/monster_growl_4.wav" id="13_lq3vg"]
 [ext_resource type="Resource" uid="uid://d11bc8kfceyer" path="res://dialog_system/dialog.tres" id="14_swmgo"]
+[ext_resource type="Texture2D" uid="uid://bchasdgpb5jba" path="res://ui/SpaceIcon.png" id="16_qtltd"]
 [ext_resource type="PackedScene" uid="uid://deeryhksmvs2m" path="res://enemy/enemy.tscn" id="19_iv7qs"]
 [ext_resource type="Script" path="res://enemy/enemy_group.gd" id="20_pj1ht"]
 [ext_resource type="PackedScene" uid="uid://o2rq36t0y4ra" path="res://environment/tmp_flare.tscn" id="21_yt1sn"]
@@ -194,6 +195,7 @@ grow_horizontal = 2
 grow_vertical = 0
 script = ExtResource("9_xltr2")
 dialogue_file = ExtResource("14_swmgo")
+next_icon = ExtResource("16_qtltd")
 skip_input_action = "ui_accept"
 custom_effects = Array[RichTextEffect]([SubResource("RichTextEffect_3x85x"), SubResource("RichTextEffect_x65m2")])
 
@@ -606,6 +608,7 @@ spot_angle = 23.743
 [connection signal="finished" from="Scream" to="." method="_on_scream_finished"]
 [connection signal="dialogue_ended" from="DialogueBox" to="Player" method="_on_dialogue_box_dialogue_ended"]
 [connection signal="dialogue_signal" from="DialogueBox" to="." method="_on_dialogue_box_dialogue_signal"]
+[connection signal="dialogue_signal" from="DialogueBox" to="Player" method="_on_dialogue_box_dialogue_signal"]
 [connection signal="dialogue_signal" from="DialogueBox" to="Doors/WoodenDoor3" method="_on_dialogue_box_dialogue_signal"]
 [connection signal="dialogue_skiped" from="DialogueBox" to="AudioDialog" method="_on_dialogue_box_dialogue_skiped"]
 [connection signal="dialogue_started" from="DialogueBox" to="Player" method="_on_dialogue_box_dialogue_started"]

@@ -132,6 +132,8 @@ func damage_detection_area_body_exited(body):
 		state_machine.state.recive_event("follow_player")
 		
 func die():
+	is_active = false
+	in_combat = false
 	is_dead = true
 	set_process(false)
 	set_physics_process(false)

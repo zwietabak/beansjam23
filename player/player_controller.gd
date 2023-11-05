@@ -26,6 +26,7 @@ var theta = 0
 var dtheta = 0
 var in_attack_animation = false
 var in_hit_animation = false
+var controls_disabled = true
 
 func _ready():
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
@@ -40,7 +41,7 @@ func _physics_process(delta):
 	if companion != null and companion.get_state_as_string() == "IDLE":
 		companion.transform = rotate_around(self.transform, companion.transform)
 	
-	if !in_attack_animation and !in_hit_animation:
+	if !in_attack_animation and !in_hit_animation and !controls_disabled:
 		# Get the input direction and handle the movement/deceleration.
 		# As good practice, you should replace UI actions with custom gameplay actions.
 		var input_dir = Input.get_vector("move_left", "move_right", "move_forward", "move_backward")
@@ -147,3 +148,8 @@ func _on_dialogue_box_dialogue_started(id):
 
 func _on_dialogue_box_dialogue_ended():
 	in_dialog = false
+
+
+func _on_dialogue_box_dialogue_signal(value):
+	match(value):
+		"enable_controlls": controls_disabled = false
