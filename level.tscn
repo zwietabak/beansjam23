@@ -1156,6 +1156,7 @@ transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 57.444
 [connection signal="dialogue_signal" from="DialogueBox" to="." method="_on_dialogue_box_dialogue_signal"]
 [connection signal="dialogue_signal" from="DialogueBox" to="Player" method="_on_dialogue_box_dialogue_signal"]
 [connection signal="dialogue_signal" from="DialogueBox" to="Doors/WoodenDoor3" method="_on_dialogue_box_dialogue_signal"]
+[connection signal="dialogue_signal" from="DialogueBox" to="BigDoor" method="_on_dialogue_box_dialogue_signal"]
 [connection signal="dialogue_skiped" from="DialogueBox" to="AudioDialog" method="_on_dialogue_box_dialogue_skiped"]
 [connection signal="dialogue_started" from="DialogueBox" to="Player" method="_on_dialogue_box_dialogue_started"]
 [connection signal="who_is_talking" from="DialogueBox" to="AudioDialog" method="_on_dialogue_box_who_is_talking"]

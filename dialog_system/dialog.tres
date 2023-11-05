@@ -635,7 +635,7 @@ nodes = {
 "options": {
 0: {
 "condition": {},
-"link": "END",
+"link": &"3_5",
 "text": ""
 }
 },
@@ -792,6 +792,11 @@ nodes = {
 "link": &"1_14",
 "offset": Vector2(1620, 300),
 "signalValue": "enable_controlls"
+},
+"3_5": {
+"link": "END",
+"offset": Vector2(1303.51, 4038.75),
+"signalValue": "big_door"
 }
 }
 variables = {}
