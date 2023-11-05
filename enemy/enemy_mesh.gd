@@ -13,7 +13,8 @@ func _ready():
 		return
 	
 	for index in range(Body.get_blend_shape_count()):
-		Body.set_blend_shape_value(index, randf_range(-0.2, 1.0))
+		var blend_shape_values = clamp(randi_range(-1, 2) * 0.5, -0.2, 1.0)
+		Body.set_blend_shape_value(index, blend_shape_values)
 
 	for horn in Horns:
 		horn.visible = randi_range(0, 1) as bool
