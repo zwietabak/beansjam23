@@ -1,7 +1,7 @@
 class_name PlayerSoundEffects
 extends CharacterAudio
 
-var fairy_hit = load("res://audio/sound_files/player/fairy_hit.mp3")
+var fairy_hit = load("res://audio/sound_files/player/fairy_hit_2.mp3")
 var got_hit = load("res://audio/sound_files/player/player_got_hit.mp3")
 
 var rng = RandomNumberGenerator.new()
