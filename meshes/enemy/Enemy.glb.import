@@ -33,6 +33,10 @@ _subresources={
 "DemonShirt": {
 "use_external/enabled": true,
 "use_external/path": "res://meshes/enemy/EnemyShirt.tres"
+},
+"Material.005": {
+"use_external/enabled": true,
+"use_external/path": "res://meshes/enemy/glowing_eyes.tres"
 }
 }
 }
