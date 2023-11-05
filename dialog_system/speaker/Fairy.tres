@@ -1,8 +1,10 @@
-[gd_resource type="Resource" script_class="Character" load_steps=2 format=3 uid="uid://ce61j3arplo35"]
+[gd_resource type="Resource" script_class="Character" load_steps=3 format=3 uid="uid://ce61j3arplo35"]
 
 [ext_resource type="Script" path="res://addons/dialogue_nodes/objects/Character.gd" id="1_kmtbw"]
+[ext_resource type="Texture2D" uid="uid://bn36ef3ngea0f" path="res://dialog_system/speaker/FairyPortrait.png" id="1_lmije"]
 
 [resource]
 script = ExtResource("1_kmtbw")
 name = "Fairy"
+image = ExtResource("1_lmije")
 color = Color(0.25098, 0.67451, 0.670588, 1)
