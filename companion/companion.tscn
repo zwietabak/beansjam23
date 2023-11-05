@@ -25,7 +25,7 @@ point_count = 2
 
 [sub_resource type="Gradient" id="Gradient_g30ha"]
 offsets = PackedFloat32Array(0.196891, 0.580311, 0.800518, 1)
-colors = PackedColorArray(0, 0.862745, 0.898039, 0, 0.0595868, 0.869095, 0.905579, 1, 0.860104, 0.980527, 0.985954, 1, 1, 1, 1, 0)
+colors = PackedColorArray(0, 0.862745, 0.898039, 0, 0.0588235, 0.870588, 0.905882, 1, 0.860104, 0.980527, 0.985954, 1, 1, 1, 1, 0)
 
 [node name="Companion" type="CharacterBody3D"]
 motion_mode = 1
@@ -51,3 +51,11 @@ gravity = Vector3(0, 0.5, 0)
 scale_amount_curve = SubResource("Curve_c82m1")
 color = Color(0.894118, 0.980392, 0.996078, 1)
 color_ramp = SubResource("Gradient_g30ha")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00174546, 2.98023e-08, 0.00297511)
+light_color = Color(0.803922, 0.988235, 1, 1)
+light_energy = 0.35
+light_specular = 2.0
+shadow_enabled = true
+omni_range = 4.5

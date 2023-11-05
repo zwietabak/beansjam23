@@ -12,6 +12,7 @@ var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 @onready var camera_pivot = $Camera_Pivot
 @onready var camera = $Camera_Pivot/Camera3D
 @onready var attack_location = $Attack_Location
+@onready var raycast = $Raycast
 
 @export var companion: CharacterBody3D
 @export var walkink_sounds: PlayerWalkingSounds
@@ -79,9 +80,17 @@ func _physics_process(delta):
 			sound_effects.start_sound("HIT", true)
 			in_attack_animation = true
 			companion.get_node("CollisionShape3D").disabled = false
+			
 			var tween = create_tween()
-			tween.tween_property(companion, 'position', attack_location.global_position, companion.attack_speed)
-			tween.tween_property(companion, 'position', companion.transform.origin, companion.attack_speed)
+			var collider = raycast.get_collider()
+			if collider != null and !collider.is_in_group("enemy") and !collider.is_in_group("door"):
+				var target = raycast.get_collision_point()
+				tween.tween_property(companion, 'position', target, companion.attack_speed)
+				tween.tween_property(companion, 'position', companion.transform.origin, companion.attack_speed)
+			else:
+				tween.tween_property(companion, 'position', attack_location.global_position, companion.attack_speed)
+				tween.tween_property(companion, 'position', companion.transform.origin, companion.attack_speed)
+			
 			tween.connect("finished", on_tween_finished)
 			on_attack.emit()
 			companion.change_state("ATTACK")
