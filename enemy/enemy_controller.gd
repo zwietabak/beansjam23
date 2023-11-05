@@ -90,8 +90,7 @@ func _physics_process(delta):
 		queue_free()
 
 func take_damage(amount: int):
-	print("HIT")
-	sound_effects.start_sound("GOT_HIT")
+	sound_effects.start_sound("GOT_HIT", true, 0.8, 1.2)
 	health_points -= amount
 	invincible = true
 	await get_tree().create_timer(0.5).timeout

@@ -139,7 +139,7 @@ nodes = {
 "options": {
 0: {
 "condition": {},
-"link": &"1_13",
+"link": &"3_2",
 "text": ""
 }
 },
@@ -151,7 +151,7 @@ nodes = {
 },
 "1_13": {
 "dialogue": "Press X or LMB to attack",
-"offset": Vector2(1560, 1200),
+"offset": Vector2(1840, 1200),
 "options": {
 0: {
 "condition": {},
@@ -294,7 +294,7 @@ nodes = {
 "speaker": 1
 },
 "1_21": {
-"dialogue": "Nice a dark dungeon and weird creatures. A perfect Friday night.",
+"dialogue": "Nice a dark dungeon [shake]AND[/shake] weird creatures. A perfect Friday night.",
 "offset": Vector2(600, 2220),
 "options": {
 0: {
@@ -777,6 +777,11 @@ nodes = {
 "link": "END",
 "offset": Vector2(1620, 2100),
 "signalValue": "smash_door"
+},
+"3_2": {
+"link": &"1_13",
+"offset": Vector2(1600, 1320),
+"signalValue": "melee_tut"
 }
 }
 variables = {}

@@ -7,6 +7,7 @@ extends Node3D
 signal door_smashed
 
 var broken = false
+var rng = RandomNumberGenerator.new()
 
 func destroy_door():
 	collision.call_deferred("set_disabled", true)
@@ -16,18 +17,19 @@ func destroy_door():
 	for rigid_body in rigid_bodies:
 		rigid_body.set_freeze_enabled(false)
 	if not broken:
-		door_smashed.emit()			
+		door_smashed.emit()		
+		$AudioStreamPlayer3D.set_pitch_scale(rng.randf_range(0.8, 1.2))
 		$AudioStreamPlayer3D.play()
 	broken = true
 	
 func explode():
-	destroy_door()	
+	destroy_door()
 	for rigid_body in rigid_bodies:
 		rigid_body.apply_force(get_global_transform().basis.z, position)
 
 func _on_area_3d_body_entered(body):
 	if body.name == "Companion" and breakable:
-		destroy_door()
+		explode()
 		
 
 func _on_dialogue_box_dialogue_signal(value):

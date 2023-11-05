@@ -9,10 +9,11 @@ func fade_out():
 	fadeing = true
 	var tween = get_tree().create_tween()
 	tween.connect("finished", tween_completed)
-	tween.tween_property(self, "volume_db", -80, 5)
+	tween.tween_property(self, "volume_db", -80, 4)
 	
 func fade_in():
-	if not playing:
+	if !playing or fadeing:
+		fadeing = false
 		play(playback)
 		print(volume_db)
 		var tween = get_tree().create_tween()
@@ -21,9 +22,10 @@ func fade_in():
 
 func tween_completed():
 	# stop the music -- otherwise it continues to run at silent volume
-	stop()
-	fadeing = false
-	playback = get_playback_position()
+	if fadeing:
+		playback = get_playback_position()		
+		stop()
+		fadeing = false
 
 
 func _on_timer_timeout():

@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://yavxtyrnwqid"]
+[gd_scene load_steps=23 format=3 uid="uid://yavxtyrnwqid"]
 
 [ext_resource type="Script" path="res://dialog_system/dialog_testing.gd" id="1_0es8y"]
 [ext_resource type="Script" path="res://addons/dialogue_nodes/objects/dialogueBox.gd" id="1_7mr08"]
@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://dfpp2mxpjle8h" path="res://companion/companion.tscn" id="2_fqvgr"]
 [ext_resource type="Script" path="res://addons/dialogue_nodes/objects/bbcodeWait.gd" id="2_klslt"]
 [ext_resource type="Script" path="res://addons/dialogue_nodes/objects/bbcodeGhost.gd" id="3_3p7dt"]
-[ext_resource type="Resource" uid="uid://d11bc8kfceyer" path="res://dialog_system/dialog_test.tres" id="5_m68mt"]
+[ext_resource type="Script" path="res://addons/dialogue_nodes/objects/DialogueData.gd" id="5_yf4i8"]
 [ext_resource type="PackedScene" uid="uid://4lxomsp4iwxc" path="res://dialog_system/dialog_trigger.tscn" id="8_s4hq1"]
 [ext_resource type="AudioStream" uid="uid://bk8pxlos8vx0g" path="res://audio/sound_files/ambiance/ambiance.wav" id="9_4go5v"]
 [ext_resource type="AudioStream" uid="uid://dqop5jj8oi04i" path="res://audio/sound_files/ambiance/battle_music.mp3" id="9_23kpd"]
@@ -15,6 +15,788 @@
 [ext_resource type="Resource" uid="uid://by4nx71uw8osm" path="res://dialog_system/speaker/Jon.tres" id="13_b6e4i"]
 [ext_resource type="Resource" uid="uid://ce61j3arplo35" path="res://dialog_system/speaker/Fairy.tres" id="14_tsw3r"]
 [ext_resource type="PackedScene" uid="uid://dbls8kubhonhs" path="res://environment/wooden_door.tscn" id="15_6b754"]
+
+[sub_resource type="Resource" id="Resource_rqyxj"]
+script = ExtResource("5_yf4i8")
+starts = {
+"AFTER_FIGHT_CONV": &"0_10",
+"CORRIDOR_CONV": &"0_9",
+"DOOR_CONV": &"0_5",
+"END": &"0_13",
+"FAIRY_GREETING": &"0_2",
+"FINAL_DOOR": &"0_12",
+"FIRST_CONV": &"0_3",
+"FIRST_ENEMY_DEAD": &"0_7",
+"HOW_MANY": &"0_8",
+"INTRO": &"0_1",
+"MELEE_TUTORIAL": &"0_4",
+"NOTHING_IN_HERE": &"0_11",
+"WEIRD_NOISE": &"0_6"
+}
+nodes = {
+"0_1": {
+"link": &"1_1",
+"offset": Vector2(220, 160),
+"start_id": "INTRO"
+},
+"0_10": {
+"link": &"1_32",
+"offset": Vector2(200, 3280),
+"start_id": "AFTER_FIGHT_CONV"
+},
+"0_11": {
+"link": &"1_37",
+"offset": Vector2(200, 3620),
+"start_id": "NOTHING_IN_HERE"
+},
+"0_12": {
+"link": &"1_39",
+"offset": Vector2(200, 3960),
+"start_id": "FINAL_DOOR"
+},
+"0_13": {
+"link": &"1_41",
+"offset": Vector2(200, 4300),
+"start_id": "END"
+},
+"0_2": {
+"link": &"1_4",
+"offset": Vector2(220, 520),
+"start_id": "FAIRY_GREETING"
+},
+"0_3": {
+"link": &"1_5",
+"offset": Vector2(220, 880),
+"start_id": "FIRST_CONV"
+},
+"0_4": {
+"link": &"1_10",
+"offset": Vector2(220, 1200),
+"start_id": "MELEE_TUTORIAL"
+},
+"0_5": {
+"link": &"1_15",
+"offset": Vector2(220, 1520),
+"start_id": "DOOR_CONV"
+},
+"0_6": {
+"link": &"1_18",
+"offset": Vector2(220, 1880),
+"start_id": "WEIRD_NOISE"
+},
+"0_7": {
+"link": &"1_21",
+"offset": Vector2(220, 2220),
+"start_id": "FIRST_ENEMY_DEAD"
+},
+"0_8": {
+"link": &"1_22",
+"offset": Vector2(220, 2580),
+"start_id": "HOW_MANY"
+},
+"0_9": {
+"link": &"1_26",
+"offset": Vector2(200, 2940),
+"start_id": "CORRIDOR_CONV"
+},
+"1_1": {
+"dialogue": "[shake]Ouch[/shake] what just happend?",
+"offset": Vector2(600, 160),
+"options": {
+0: {
+"condition": {},
+"link": &"1_2",
+"text": ""
+}
+},
+"size": {
+"x": 300.0,
+"y": 277.0
+},
+"speaker": 0
+},
+"1_10": {
+"dialogue": "[shake]Shit[/shake]. It’s locked",
+"offset": Vector2(600, 1200),
+"options": {
+0: {
+"condition": {},
+"link": &"1_11",
+"text": ""
+}
+},
+"size": {
+"x": 300.0,
+"y": 277.0
+},
+"speaker": 0
+},
+"1_11": {
+"dialogue": "I can try to smash the door",
+"offset": Vector2(920, 1200),
+"options": {
+0: {
+"condition": {},
+"link": &"1_12",
+"text": ""
+}
+},
+"size": {
+"x": 300.0,
+"y": 277.0
+},
+"speaker": 1
+},
+"1_12": {
+"dialogue": "Sure go ahead",
+"offset": Vector2(1240, 1200),
+"options": {
+0: {
+"condition": {},
+"link": &"1_13",
+"text": ""
+}
+},
+"size": {
+"x": 300.001,
+"y": 277.0
+},
+"speaker": 0
+},
+"1_13": {
+"dialogue": "Press X or LMB to attack",
+"offset": Vector2(1560, 1200),
+"options": {
+0: {
+"condition": {},
+"link": "END",
+"text": ""
+}
+},
+"size": {
+"x": 300.001,
+"y": 276.0
+},
+"speaker": ""
+},
+"1_14": {
+"dialogue": "Use the left stick or WASD to move",
+"offset": Vector2(1640, 160),
+"options": {
+0: {
+"condition": {},
+"link": "END",
+"text": ""
+}
+},
+"size": {
+"x": 300.001,
+"y": 276.0
+},
+"speaker": ""
+},
+"1_15": {
+"dialogue": "Wow. Good job!",
+"offset": Vector2(600, 1520),
+"options": {
+0: {
+"condition": {},
+"link": &"1_16",
+"text": ""
+}
+},
+"size": {
+"x": 300.0,
+"y": 277.0
+},
+"speaker": 0
+},
+"1_16": {
+"dialogue": "My mother always said I have a head as hard as a stone",
+"offset": Vector2(920, 1520),
+"options": {
+0: {
+"condition": {},
+"link": &"1_17",
+"text": ""
+}
+},
+"size": {
+"x": 300.0,
+"y": 277.0
+},
+"speaker": 1
+},
+"1_17": {
+"dialogue": "...don't know if she meant that in a positive way",
+"offset": Vector2(1240, 1520),
+"options": {
+0: {
+"condition": {},
+"link": "END",
+"text": ""
+}
+},
+"size": {
+"x": 300.001,
+"y": 277.0
+},
+"speaker": 1
+},
+"1_18": {
+"dialogue": "[shake]What was that?![/shake]",
+"offset": Vector2(600, 1880),
+"options": {
+0: {
+"condition": {},
+"link": &"1_19",
+"text": ""
+}
+},
+"size": {
+"x": 300.0,
+"y": 277.0
+},
+"speaker": 1
+},
+"1_19": {
+"dialogue": "I think it came from the other Room.",
+"offset": Vector2(920, 1880),
+"options": {
+0: {
+"condition": {},
+"link": &"1_20",
+"text": ""
+}
+},
+"size": {
+"x": 300.0,
+"y": 277.0
+},
+"speaker": 0
+},
+"1_2": {
+"dialogue": "The last thing I remembered is that I tried to chase a rabbit and then I fell through this hole. ",
+"offset": Vector2(940, 160),
+"options": {
+0: {
+"condition": {},
+"link": &"1_3",
+"text": ""
+}
+},
+"size": {
+"x": 300.002,
+"y": 277.0
+},
+"speaker": 0
+},
+"1_20": {
+"dialogue": "I have a feeling we are not alone down here.",
+"offset": Vector2(1240, 1880),
+"options": {
+0: {
+"condition": {},
+"link": &"3_1",
+"text": ""
+}
+},
+"size": {
+"x": 300.0,
+"y": 277.0
+},
+"speaker": 1
+},
+"1_21": {
+"dialogue": "Nice a dark dungeon and weird creatures. A perfect Friday night.",
+"offset": Vector2(600, 2220),
+"options": {
+0: {
+"condition": {},
+"link": "END",
+"text": ""
+}
+},
+"size": {
+"x": 300.0,
+"y": 277.0
+},
+"speaker": 1
+},
+"1_22": {
+"dialogue": "How many of them are down here?",
+"offset": Vector2(600, 2580),
+"options": {
+0: {
+"condition": {},
+"link": &"1_23",
+"text": ""
+}
+},
+"size": {
+"x": 300.0,
+"y": 277.0
+},
+"speaker": 0
+},
+"1_23": {
+"dialogue": "Do I look like an oracle to you?",
+"offset": Vector2(940, 2580),
+"options": {
+0: {
+"condition": {},
+"link": &"1_24",
+"text": ""
+}
+},
+"size": {
+"x": 300.0,
+"y": 277.0
+},
+"speaker": 1
+},
+"1_24": {
+"dialogue": "I honestly have no idea what you look like",
+"offset": Vector2(1280, 2580),
+"options": {
+0: {
+"condition": {},
+"link": &"1_25",
+"text": ""
+}
+},
+"size": {
+"x": 300.0,
+"y": 277.0
+},
+"speaker": 0
+},
+"1_25": {
+"dialogue": "Fair point",
+"offset": Vector2(1620, 2580),
+"options": {
+0: {
+"condition": {},
+"link": "END",
+"text": ""
+}
+},
+"size": {
+"x": 300.0,
+"y": 277.0
+},
+"speaker": 1
+},
+"1_26": {
+"dialogue": "So do you want to tell me how you got here or not?",
+"offset": Vector2(600, 2940),
+"options": {
+0: {
+"condition": {},
+"link": &"1_27",
+"text": ""
+}
+},
+"size": {
+"x": 443.376,
+"y": 277.001
+},
+"speaker": 0
+},
+"1_27": {
+"dialogue": "Well it’s kinda embarrassing",
+"offset": Vector2(1080, 2940),
+"options": {
+0: {
+"condition": {},
+"link": &"1_28",
+"text": ""
+}
+},
+"size": {
+"x": 300.0,
+"y": 277.001
+},
+"speaker": 1
+},
+"1_28": {
+"dialogue": "Common tell me",
+"offset": Vector2(1420, 2940),
+"options": {
+0: {
+"condition": {},
+"link": &"1_29",
+"text": ""
+}
+},
+"size": {
+"x": 300.0,
+"y": 277.001
+},
+"speaker": 0
+},
+"1_29": {
+"dialogue": "I was at the tavern and it was one of those nights where the beer just tasted sooo good. After the sixth pint, I blacked out and woke up down here.",
+"offset": Vector2(1760, 2940),
+"options": {
+0: {
+"condition": {},
+"link": &"1_30",
+"text": ""
+}
+},
+"size": {
+"x": 300.0,
+"y": 277.001
+},
+"speaker": 1
+},
+"1_3": {
+"dialogue": "Where the hell am I now?",
+"offset": Vector2(1280, 160),
+"options": {
+0: {
+"condition": {},
+"link": &"1_14",
+"text": ""
+}
+},
+"size": {
+"x": 300.002,
+"y": 277.0
+},
+"speaker": 0
+},
+"1_30": {
+"dialogue": "So you have no idea at all?",
+"offset": Vector2(2100, 2940),
+"options": {
+0: {
+"condition": {},
+"link": &"1_31",
+"text": ""
+}
+},
+"size": {
+"x": 300.0,
+"y": 277.001
+},
+"speaker": 0
+},
+"1_31": {
+"dialogue": "Yeah...",
+"offset": Vector2(2440, 2960),
+"options": {
+0: {
+"condition": {},
+"link": "END",
+"text": ""
+}
+},
+"size": {
+"x": 300.001,
+"y": 277.0
+},
+"speaker": 1
+},
+"1_32": {
+"dialogue": "I kinda get the hang of it",
+"offset": Vector2(600, 3280),
+"options": {
+0: {
+"condition": {},
+"link": &"1_33",
+"text": ""
+}
+},
+"size": {
+"x": 300.0,
+"y": 277.0
+},
+"speaker": 0
+},
+"1_33": {
+"dialogue": "You know I’m doing all the work right?",
+"offset": Vector2(940, 3280),
+"options": {
+0: {
+"condition": {},
+"link": &"1_34",
+"text": ""
+}
+},
+"size": {
+"x": 300.0,
+"y": 277.0
+},
+"speaker": 1
+},
+"1_34": {
+"dialogue": "Yeah I’m the moral support",
+"offset": Vector2(1280, 3280),
+"options": {
+0: {
+"condition": {},
+"link": &"1_35",
+"text": ""
+}
+},
+"size": {
+"x": 300.0,
+"y": 277.0
+},
+"speaker": 0
+},
+"1_35": {
+"dialogue": "Thanks I guess?",
+"offset": Vector2(1620, 3280),
+"options": {
+0: {
+"condition": {},
+"link": &"1_36",
+"text": ""
+}
+},
+"size": {
+"x": 300.0,
+"y": 277.0
+},
+"speaker": 1
+},
+"1_36": {
+"dialogue": "Your welcome",
+"offset": Vector2(1960, 3280),
+"options": {
+0: {
+"condition": {},
+"link": "END",
+"text": ""
+}
+},
+"size": {
+"x": 300.0,
+"y": 277.0
+},
+"speaker": 0
+},
+"1_37": {
+"dialogue": "Ohh nice here is... nothing",
+"offset": Vector2(600, 3620),
+"options": {
+0: {
+"condition": {},
+"link": &"1_38",
+"text": ""
+}
+},
+"size": {
+"x": 300.0,
+"y": 277.002
+},
+"speaker": 1
+},
+"1_38": {
+"dialogue": "...",
+"offset": Vector2(940, 3620),
+"options": {
+0: {
+"condition": {},
+"link": "END",
+"text": ""
+}
+},
+"size": {
+"x": 300.0,
+"y": 277.002
+},
+"speaker": 0
+},
+"1_39": {
+"dialogue": "Hmm a huge door what could this mean?",
+"offset": Vector2(600, 3960),
+"options": {
+0: {
+"condition": {},
+"link": &"1_40",
+"text": ""
+}
+},
+"size": {
+"x": 300.0,
+"y": 277.0
+},
+"speaker": 0
+},
+"1_4": {
+"dialogue": " [wave]HEY![/wave] Hey you over there. Come here",
+"offset": Vector2(600, 520),
+"options": {
+0: {
+"condition": {},
+"link": "END",
+"text": ""
+}
+},
+"size": {
+"x": 300.0,
+"y": 277.0
+},
+"speaker": 1
+},
+"1_40": {
+"dialogue": "Nothing good",
+"offset": Vector2(940, 3960),
+"options": {
+0: {
+"condition": {},
+"link": "END",
+"text": ""
+}
+},
+"size": {
+"x": 300.0,
+"y": 277.0
+},
+"speaker": 1
+},
+"1_41": {
+"dialogue": "What? Only a Ladder? ",
+"offset": Vector2(600, 4300),
+"options": {
+0: {
+"condition": {},
+"link": &"1_42",
+"text": ""
+}
+},
+"size": {
+"x": 300.0,
+"y": 277.001
+},
+"speaker": 0
+},
+"1_42": {
+"dialogue": "Well I guess that’s it then. Do you like to go to the tavern?",
+"offset": Vector2(940, 4300),
+"options": {
+0: {
+"condition": {},
+"link": &"1_43",
+"text": ""
+}
+},
+"size": {
+"x": 300.0,
+"y": 277.001
+},
+"speaker": 1
+},
+"1_43": {
+"dialogue": "Yeah why not...",
+"offset": Vector2(1280, 4300),
+"options": {
+0: {
+"condition": {},
+"link": "END",
+"text": ""
+}
+},
+"size": {
+"x": 300.0,
+"y": 277.001
+},
+"speaker": 0
+},
+"1_5": {
+"dialogue": "What are you?",
+"offset": Vector2(600, 880),
+"options": {
+0: {
+"condition": {},
+"link": &"1_6",
+"text": ""
+}
+},
+"size": {
+"x": 300.0,
+"y": 277.0
+},
+"speaker": 0
+},
+"1_6": {
+"dialogue": "What a nice welcome...",
+"offset": Vector2(940, 880),
+"options": {
+0: {
+"condition": {},
+"link": &"1_7",
+"text": ""
+}
+},
+"size": {
+"x": 300.0,
+"y": 277.0
+},
+"speaker": 1
+},
+"1_7": {
+"dialogue": "I’m a fairy and kinda lost down here",
+"offset": Vector2(1280, 880),
+"options": {
+0: {
+"condition": {},
+"link": &"1_8",
+"text": ""
+}
+},
+"size": {
+"x": 300.001,
+"y": 277.0
+},
+"speaker": 1
+},
+"1_8": {
+"dialogue": "Same. How did you get here?",
+"offset": Vector2(1600, 880),
+"options": {
+0: {
+"condition": {},
+"link": &"1_9",
+"text": ""
+}
+},
+"size": {
+"x": 300.0,
+"y": 277.0
+},
+"speaker": 0
+},
+"1_9": {
+"dialogue": "Let’s discuss this later. I saw a door over there. Let’s try to find a way out",
+"offset": Vector2(1920, 880),
+"options": {
+0: {
+"condition": {},
+"link": "END",
+"text": ""
+}
+},
+"size": {
+"x": 300.0,
+"y": 277.0
+},
+"speaker": 1
+},
+"3_1": {
+"link": "END",
+"offset": Vector2(1620, 2100),
+"signalValue": "smash_door"
+}
+}
+variables = {}
+comments = Array[String]([])
+strays = Array[String]([])
+characters = "res://dialog_system/character_list.tres"
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_d7aap"]
 script = ExtResource("2_klslt")
@@ -65,7 +847,7 @@ offset_bottom = -63.0
 grow_horizontal = 2
 grow_vertical = 0
 script = ExtResource("1_7mr08")
-dialogue_file = ExtResource("5_m68mt")
+dialogue_file = SubResource("Resource_rqyxj")
 skip_input_action = "ui_accept"
 custom_effects = Array[RichTextEffect]([SubResource("RichTextEffect_d7aap"), SubResource("RichTextEffect_sgu68")])
 

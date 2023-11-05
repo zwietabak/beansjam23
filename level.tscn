@@ -17,7 +17,7 @@
 [ext_resource type="Script" path="res://addons/dialogue_nodes/objects/bbcodeGhost.gd" id="11_nk2ay"]
 [ext_resource type="Resource" uid="uid://ce61j3arplo35" path="res://dialog_system/speaker/Fairy.tres" id="11_t252j"]
 [ext_resource type="AudioStream" uid="uid://dy2e1hwg7xkox" path="res://audio/sound_files/monster/monster_growl_4.wav" id="13_lq3vg"]
-[ext_resource type="Resource" uid="uid://d11bc8kfceyer" path="res://dialog_system/dialog_test.tres" id="14_swmgo"]
+[ext_resource type="Resource" uid="uid://d11bc8kfceyer" path="res://dialog_system/dialog.tres" id="14_swmgo"]
 [ext_resource type="PackedScene" uid="uid://deeryhksmvs2m" path="res://enemy/enemy.tscn" id="19_iv7qs"]
 [ext_resource type="Script" path="res://enemy/enemy_group.gd" id="20_pj1ht"]
 [ext_resource type="PackedScene" uid="uid://o2rq36t0y4ra" path="res://environment/tmp_flare.tscn" id="21_yt1sn"]
@@ -84,6 +84,7 @@ bounce_speed = 0.5
 
 [node name="WoodenDoor" parent="Doors" instance=ExtResource("6_nqacp")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 8, 0, 26)
+breakable = false
 
 [node name="WoodenDoor5" parent="Doors" instance=ExtResource("6_nqacp")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 70, 0, 54)
@@ -183,10 +184,10 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -226.0
-offset_top = -186.0
-offset_right = 226.0
-offset_bottom = -58.0
+offset_left = -260.5
+offset_top = -212.0
+offset_right = 260.5
+offset_bottom = -55.0
 grow_horizontal = 2
 grow_vertical = 0
 script = ExtResource("9_xltr2")
@@ -212,7 +213,7 @@ dialogue_box = NodePath("../../DialogueBox")
 dialogue_id = "FIRST_CONV"
 
 [node name="dialog_trigger4" parent="DialogTrigger" node_paths=PackedStringArray("dialogue_box") instance=ExtResource("9_7do2h")]
-transform = Transform3D(2.98467, 0, 0, 0, 5.20379, 0, 0, 0, 3.28309, 6.82486, 0.231401, 26.1974)
+transform = Transform3D(4.83654, 0, 0, 0, 5.20379, 0, 0, 0, 6.1705, 7.19536, 0.0913701, 25.6908)
 dialogue_box = NodePath("../../DialogueBox")
 dialogue_id = "MELEE_TUTORIAL"
 
@@ -500,6 +501,7 @@ visible = false
 [connection signal="timeout" from="Timer" to="BattleMusic" method="_on_timer_timeout"]
 [connection signal="finished" from="Scream" to="." method="_on_scream_finished"]
 [connection signal="dialogue_ended" from="DialogueBox" to="Player" method="_on_dialogue_box_dialogue_ended"]
+[connection signal="dialogue_signal" from="DialogueBox" to="." method="_on_dialogue_box_dialogue_signal"]
 [connection signal="dialogue_signal" from="DialogueBox" to="Doors/WoodenDoor3" method="_on_dialogue_box_dialogue_signal"]
 [connection signal="dialogue_skiped" from="DialogueBox" to="AudioDialog" method="_on_dialogue_box_dialogue_skiped"]
 [connection signal="dialogue_started" from="DialogueBox" to="Player" method="_on_dialogue_box_dialogue_started"]

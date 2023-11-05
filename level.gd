@@ -1,11 +1,14 @@
 extends Node
 
+var screamed = false
+
 func trigger_smashed_door_dialog():
 	$DialogueBox.start("DOOR_CONV")
 
 
 func _on_scream_trigger_body_entered(body):
-	if body.name == "Player":
+	if body.name == "Player" and not screamed:
+		screamed = true
 		$Scream.play()
 
 
@@ -32,3 +35,10 @@ func _on_enemy_group_2_all_dead():
 	var flares = get_tree().get_nodes_in_group("flare_before_jail")
 	for flare in flares:
 		flare.visible = true
+
+
+func _on_dialogue_box_dialogue_signal(value):
+	match(value):
+		"melee_tut": 
+			$Player.in_dialog = false
+			$Doors/WoodenDoor.breakable = true
