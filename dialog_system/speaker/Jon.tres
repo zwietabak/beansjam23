@@ -1,8 +1,10 @@
-[gd_resource type="Resource" script_class="Character" load_steps=2 format=3 uid="uid://by4nx71uw8osm"]
+[gd_resource type="Resource" script_class="Character" load_steps=3 format=3 uid="uid://by4nx71uw8osm"]
 
 [ext_resource type="Script" path="res://addons/dialogue_nodes/objects/Character.gd" id="1_dgmaa"]
+[ext_resource type="Texture2D" uid="uid://dmavibpvvbkga" path="res://dialog_system/speaker/JonPortrait.png" id="1_t5o8s"]
 
 [resource]
 script = ExtResource("1_dgmaa")
 name = "Jon"
+image = ExtResource("1_t5o8s")
 color = Color(0.341176, 0.635294, 0.32549, 1)
