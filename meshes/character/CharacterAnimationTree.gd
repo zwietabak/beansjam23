@@ -30,4 +30,3 @@ func SetAttack():
 	
 func SetAttack2():
 	set("parameters/BlendTree/Attack2/request", AnimationNodeOneShot.ONE_SHOT_REQUEST_FIRE)
-	

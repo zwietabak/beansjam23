@@ -1,11 +1,12 @@
 extends Node3D
 
-
 @export
 var Body : MeshInstance3D
 
 @export
 var Horns : Array[MeshInstance3D]
+
+signal animation_signal(value: String)
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -18,3 +19,6 @@ func _ready():
 
 	for horn in Horns:
 		horn.visible = randi_range(0, 1) as bool
+
+func signal_call(value: String):
+	animation_signal.emit(value)
