@@ -46,18 +46,18 @@ data = PackedVector3Array(12.5, 0, 12.5, -12.5, 0, 12.5, 12.5, 0, -12.5, -12.5, 
 environment = SubResource("Environment_04lgc")
 
 [node name="Player" parent="." node_paths=PackedStringArray("companion") instance=ExtResource("1_keog1")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.02446, 0, 6.56959)
+transform = Transform3D(0.886204, 0, -0.463296, 0, 1, 0, 0.463296, 0, 0.886204, -2.20962, 0, 0.78639)
 companion = NodePath("../Companion")
 
 [node name="Companion" parent="." instance=ExtResource("2_tqyfj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.0429, 2.09821, 6.56959)
+transform = Transform3D(0.886204, 0, -0.463296, 0, 1, 0, 0.463296, 0, 0.886204, -2.82897, 2.09821, 0.458817)
 circle_radius = 0.5
 circle_speed = 350.0
 bounce_height = 0.001
 bounce_speed = 0.5
 
 [node name="Enemy" parent="." node_paths=PackedStringArray("follow_target") instance=ExtResource("3_nb1ho")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -7.51807)
+transform = Transform3D(-0.937233, 0, 0.348703, 0, 1, 0, -0.348703, 0, -0.937233, 1.29657, 0, -3.12219)
 follow_target = NodePath("../Player")
 
 [node name="Enemy_NavMesh" type="NavigationRegion3D" parent="."]
