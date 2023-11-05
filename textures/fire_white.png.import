@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ssdgsqu5wv7a"
-path.s3tc="res://.godot/imported/TCom_Metal_Medieval_1K_normal.png-666fb94d84d5e2644c71a36354c7d71e.s3tc.ctex"
+uid="uid://dkiyloai2unba"
+path.s3tc="res://.godot/imported/fire_white.png-f364d1b8a847fb08036bcd86371b58fe.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://textures/TCom_Metal_Medieval_1K_normal.png"
-dest_files=["res://.godot/imported/TCom_Metal_Medieval_1K_normal.png-666fb94d84d5e2644c71a36354c7d71e.s3tc.ctex"]
+source_file="res://textures/fire_white.png"
+dest_files=["res://.godot/imported/fire_white.png-f364d1b8a847fb08036bcd86371b58fe.s3tc.ctex"]
 
 [params]
 
@@ -20,7 +20,7 @@ compress/mode=2
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1
-compress/normal_map=1
+compress/normal_map=0
 compress/channel_pack=0
 mipmaps/generate=true
 mipmaps/limit=-1

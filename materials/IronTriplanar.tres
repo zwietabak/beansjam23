@@ -1,3 +1,19 @@
-[gd_resource type="ShaderMaterial" format=3 uid="uid://bc80roaa3bo6r"]
+[gd_resource type="ShaderMaterial" load_steps=6 format=3 uid="uid://bc80roaa3bo6r"]
+
+[ext_resource type="Shader" uid="uid://lmp62lk54s5n" path="res://materials/Triplanar.tres" id="1_c27iy"]
+[ext_resource type="Texture2D" uid="uid://gbwjv7s4ogwe" path="res://textures/TCom_Metal_Medieval_1K_albedo.png" id="2_7pmcw"]
+[ext_resource type="Texture2D" uid="uid://ssdgsqu5wv7a" path="res://textures/TCom_Metal_Medieval_1K_normal.png" id="3_4ilgj"]
+[ext_resource type="Texture2D" uid="uid://dbaa02ko3wums" path="res://textures/TCom_Metal_Medieval_1K_metallic.png" id="3_la6na"]
+[ext_resource type="Texture2D" uid="uid://cykv0baj7ai70" path="res://textures/TCom_Metal_Medieval_1K_roughness.png" id="4_cuwu5"]
 
 [resource]
+render_priority = 0
+shader = ExtResource("1_c27iy")
+shader_parameter/ColorParameter = Color(1, 1, 1, 1)
+shader_parameter/triplanar_scale = Vector3(1, 1, 1)
+shader_parameter/triplanar_offset = null
+shader_parameter/triplanar_sharpness = 0.5
+shader_parameter/Albedo = ExtResource("2_7pmcw")
+shader_parameter/Metallic = ExtResource("3_la6na")
+shader_parameter/Roughness = ExtResource("4_cuwu5")
+shader_parameter/Normal = ExtResource("3_4ilgj")
