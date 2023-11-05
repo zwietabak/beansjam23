@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://cxrr7it8fbjc7"]
+[gd_scene load_steps=35 format=3 uid="uid://cxrr7it8fbjc7"]
 
 [ext_resource type="PackedScene" uid="uid://c374f2n2m818j" path="res://player/player.tscn" id="1_wy8p3"]
 [ext_resource type="Script" path="res://level.gd" id="1_xxsr4"]
@@ -23,6 +23,8 @@
 [ext_resource type="Script" path="res://enemy/enemy_group.gd" id="20_pj1ht"]
 [ext_resource type="PackedScene" uid="uid://o2rq36t0y4ra" path="res://environment/tmp_flare.tscn" id="21_yt1sn"]
 [ext_resource type="Texture2D" uid="uid://sit232pl07eo" path="res://sprites/rbtv.png" id="22_yqub0"]
+[ext_resource type="PackedScene" uid="uid://rkoad6ekqo74" path="res://environment/pillar.tscn" id="24_jipjm"]
+[ext_resource type="PackedScene" uid="uid://umewr82juvtu" path="res://meshes/environment/Pillar.glb" id="25_swxd5"]
 
 [sub_resource type="Environment" id="Environment_l2luy"]
 background_mode = 2
@@ -32,7 +34,6 @@ sdfgi_read_sky_light = false
 glow_enabled = true
 glow_normalized = true
 glow_blend_mode = 0
-volumetric_fog_enabled = true
 volumetric_fog_density = 0.1
 volumetric_fog_emission = Color(0.00784314, 0.00784314, 0.00784314, 1)
 
@@ -271,7 +272,7 @@ health_points = null
 damage_points = null
 
 [node name="Enemy4" parent="EnemyGroup" node_paths=PackedStringArray("follow_target") instance=ExtResource("19_iv7qs")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 73.1649, 0.0142512, 22.1416)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 73.1649, 0.0142512, 23.1416)
 follow_target = NodePath("../../Player")
 health_points = null
 damage_points = null
@@ -293,25 +294,25 @@ script = ExtResource("20_pj1ht")
 trigger = NodePath("../Doors/WoodenDoor6")
 
 [node name="Enemy6" parent="EnemyGroup2" node_paths=PackedStringArray("follow_target") instance=ExtResource("19_iv7qs")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.59317, 0.0142521, 70.9673)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.59317, 0.0142521, 74.9673)
 follow_target = NodePath("../../Player")
 health_points = null
 damage_points = null
 
 [node name="Enemy3" parent="EnemyGroup2" node_paths=PackedStringArray("follow_target") instance=ExtResource("19_iv7qs")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.13147, 0.0142531, 72.7541)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.13147, 0.0142531, 76.7541)
 follow_target = NodePath("../../Player")
 health_points = null
 damage_points = null
 
 [node name="Enemy4" parent="EnemyGroup2" node_paths=PackedStringArray("follow_target") instance=ExtResource("19_iv7qs")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.48561, 0.0142531, 74.2547)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.48561, 0.0142531, 78.2547)
 follow_target = NodePath("../../Player")
 health_points = null
 damage_points = null
 
 [node name="Enemy5" parent="EnemyGroup2" node_paths=PackedStringArray("follow_target") instance=ExtResource("19_iv7qs")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.45601, 0.0142531, 73.5213)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.45601, 0.0142531, 77.5213)
 follow_target = NodePath("../../Player")
 health_points = null
 damage_points = null
@@ -598,6 +599,548 @@ light_volumetric_fog_energy = 3.5
 shadow_enabled = true
 spot_range = 11.6899
 spot_angle = 23.743
+
+[node name="Node" type="Node" parent="."]
+
+[node name="Pillar" parent="Node" instance=ExtResource("24_jipjm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, 15)
+
+[node name="Pillar2" parent="Node" instance=ExtResource("25_swxd5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, 13)
+
+[node name="Pillar3" parent="Node" instance=ExtResource("25_swxd5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, 13)
+
+[node name="Pillar4" parent="Node" instance=ExtResource("25_swxd5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, 15)
+
+[node name="Pillar5" parent="Node" instance=ExtResource("25_swxd5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, 1)
+
+[node name="Pillar6" parent="Node" instance=ExtResource("25_swxd5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, 1)
+
+[node name="Pillar7" parent="Node" instance=ExtResource("25_swxd5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 36, 0, 17)
+
+[node name="Pillar8" parent="Node" instance=ExtResource("25_swxd5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 49, 0, 27)
+
+[node name="Pillar9" parent="Node" instance=ExtResource("25_swxd5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 45, 0, 31)
+
+[node name="Pillar10" parent="Node" instance=ExtResource("25_swxd5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 49, 0, 31)
+
+[node name="Pillar11" parent="Node" instance=ExtResource("25_swxd5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 45, 0, 35)
+
+[node name="Pillar12" parent="Node" instance=ExtResource("25_swxd5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31, 0, 35)
+
+[node name="Pillar13" parent="Node" instance=ExtResource("25_swxd5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0, 29)
+
+[node name="Pillar14" parent="Node" instance=ExtResource("25_swxd5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29, 0, 29)
+
+[node name="Pillar15" parent="Node" instance=ExtResource("25_swxd5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29, 0, 23)
+
+[node name="Pillar16" parent="Node" instance=ExtResource("25_swxd5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 0, 29)
+
+[node name="Pillar17" parent="Node" instance=ExtResource("25_swxd5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 0, 15)
+
+[node name="Pillar18" parent="Node" instance=ExtResource("25_swxd5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 15)
+
+[node name="Pillar19" parent="Node" instance=ExtResource("25_swxd5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0, 23)
+
+[node name="Pillar20" parent="Node" instance=ExtResource("25_swxd5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, 1)
+
+[node name="Pillar21" parent="Node" instance=ExtResource("25_swxd5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, -1)
+
+[node name="Pillar22" parent="Node" instance=ExtResource("25_swxd5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, -1)
+
+[node name="Pillar23" parent="Node" instance=ExtResource("25_swxd5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 1)
+
+[node name="Pillar24" parent="Node" instance=ExtResource("25_swxd5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31, 0, 13)
+
+[node name="Pillar25" parent="Node" instance=ExtResource("25_swxd5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 53, 0, 13)
+
+[node name="Pillar26" parent="Node" instance=ExtResource("25_swxd5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 36, 0, 23)
+
+[node name="Pillar27" parent="Node" instance=ExtResource("25_swxd5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 36, 0, 29)
+
+[node name="Pillar28" parent="Node" instance=ExtResource("25_swxd5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 42, 0, 29)
+
+[node name="Pillar29" parent="Node" instance=ExtResource("25_swxd5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 42, 0, 23)
+
+[node name="Pillar30" parent="Node" instance=ExtResource("25_swxd5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 42, 0, 17)
+
+[node name="Pillar31" parent="Node" instance=ExtResource("25_swxd5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 48, 0, 23)
+
+[node name="Pillar32" parent="Node" instance=ExtResource("25_swxd5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 48, 0, 17)
+
+[node name="Pillar33" parent="Node" instance=ExtResource("25_swxd5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 53, 0, 27)
+
+[node name="Pillar34" parent="Node" instance=ExtResource("25_swxd5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25, 0, 11)
+
+[node name="Pillar35" parent="Node" instance=ExtResource("25_swxd5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 57, 0, 11)
+
+[node name="Pillar36" parent="Node" instance=ExtResource("25_swxd5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25, 0, -7)
+
+[node name="Pillar37" parent="Node" instance=ExtResource("25_swxd5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 57, 0, -7)
+
+[node name="Pillar38" parent="Node" instance=ExtResource("25_swxd5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31, 0, 5)
+
+[node name="Pillar39" parent="Node" instance=ExtResource("25_swxd5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 37, 0, 5)
+
+[node name="Pillar40" parent="Node" instance=ExtResource("25_swxd5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 43, 0, 5)
+
+[node name="Pillar41" parent="Node" instance=ExtResource("25_swxd5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 49, 0, 5)
+
+[node name="Pillar42" parent="Node" instance=ExtResource("25_swxd5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31, 0, -2)
+
+[node name="Pillar43" parent="Node" instance=ExtResource("25_swxd5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 37, 0, -2)
+
+[node name="Pillar44" parent="Node" instance=ExtResource("25_swxd5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 43, 0, -2)
+
+[node name="Pillar45" parent="Node" instance=ExtResource("25_swxd5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 49, 0, -2)
+
+[node name="Pillar46" parent="Node" instance=ExtResource("25_swxd5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 59, 0, 7)
+
+[node name="Pillar47" parent="Node" instance=ExtResource("25_swxd5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 59, 0, 1)
+
+[node name="Pillar48" parent="Node" instance=ExtResource("25_swxd5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 83, 0, 1)
+
+[node name="Pillar49" parent="Node" instance=ExtResource("25_swxd5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 83, 0, 7)
+
+[node name="Pillar50" parent="Node" instance=ExtResource("25_swxd5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 73, 0, 19)
+
+[node name="Pillar51" parent="Node" instance=ExtResource("25_swxd5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 73, 0, 21)
+
+[node name="Pillar52" parent="Node" instance=ExtResource("25_swxd5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 71, 0, 19)
+
+[node name="Pillar53" parent="Node" instance=ExtResource("25_swxd5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 71, 0, 21)
+
+[node name="Pillar54" parent="Node" instance=ExtResource("25_swxd5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 83, 0, 19)
+
+[node name="Pillar55" parent="Node" instance=ExtResource("25_swxd5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 85, 0, 19)
+
+[node name="Pillar56" parent="Node" instance=ExtResource("25_swxd5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 83, 0, 21)
+
+[node name="Pillar57" parent="Node" instance=ExtResource("25_swxd5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 85, 0, 21)
+
+[node name="Pillar58" parent="Node" instance=ExtResource("25_swxd5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 71, 0, 31)
+
+[node name="Pillar59" parent="Node" instance=ExtResource("25_swxd5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 73, 0, 31)
+
+[node name="Pillar60" parent="Node" instance=ExtResource("25_swxd5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 71, 0, 33)
+
+[node name="Pillar61" parent="Node" instance=ExtResource("25_swxd5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 73, 0, 33)
+
+[node name="Pillar62" parent="Node" instance=ExtResource("25_swxd5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 83, 0, 31)
+
+[node name="Pillar63" parent="Node" instance=ExtResource("25_swxd5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 85, 0, 31)
+
+[node name="Pillar64" parent="Node" instance=ExtResource("25_swxd5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 83, 0, 33)
+
+[node name="Pillar65" parent="Node" instance=ExtResource("25_swxd5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 85, 0, 33)
+
+[node name="Pillar66" parent="Node" instance=ExtResource("25_swxd5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 73, 0, 43)
+
+[node name="Pillar67" parent="Node" instance=ExtResource("25_swxd5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 71, 0, 45)
+
+[node name="Pillar68" parent="Node" instance=ExtResource("25_swxd5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 73, 0, 45)
+
+[node name="Pillar69" parent="Node" instance=ExtResource("25_swxd5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 71, 0, 43)
+
+[node name="Pillar70" parent="Node" instance=ExtResource("25_swxd5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 83, 0, 43)
+
+[node name="Pillar71" parent="Node" instance=ExtResource("25_swxd5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 83, 0, 45)
+
+[node name="Pillar72" parent="Node" instance=ExtResource("25_swxd5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 85, 0, 45)
+
+[node name="Pillar73" parent="Node" instance=ExtResource("25_swxd5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 85, 0, 43)
+
+[node name="Pillar74" parent="Node" instance=ExtResource("25_swxd5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 71, 0, 57)
+
+[node name="Pillar75" parent="Node" instance=ExtResource("25_swxd5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 69, 0, 57)
+
+[node name="Pillar76" parent="Node" instance=ExtResource("25_swxd5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 85, 0, 57)
+
+[node name="Pillar77" parent="Node" instance=ExtResource("25_swxd5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 69, 0, 51)
+
+[node name="Pillar78" parent="Node" instance=ExtResource("25_swxd5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 54, 0, 56)
+
+[node name="Pillar79" parent="Node" instance=ExtResource("25_swxd5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 54, 0, 52)
+
+[node name="Pillar80" parent="Node" instance=ExtResource("25_swxd5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 51, 0, 57)
+
+[node name="Pillar81" parent="Node" instance=ExtResource("25_swxd5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 57, 0, 57)
+
+[node name="Pillar82" parent="Node" instance=ExtResource("25_swxd5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 51, 0, 51)
+
+[node name="Pillar83" parent="Node" instance=ExtResource("25_swxd5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 57, 0, 51)
+
+[node name="Pillar84" parent="Node" instance=ExtResource("25_swxd5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 51, 0, 49)
+
+[node name="Pillar85" parent="Node" instance=ExtResource("25_swxd5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 51, 0, 59)
+
+[node name="Pillar86" parent="Node" instance=ExtResource("25_swxd5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 57, 0, 59)
+
+[node name="Pillar87" parent="Node" instance=ExtResource("25_swxd5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 57, 0, 49)
+
+[node name="Pillar88" parent="Node" instance=ExtResource("25_swxd5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33, 0, 59)
+
+[node name="Pillar89" parent="Node" instance=ExtResource("25_swxd5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 39, 0, 59)
+
+[node name="Pillar90" parent="Node" instance=ExtResource("25_swxd5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33, 0, 57)
+
+[node name="Pillar91" parent="Node" instance=ExtResource("25_swxd5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 39, 0, 57)
+
+[node name="Pillar92" parent="Node" instance=ExtResource("25_swxd5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 36, 0, 56)
+
+[node name="Pillar93" parent="Node" instance=ExtResource("25_swxd5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33, 0, 51)
+
+[node name="Pillar94" parent="Node" instance=ExtResource("25_swxd5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33, 0, 49)
+
+[node name="Pillar95" parent="Node" instance=ExtResource("25_swxd5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 39, 0, 49)
+
+[node name="Pillar96" parent="Node" instance=ExtResource("25_swxd5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 39, 0, 51)
+
+[node name="Pillar97" parent="Node" instance=ExtResource("25_swxd5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 36, 0, 52)
+
+[node name="Pillar98" parent="Node" instance=ExtResource("25_swxd5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 0, 57)
+
+[node name="Pillar99" parent="Node" instance=ExtResource("25_swxd5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21, 0, 57)
+
+[node name="Pillar100" parent="Node" instance=ExtResource("25_swxd5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 0, 51)
+
+[node name="Pillar101" parent="Node" instance=ExtResource("25_swxd5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21, 0, 51)
+
+[node name="Pillar102" parent="Node" instance=ExtResource("25_swxd5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18, 0, 56)
+
+[node name="Pillar103" parent="Node" instance=ExtResource("25_swxd5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18, 0, 52)
+
+[node name="Pillar104" parent="Node" instance=ExtResource("25_swxd5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, 51)
+
+[node name="Pillar105" parent="Node" instance=ExtResource("25_swxd5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, 57)
+
+[node name="Pillar106" parent="Node" instance=ExtResource("25_swxd5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, 61)
+
+[node name="Pillar107" parent="Node" instance=ExtResource("25_swxd5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, 59)
+
+[node name="Pillar108" parent="Node" instance=ExtResource("25_swxd5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, 61)
+
+[node name="Pillar109" parent="Node" instance=ExtResource("25_swxd5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 0, 59)
+
+[node name="Pillar110" parent="Node" instance=ExtResource("25_swxd5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 0, 61)
+
+[node name="Pillar111" parent="Node" instance=ExtResource("25_swxd5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13, 0, 61)
+
+[node name="Pillar112" parent="Node" instance=ExtResource("25_swxd5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, 77)
+
+[node name="Pillar113" parent="Node" instance=ExtResource("25_swxd5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, 77)
+
+[node name="Pillar114" parent="Node" instance=ExtResource("25_swxd5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, 79)
+
+[node name="Pillar115" parent="Node" instance=ExtResource("25_swxd5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 0, 79)
+
+[node name="Pillar116" parent="Node" instance=ExtResource("25_swxd5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 0, 77)
+
+[node name="Pillar117" parent="Node" instance=ExtResource("25_swxd5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13, 0, 77)
+
+[node name="Pillar118" parent="Node" instance=ExtResource("25_swxd5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 81)
+
+[node name="Pillar119" parent="Node" instance=ExtResource("25_swxd5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, 81)
+
+[node name="Pillar120" parent="Node" instance=ExtResource("25_swxd5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 88)
+
+[node name="Pillar121" parent="Node" instance=ExtResource("25_swxd5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 96)
+
+[node name="Pillar122" parent="Node" instance=ExtResource("25_swxd5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0, 91)
+
+[node name="Pillar123" parent="Node" instance=ExtResource("25_swxd5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13, 0, 91)
+
+[node name="Pillar124" parent="Node" instance=ExtResource("25_swxd5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0, 85)
+
+[node name="Pillar125" parent="Node" instance=ExtResource("25_swxd5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13, 0, 85)
+
+[node name="Pillar126" parent="Node" instance=ExtResource("25_swxd5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0, 99)
+
+[node name="Pillar127" parent="Node" instance=ExtResource("25_swxd5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13, 0, 99)
+
+[node name="Pillar128" parent="Node" instance=ExtResource("25_swxd5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0, 93)
+
+[node name="Pillar129" parent="Node" instance=ExtResource("25_swxd5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13, 0, 93)
+
+[node name="Pillar130" parent="Node" instance=ExtResource("25_swxd5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 104)
+
+[node name="Pillar131" parent="Node" instance=ExtResource("25_swxd5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0, 101)
+
+[node name="Pillar132" parent="Node" instance=ExtResource("25_swxd5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13, 0, 101)
+
+[node name="Pillar133" parent="Node" instance=ExtResource("25_swxd5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0, 107)
+
+[node name="Pillar134" parent="Node" instance=ExtResource("25_swxd5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13, 0, 107)
+
+[node name="Pillar135" parent="Node" instance=ExtResource("25_swxd5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0, 115)
+
+[node name="Pillar136" parent="Node" instance=ExtResource("25_swxd5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0, 109)
+
+[node name="Pillar137" parent="Node" instance=ExtResource("25_swxd5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13, 0, 115)
+
+[node name="Pillar138" parent="Node" instance=ExtResource("25_swxd5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13, 0, 109)
+
+[node name="Pillar139" parent="Node" instance=ExtResource("25_swxd5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 119)
+
+[node name="Pillar140" parent="Node" instance=ExtResource("25_swxd5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, 119)
+
+[node name="Pillar141" parent="Node" instance=ExtResource("25_swxd5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 121)
+
+[node name="Pillar142" parent="Node" instance=ExtResource("25_swxd5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 0, 121)
+
+[node name="Pillar143" parent="Node" instance=ExtResource("25_swxd5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 137)
+
+[node name="Pillar144" parent="Node" instance=ExtResource("25_swxd5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 0, 125)
+
+[node name="Pillar145" parent="Node" instance=ExtResource("25_swxd5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17, 0, 137)
+
+[node name="Pillar146" parent="Node" instance=ExtResource("25_swxd5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17, 0, 135)
+
+[node name="Pillar147" parent="Node" instance=ExtResource("25_swxd5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17, 0, 127)
+
+[node name="Pillar148" parent="Node" instance=ExtResource("25_swxd5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17, 0, 125)
+
+[node name="Pillar149" parent="Node" instance=ExtResource("25_swxd5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19, 0, 137)
+
+[node name="Pillar150" parent="Node" instance=ExtResource("25_swxd5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19, 0, 135)
+
+[node name="Pillar151" parent="Node" instance=ExtResource("25_swxd5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19, 0, 127)
+
+[node name="Pillar152" parent="Node" instance=ExtResource("25_swxd5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19, 0, 125)
+
+[node name="Pillar153" parent="Node" instance=ExtResource("25_swxd5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29, 0, 137)
+
+[node name="Pillar154" parent="Node" instance=ExtResource("25_swxd5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29, 0, 135)
+
+[node name="Pillar155" parent="Node" instance=ExtResource("25_swxd5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31, 0, 135)
+
+[node name="Pillar156" parent="Node" instance=ExtResource("25_swxd5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31, 0, 137)
+
+[node name="Pillar157" parent="Node" instance=ExtResource("25_swxd5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29, 0, 125)
+
+[node name="Pillar158" parent="Node" instance=ExtResource("25_swxd5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29, 0, 127)
+
+[node name="Pillar159" parent="Node" instance=ExtResource("25_swxd5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31, 0, 127)
+
+[node name="Pillar160" parent="Node" instance=ExtResource("25_swxd5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31, 0, 125)
+
+[node name="Pillar161" parent="Node" instance=ExtResource("25_swxd5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 41, 0, 137)
+
+[node name="Pillar162" parent="Node" instance=ExtResource("25_swxd5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 41, 0, 135)
+
+[node name="Pillar163" parent="Node" instance=ExtResource("25_swxd5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 43, 0, 135)
+
+[node name="Pillar164" parent="Node" instance=ExtResource("25_swxd5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 41, 0, 125)
+
+[node name="Pillar165" parent="Node" instance=ExtResource("25_swxd5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 41, 0, 127)
+
+[node name="Pillar166" parent="Node" instance=ExtResource("25_swxd5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 43, 0, 127)
+
+[node name="Pillar167" parent="Node" instance=ExtResource("25_swxd5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 57, 0, 121)
+
+[node name="Pillar168" parent="Node" instance=ExtResource("25_swxd5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 43, 0, 141)
+
+[node name="Pillar169" parent="Node" instance=ExtResource("25_swxd5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 43, 0, 121)
+
+[node name="Pillar170" parent="Node" instance=ExtResource("25_swxd5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 57, 0, 141)
+
+[node name="Pillar171" parent="Node" instance=ExtResource("25_swxd5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 59, 0, 135)
+
+[node name="Pillar172" parent="Node" instance=ExtResource("25_swxd5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 65, 0, 135)
+
+[node name="Pillar173" parent="Node" instance=ExtResource("25_swxd5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 59, 0, 127)
+
+[node name="Pillar174" parent="Node" instance=ExtResource("25_swxd5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 65, 0, 127)
+
+[node name="Pillar175" parent="Node" instance=ExtResource("25_swxd5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 54, 0, 134)
+
+[node name="Pillar176" parent="Node" instance=ExtResource("25_swxd5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 51, 0, 134)
+
+[node name="Pillar177" parent="Node" instance=ExtResource("25_swxd5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 48, 0, 134)
+
+[node name="Pillar178" parent="Node" instance=ExtResource("25_swxd5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 48, 0, 128)
+
+[node name="Pillar179" parent="Node" instance=ExtResource("25_swxd5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 51, 0, 128)
+
+[node name="Pillar180" parent="Node" instance=ExtResource("25_swxd5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 54, 0, 128)
 
 [connection signal="door_smashed" from="Doors/WoodenDoor" to="." method="trigger_smashed_door_dialog"]
 [connection signal="door_smashed" from="Doors/WoodenDoor3" to="Enemy" method="_on_door_smashed"]

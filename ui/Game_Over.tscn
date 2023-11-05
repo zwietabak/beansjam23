@@ -2,7 +2,7 @@
 
 [ext_resource type="FontFile" uid="uid://cfpb8p1e0pltp" path="res://ui/fonts/Volcanic Dungeon.ttf" id="1_ryk0y"]
 [ext_resource type="Script" path="res://ui/Game_Over.gd" id="1_sb6ov"]
-[ext_resource type="Texture2D" uid="uid://dl1kyovrbxvru" path="res://ui/beansjam23.jpg" id="2_jwjda"]
+[ext_resource type="Texture2D" uid="uid://bcyib8hcn15oh" path="res://ui/GameOverScreen.png" id="2_lsedd"]
 
 [node name="Game_Over" type="Control"]
 layout_mode = 3
@@ -15,12 +15,10 @@ script = ExtResource("1_sb6ov")
 
 [node name="Background" type="TextureRect" parent="."]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("2_jwjda")
+offset_right = 1152.0
+offset_bottom = 648.0
+texture = ExtResource("2_lsedd")
+expand_mode = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
