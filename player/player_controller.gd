@@ -20,12 +20,15 @@ var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
 signal on_attack
 signal on_hit
+signal died
 
 var in_dialog = false
 var theta = 0
 var dtheta = 0
 var in_attack_animation = false
 var in_hit_animation = false
+var controls_disabled = true
+var health_points = 4
 
 func _ready():
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
@@ -43,7 +46,10 @@ func _physics_process(delta):
 	if !in_attack_animation and !in_hit_animation:
 		# Get the input direction and handle the movement/deceleration.
 		# As good practice, you should replace UI actions with custom gameplay actions.
-		var input_dir = Input.get_vector("move_left", "move_right", "move_forward", "move_backward")
+		var input_dir = Vector3.ZERO
+		if(!controls_disabled):
+			input_dir = Input.get_vector("move_left", "move_right", "move_forward", "move_backward")
+		
 		var direction = (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 		if direction:
 			velocity.x = direction.x * SPEED
@@ -99,7 +105,7 @@ func _physics_process(delta):
 
 func _input(event):
 	if event is InputEventMouseMotion:
-		if !in_attack_animation and !in_hit_animation:
+		if !in_attack_animation and !in_hit_animation and !controls_disabled:
 			# Swap out the below code lines to have the player rotate with the camera or not
 			rotate_y(-event.relative.x * LOOK_SENSITIVITY)
 			#camera_pivot.rotate_y(-event.relative.x * LOOK_SENSITIVITY)
@@ -121,13 +127,21 @@ func init_companion_rotation():
 	dtheta = (2 * PI / companion.circle_speed)
 
 func take_damage(amount: int):
-	print("OUCH! I got hit!")
 	walkink_sounds.stop_walking()
 	sound_effects.start_sound("GOT_HIT")
 	in_hit_animation = true
 	in_attack_animation = false
 	on_hit.emit()
+	health_points -= 1
+	if(health_points <= 0):
+		die()
 
+func die():
+	set_process(false)
+	set_physics_process(false)
+	died.emit()
+	await get_tree().create_timer(1.0).timeout
+	SceneTransition.change_scene("res://ui/Game_Over.tscn")
 
 func _on_animation_tree_animation_finished(anim_name):
 	if anim_name == "GetHit":
@@ -147,3 +161,8 @@ func _on_dialogue_box_dialogue_started(id):
 
 func _on_dialogue_box_dialogue_ended():
 	in_dialog = false
+
+
+func _on_dialogue_box_dialogue_signal(value):
+	match(value):
+		"enable_controlls": controls_disabled = false

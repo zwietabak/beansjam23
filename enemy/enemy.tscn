@@ -69,6 +69,7 @@ script = ExtResource("3_ruucy")
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
 
 [node name="Skeleton3D" parent="Enemy_Mesh/Armature" index="0"]
+
 bones/0/position = Vector3(-2.16217, 0.556057, -97.9514)
 bones/0/rotation = Quaternion(-0.722896, -0.00577427, -0.00767055, 0.69089)
 bones/1/rotation = Quaternion(-0.0500873, -0.00302618, 0.00233191, 0.998738)

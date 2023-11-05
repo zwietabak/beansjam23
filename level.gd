@@ -42,3 +42,5 @@ func _on_dialogue_box_dialogue_signal(value):
 		"melee_tut": 
 			$Player.in_dialog = false
 			$Doors/WoodenDoor.breakable = true
+		"VICTROYYY":
+			SceneTransition.change_scene("res://ui/Victory.tscn")
