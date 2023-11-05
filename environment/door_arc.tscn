@@ -1,12 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://dp8yd7v6o00t2"]
+[gd_scene load_steps=2 format=3 uid="uid://dp8yd7v6o00t2"]
 
 [ext_resource type="PackedScene" uid="uid://bw3wimvxh2mao" path="res://meshes/environment/DoorArc.glb" id="1_csj81"]
-[ext_resource type="Material" uid="uid://ca3pik4l1fcwo" path="res://materials/BrickWallTriplanar.tres" id="2_ud8qc"]
 
 [node name="DoorArc" instance=ExtResource("1_csj81")]
-
-[node name="DoorArc" parent="." index="0"]
-material_override = ExtResource("2_ud8qc")
 
 [node name="StaticBody3D" parent="DoorArc" index="0"]
 collision_layer = 3

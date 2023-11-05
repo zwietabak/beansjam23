@@ -8,9 +8,10 @@
 [sub_resource type="BoxShape3D" id="BoxShape3D_6g7dr"]
 size = Vector3(1.72442, 2.85057, 0.376283)
 
-[node name="WoodenDoor" node_paths=PackedStringArray("collision") instance=ExtResource("1_cqgf1")]
+[node name="WoodenDoor" node_paths=PackedStringArray("collision", "rigid_bodies") instance=ExtResource("1_cqgf1")]
 script = ExtResource("2_xh6fw")
 collision = NodePath("Door/DoorColision/CollisionShape3D")
+rigid_bodies = [NodePath("Door/DoorPiece-rigid"), NodePath("Door/DoorPiece_001-rigid"), NodePath("Door/DoorPiece_002-rigid"), NodePath("Door/DoorPiece_003-rigid"), NodePath("Door/DoorPiece_004-rigid"), NodePath("Door/DoorPiece_005-rigid"), NodePath("Door/DoorPiece_006-rigid"), NodePath("Door/DoorPiece_007-rigid")]
 
 [node name="DoorColision" parent="Door" index="3" groups=["door"]]
 

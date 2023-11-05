@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://d1kno6x3vvekh"
+path="res://.godot/imported/Horn.obj-90bb6e24bc8192fd2b905cd0916a5282.mesh"
+
+[deps]
+
+files=["res://.godot/imported/Horn.obj-90bb6e24bc8192fd2b905cd0916a5282.mesh"]
+
+source_file="res://meshes/enemy/Horn.obj"
+dest_files=["res://.godot/imported/Horn.obj-90bb6e24bc8192fd2b905cd0916a5282.mesh", "res://.godot/imported/Horn.obj-90bb6e24bc8192fd2b905cd0916a5282.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
