@@ -1,5 +1,17 @@
-[gd_scene load_steps=2 format=3 uid="uid://bpaiy3ae38xka"]
+[gd_scene load_steps=3 format=3 uid="uid://bpaiy3ae38xka"]
 
 [ext_resource type="PackedScene" uid="uid://bx02n2xu5lhy7" path="res://meshes/environment/Stairs.glb" id="1_2rymb"]
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_wvur8"]
+size = Vector3(6.53225, 5.63037, 1)
+
 [node name="Stairs" instance=ExtResource("1_2rymb")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." index="14"]
+axis_lock_linear_x = true
+axis_lock_linear_y = true
+axis_lock_linear_z = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.78419, -0.465348)
+shape = SubResource("BoxShape3D_wvur8")
