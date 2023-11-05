@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://bo37fnoyacgi0"
-path="res://.godot/imported/Torch.glb-c7aec0e1eebc99c88fcc06a9f53403de.scn"
+uid="uid://bx02n2xu5lhy7"
+path="res://.godot/imported/Stairs.glb-bb1d976b139e12ced3c59358d0be436e.scn"
 
 [deps]
 
-source_file="res://meshes/environment/Torch.glb"
-dest_files=["res://.godot/imported/Torch.glb-c7aec0e1eebc99c88fcc06a9f53403de.scn"]
+source_file="res://meshes/environment/Stairs.glb"
+dest_files=["res://.godot/imported/Stairs.glb-bb1d976b139e12ced3c59358d0be436e.scn"]
 
 [params]
 
@@ -30,9 +30,13 @@ animation/remove_immutable_tracks=true
 import_script/path=""
 _subresources={
 "materials": {
-"Iron": {
+"BrickWall": {
 "use_external/enabled": true,
-"use_external/path": "res://materials/IronTriplanar.tres"
+"use_external/path": "res://materials/BrickWallTriplanar.tres"
+},
+"Rock": {
+"use_external/enabled": true,
+"use_external/path": "res://materials/ConcreteTriplanar.tres"
 }
 }
 }
