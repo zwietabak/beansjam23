@@ -1,0 +1,43 @@
+[remap]
+
+importer="scene"
+importer_version=1
+type="PackedScene"
+uid="uid://bx02n2xu5lhy7"
+path="res://.godot/imported/Stairs.glb-bb1d976b139e12ced3c59358d0be436e.scn"
+
+[deps]
+
+source_file="res://meshes/environment/Stairs.glb"
+dest_files=["res://.godot/imported/Stairs.glb-bb1d976b139e12ced3c59358d0be436e.scn"]
+
+[params]
+
+nodes/root_type="Node3D"
+nodes/root_name="Scene Root"
+nodes/apply_root_scale=true
+nodes/root_scale=1.0
+meshes/ensure_tangents=true
+meshes/generate_lods=true
+meshes/create_shadow_meshes=true
+meshes/light_baking=1
+meshes/lightmap_texel_size=0.2
+skins/use_named_skins=true
+animation/import=true
+animation/fps=30
+animation/trimming=false
+animation/remove_immutable_tracks=true
+import_script/path=""
+_subresources={
+"materials": {
+"BrickWall": {
+"use_external/enabled": true,
+"use_external/path": "res://materials/BrickWallTriplanar.tres"
+},
+"Rock": {
+"use_external/enabled": true,
+"use_external/path": "res://materials/ConcreteTriplanar.tres"
+}
+}
+}
+gltf/embedded_image_handling=1
