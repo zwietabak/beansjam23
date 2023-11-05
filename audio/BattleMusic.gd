@@ -30,7 +30,7 @@ func tween_completed():
 
 func _on_timer_timeout():
 	for enemy in enemies:
-		if not (enemy == null) and enemy.is_active:
+		if not (enemy == null) and enemy.in_combat:
 			return
 			
 	if not fadeing and playing:

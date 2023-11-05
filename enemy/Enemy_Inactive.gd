@@ -14,11 +14,9 @@ func physics_update(_delta: float) -> void:
 
 
 func enter(_msg := {}) -> void:
-	pass
-
+	character.velocity.x = 0
+	character.velocity.z = 0
 
 func exit() -> void:
 	character.is_active = true
 	character.invincible = false
-	if character.battle_music != null:
-		character.battle_music.fade_in()

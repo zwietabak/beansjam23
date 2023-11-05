@@ -25,3 +25,6 @@ func enter(_msg := {}) -> void:
 #Called when state is exited
 func exit() -> void:
 	pass
+
+func recive_event(value: String) -> void:
+	pass

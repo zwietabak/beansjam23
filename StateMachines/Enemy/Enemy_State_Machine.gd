@@ -4,7 +4,7 @@ extends Node
 @onready var character:= owner as Enemy
 @export var initial_state : NodePath
 
-var state
+var state: EnemyBaseState
 
 func _ready() -> void:
 	await owner.ready
@@ -25,15 +25,18 @@ func _ready() -> void:
 
 #Handle user inputs
 func _unhandled_input(event: InputEvent) -> void:
-	state.handle_input(event)
+	if(!character.is_dead):
+		state.handle_input(event)
 
 
 func _process(delta: float) -> void:
-	state.update(delta)
+	if(!character.is_dead):
+		state.update(delta)
 
 
 func _physics_process(delta: float) -> void:
-	state.physics_update(delta)
+	if(!character.is_dead):
+		state.physics_update(delta)
 
 
 #Transition to new state.

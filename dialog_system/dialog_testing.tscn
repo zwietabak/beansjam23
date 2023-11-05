@@ -871,7 +871,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.60553, -1.46831, 18.3396)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0203304, -0.00543928, 0.0144925)
 shape = SubResource("BoxShape3D_igqi2")
 
-[node name="BattleMusic" type="AudioStreamPlayer" parent="."]
+[node name="BattleMusic" type="AudioStreamPlayer" parent="." groups=["BattleMusic"]]
 stream = ExtResource("9_23kpd")
 script = ExtResource("12_jg558")
 
