@@ -1,21 +1,17 @@
-[gd_scene load_steps=11 format=3 uid="uid://o2rq36t0y4ra"]
+[gd_scene load_steps=10 format=3 uid="uid://o2rq36t0y4ra"]
 
-[ext_resource type="Texture2D" uid="uid://cxlet7nr2cunu" path="res://textures/fire.png" id="1_8x6ak"]
-
-[sub_resource type="BoxMesh" id="BoxMesh_axkd4"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fomvs"]
-albedo_color = Color(0.380392, 0.235294, 0.117647, 1)
+[ext_resource type="Texture2D" uid="uid://dkiyloai2unba" path="res://textures/fire_white.png" id="1_xf8r0"]
+[ext_resource type="PackedScene" uid="uid://bo37fnoyacgi0" path="res://meshes/environment/Torch.glb" id="2_jkvhj"]
 
 [sub_resource type="Gradient" id="Gradient_8auof"]
-offsets = PackedFloat32Array(0, 0.64)
-colors = PackedColorArray(1, 0.65098, 0.0509804, 1, 1, 0.141176, 0, 1)
+offsets = PackedFloat32Array(0, 0.132114, 0.294715, 0.636179, 1)
+colors = PackedColorArray(1, 1, 1, 0, 1, 0.623456, 0.048228, 1, 1, 0.202631, 0.0061455, 1, 1, 0.0823529, 0, 1, 1, 0.141176, 0, 0)
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_g1rt0"]
 gradient = SubResource("Gradient_8auof")
 
 [sub_resource type="Curve" id="Curve_l8hvj"]
-_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.307692, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+_data = [Vector2(0, 0.515789), 0.0, 0.0, 0, 0, Vector2(0.307692, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.326316), 0.0, 0.0, 0, 0]
 point_count = 3
 
 [sub_resource type="CurveTexture" id="CurveTexture_skr00"]
@@ -32,7 +28,7 @@ angular_velocity_max = 50.0
 linear_accel_min = 1.0
 linear_accel_max = 1.0
 angle_max = 360.0
-scale_max = 1.5
+scale_min = 0.5
 scale_curve = SubResource("CurveTexture_skr00")
 color_ramp = SubResource("GradientTexture1D_g1rt0")
 
@@ -40,7 +36,7 @@ color_ramp = SubResource("GradientTexture1D_g1rt0")
 transparency = 1
 shading_mode = 0
 vertex_color_use_as_albedo = true
-albedo_texture = ExtResource("1_8x6ak")
+albedo_texture = ExtResource("1_xf8r0")
 texture_filter = 0
 billboard_mode = 3
 billboard_keep_scale = true
@@ -54,20 +50,18 @@ material = SubResource("StandardMaterial3D_fu2ov")
 [node name="Tmp_Flare" type="Node3D"]
 transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, 0, 0, 0)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.148013, 0, 0, 0, 1, 0, 0, 0, 0.142986, 0, 0, 0)
-mesh = SubResource("BoxMesh_axkd4")
-surface_material_override/0 = SubResource("StandardMaterial3D_fomvs")
+[node name="Torch" parent="." instance=ExtResource("2_jkvhj")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
 
-[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.474183, 0)
+[node name="GPUParticles3D" type="GPUParticles3D" parent="Torch"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.291309, 0.409777)
 amount = 16
 preprocess = 2.0
 process_material = SubResource("ParticleProcessMaterial_pkjdr")
 draw_pass_1 = SubResource("QuadMesh_55ft7")
 
-[node name="OmniLight3D" type="OmniLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.657075, 0)
+[node name="OmniLight3D" type="OmniLight3D" parent="Torch"]
+transform = Transform3D(1.33333, 0, 0, 0, 1.33333, 0, 0, 0, 1.33333, 0, 0.395386, 0.409777)
 light_color = Color(0.894118, 0.639216, 0.239216, 1)
 shadow_enabled = true
 omni_range = 6.5
