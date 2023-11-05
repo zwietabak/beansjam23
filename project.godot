@@ -27,6 +27,11 @@ SceneTransition="*res://ui/scene_transition.tscn"
 
 enabled=PackedStringArray("res://addons/dialogue_nodes/plugin.cfg", "res://addons/nv.file_system/plugin.cfg")
 
+[filesystem]
+
+import/blender/enabled=false
+import/fbx/enabled=false
+
 [input]
 
 move_forward={
