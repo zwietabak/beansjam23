@@ -1,0 +1,9 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://diw4b5qsanh8b"]
+
+[ext_resource type="Shader" uid="uid://cebwjhu0uuk15" path="res://materials/FabricShader.tres" id="1_36uoi"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_36uoi")
+shader_parameter/Scale = 20.0
+shader_parameter/ColorParameter = Color(0.407843, 0.364706, 0.309804, 1)
