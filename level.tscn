@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://cxrr7it8fbjc7"]
+[gd_scene load_steps=32 format=3 uid="uid://cxrr7it8fbjc7"]
 
 [ext_resource type="PackedScene" uid="uid://c374f2n2m818j" path="res://player/player.tscn" id="1_wy8p3"]
 [ext_resource type="Script" path="res://level.gd" id="1_xxsr4"]
@@ -21,6 +21,7 @@
 [ext_resource type="PackedScene" uid="uid://deeryhksmvs2m" path="res://enemy/enemy.tscn" id="19_iv7qs"]
 [ext_resource type="Script" path="res://enemy/enemy_group.gd" id="20_pj1ht"]
 [ext_resource type="PackedScene" uid="uid://o2rq36t0y4ra" path="res://environment/tmp_flare.tscn" id="21_yt1sn"]
+[ext_resource type="Texture2D" uid="uid://sit232pl07eo" path="res://sprites/rbtv.png" id="22_yqub0"]
 
 [sub_resource type="Environment" id="Environment_l2luy"]
 background_mode = 2
@@ -79,6 +80,7 @@ circle_radius = 0.5
 circle_speed = 350.0
 bounce_height = 0.001
 bounce_speed = 0.5
+attack_damage = 3
 
 [node name="Doors" type="Node" parent="."]
 
@@ -362,7 +364,7 @@ damage_points = null
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 58, 0, 4)
 
 [node name="tmp_cam" type="Camera3D" parent="."]
-transform = Transform3D(-0.999234, -5.97232e-08, 0.0391378, 0.0285671, 0.683541, 0.729353, -0.0267523, 0.729912, -0.683018, 0.00479707, 5.05773, -0.86659)
+transform = Transform3D(-4.37114e-08, 0.707107, -0.707107, 0, 0.707107, 0.707107, 1, 3.09086e-08, -3.09086e-08, 46.7103, 5.05773, -2.28085)
 
 [node name="Flares" type="Node" parent="."]
 
@@ -459,6 +461,16 @@ transform = Transform3D(0.75, 0, 0, 0, 0.724444, -0.194114, 0, 0.194114, 0.72444
 [node name="Tmp_Flare17" parent="Flares/Dialog_Corridor" instance=ExtResource("21_yt1sn")]
 transform = Transform3D(0.75, 0, 0, 0, 0.724444, 0.194114, 0, -0.194114, 0.724444, 2.24055, 2.1, 56.9565)
 
+[node name="Before_Jail" type="Node" parent="Flares"]
+
+[node name="Tmp_Flare17" parent="Flares/Before_Jail" groups=["flare_before_jail"] instance=ExtResource("21_yt1sn")]
+transform = Transform3D(-3.16665e-08, 8.485e-09, -0.75, 0.194114, 0.724444, 0, 0.724444, -0.194114, -3.27835e-08, 5.60501, 2.1, 78.9555)
+visible = false
+
+[node name="Tmp_Flare18" parent="Flares/Before_Jail" groups=["flare_before_jail"] instance=ExtResource("21_yt1sn")]
+transform = Transform3D(-3.16665e-08, 8.485e-09, -0.75, 0.194114, 0.724444, 0, 0.724444, -0.194114, -3.27835e-08, 2.46247, 2.1, 78.9555)
+visible = false
+
 [node name="Jail" type="Node" parent="Flares"]
 
 [node name="Tmp_Flare11" parent="Flares/Jail" instance=ExtResource("21_yt1sn")]
@@ -507,36 +519,83 @@ visible = false
 
 [node name="Tmp_Flare17" parent="Flares/Final_Room" groups=["flare_final_room"] instance=ExtResource("21_yt1sn")]
 transform = Transform3D(0.724444, -0.194114, -3.8567e-09, 0.194114, 0.724444, 1.43934e-08, 0, -1.49012e-08, 0.75, 56.9583, 2.0948, 128.491)
-visible = false
 
 [node name="Tmp_Flare18" parent="Flares/Final_Room" groups=["flare_final_room"] instance=ExtResource("21_yt1sn")]
 transform = Transform3D(0.724444, -0.194114, -3.8567e-09, 0.194114, 0.724444, 1.43934e-08, 0, -1.49012e-08, 0.75, 56.9583, 2.0948, 133.752)
-visible = false
 
-[node name="Tmp_Flare19" parent="Flares/Final_Room" groups=["flare_final_room"] instance=ExtResource("21_yt1sn")]
-transform = Transform3D(0.724444, -0.194114, -3.8567e-09, 0.194114, 0.724444, 1.43934e-08, 0, -1.49012e-08, 0.75, 64.9559, 2.02875, 131.383)
-visible = false
+[node name="Goodrays" type="Node" parent="."]
 
-[node name="Before_Jail" type="Node" parent="Flares"]
+[node name="Godray_Start" type="Node" parent="Goodrays"]
 
-[node name="Tmp_Flare17" parent="Flares/Before_Jail" groups=["flare_before_jail"] instance=ExtResource("21_yt1sn")]
-transform = Transform3D(-3.16665e-08, 8.485e-09, -0.75, 0.194114, 0.724444, 0, 0.724444, -0.194114, -3.27835e-08, 5.60501, 2.1, 78.9555)
-visible = false
-
-[node name="Tmp_Flare18" parent="Flares/Before_Jail" groups=["flare_before_jail"] instance=ExtResource("21_yt1sn")]
-transform = Transform3D(-3.16665e-08, 8.485e-09, -0.75, 0.194114, 0.724444, 0, 0.724444, -0.194114, -3.27835e-08, 2.46247, 2.1, 78.9555)
-visible = false
-
-[node name="Godray" type="Node" parent="."]
-
-[node name="SpotLight3D" type="SpotLight3D" parent="Godray"]
+[node name="SpotLight3D" type="SpotLight3D" parent="Goodrays/Godray_Start"]
 transform = Transform3D(0.996397, 3.70709e-09, -0.0848083, 0.0848083, -4.35539e-08, 0.996397, 1.80114e-16, -1, -4.37114e-08, -0.409518, 6.27142, 1.63229)
 light_color = Color(1, 1, 0.862745, 1)
 light_energy = 10.0
 light_indirect_energy = 0.0
 light_volumetric_fog_energy = 3.5
+shadow_enabled = true
 spot_range = 7.0
 spot_angle = 12.6562
+
+[node name="Godray_Hall" type="Node" parent="Goodrays"]
+
+[node name="SpotLight3D" type="SpotLight3D" parent="Goodrays/Godray_Hall"]
+transform = Transform3D(0.996397, -4.7804e-12, -0.0848083, 0.0734462, -0.5, 0.862905, -0.0424042, -0.866025, -0.498199, 49.0914, 7.3241, -6.24096)
+light_color = Color(1, 1, 0.862745, 1)
+light_energy = 10.0
+light_indirect_energy = 0.0
+light_volumetric_fog_energy = 3.5
+shadow_enabled = true
+spot_range = 8.59083
+spot_angle = 8.14876
+
+[node name="SpotLight3D2" type="SpotLight3D" parent="Goodrays/Godray_Hall"]
+transform = Transform3D(0.996397, -4.7804e-12, -0.0848083, 0.0734462, -0.5, 0.862905, -0.0424042, -0.866025, -0.498199, 39.8711, 7.3241, -5.1639)
+light_color = Color(1, 1, 0.862745, 1)
+light_energy = 10.0
+light_indirect_energy = 0.0
+light_volumetric_fog_energy = 3.5
+shadow_enabled = true
+spot_range = 8.86502
+spot_angle = 5.9872
+
+[node name="SpotLight3D3" type="SpotLight3D" parent="Goodrays/Godray_Hall"]
+transform = Transform3D(0.461476, -0.75, -0.473857, 0.0734462, -0.5, 0.862905, -0.884108, -0.433013, -0.175653, 28.1008, 7.69341, 0.60821)
+light_color = Color(1, 1, 0.862745, 1)
+light_energy = 10.0
+light_indirect_energy = 0.0
+light_volumetric_fog_energy = 3.5
+shadow_enabled = true
+spot_range = 8.51459
+spot_angle = 12.6562
+
+[node name="Godray_Jail" type="Node" parent="Goodrays"]
+
+[node name="SpotLight3D4" type="SpotLight3D" parent="Goodrays/Godray_Jail"]
+transform = Transform3D(0.622111, -0.710829, -0.328176, 0.327741, -0.144232, 0.933693, -0.71103, -0.688418, 0.14324, 10.3218, 5.93378, 113.679)
+light_color = Color(1, 1, 0.862745, 1)
+light_energy = 4.0
+light_indirect_energy = 0.0
+light_volumetric_fog_energy = 3.5
+shadow_enabled = true
+spot_range = 6.89483
+spot_angle = 20.4233
+
+[node name="Sprite3D" type="Sprite3D" parent="Goodrays/Godray_Jail"]
+transform = Transform3D(-4.42569e-09, -8.75557e-12, -0.1, -0.0158486, 0.0987361, 6.92762e-10, 0.0987361, 0.0158486, -4.37114e-09, 12.9999, 1.80626, 113.513)
+texture = ExtResource("22_yqub0")
+
+[node name="Godray_Final_Room" type="Node" parent="Goodrays"]
+
+[node name="SpotLight3D5" type="SpotLight3D" parent="Goodrays/Godray_Final_Room"]
+transform = Transform3D(0.812491, -0.50487, -0.291487, -1.49012e-08, -0.5, 0.866025, -0.582974, -0.703638, -0.406245, 60.1401, 6.68933, 127.629)
+light_color = Color(1, 1, 0.862745, 1)
+light_energy = 4.0
+light_indirect_energy = 0.0
+light_volumetric_fog_energy = 3.5
+shadow_enabled = true
+spot_range = 11.6899
+spot_angle = 23.743
 
 [connection signal="door_smashed" from="Doors/WoodenDoor" to="." method="trigger_smashed_door_dialog"]
 [connection signal="door_smashed" from="Doors/WoodenDoor3" to="Enemy" method="_on_door_smashed"]
