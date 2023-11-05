@@ -87,6 +87,8 @@ bones/50/rotation = Quaternion(0.589888, 0.0199645, 0.0313421, 0.806629)
 bones/51/rotation = Quaternion(0.28952, -0.0600281, 0.11687, 0.948112)
 
 [node name="AnimationTree" parent="MainCharacter" index="2" node_paths=PackedStringArray("player")]
+parameters/BlendTree/TimeScale/scale = 3.25
+"parameters/BlendTree/TimeScale 2/scale" = 2.0
 player = NodePath("../..")
 
 [node name="Raycast" type="RayCast3D" parent="."]
