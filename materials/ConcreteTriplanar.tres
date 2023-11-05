@@ -1,3 +1,19 @@
-[gd_resource type="ShaderMaterial" format=3 uid="uid://g0fcs565t2it"]
+[gd_resource type="ShaderMaterial" load_steps=6 format=3 uid="uid://g0fcs565t2it"]
+
+[ext_resource type="Shader" uid="uid://lmp62lk54s5n" path="res://materials/Triplanar.tres" id="1_v6grg"]
+[ext_resource type="Texture2D" uid="uid://b3pv0e8ytcyln" path="res://textures/TCom_Concrete_WornWall_1K_albedo.png" id="2_plm4a"]
+[ext_resource type="Texture2D" uid="uid://iqa5tb71u5kr" path="res://textures/TCom_Concrete_WornWall_1K_ao.png" id="3_mw4qn"]
+[ext_resource type="Texture2D" uid="uid://b2405mgisfqrt" path="res://textures/TCom_Concrete_WornWall_1K_normal.png" id="4_45vti"]
+[ext_resource type="Texture2D" uid="uid://crej4jixvd2p7" path="res://textures/TCom_Concrete_WornWall_1K_roughness.png" id="5_aqyt4"]
 
 [resource]
+render_priority = 0
+shader = ExtResource("1_v6grg")
+shader_parameter/ColorParameter = Color(0.466667, 0.466667, 0.466667, 1)
+shader_parameter/triplanar_scale = Vector3(1, 1, 1)
+shader_parameter/triplanar_offset = null
+shader_parameter/triplanar_sharpness = 0.5
+shader_parameter/Albedo = ExtResource("2_plm4a")
+shader_parameter/Roughness = ExtResource("5_aqyt4")
+shader_parameter/Ambient_Occlusion = ExtResource("3_mw4qn")
+shader_parameter/Normal = ExtResource("4_45vti")
