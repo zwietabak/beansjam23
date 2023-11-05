@@ -61,7 +61,7 @@ process_material = SubResource("ParticleProcessMaterial_pkjdr")
 draw_pass_1 = SubResource("QuadMesh_55ft7")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="Torch"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.395386, 0.409777)
+transform = Transform3D(1.33333, 0, -3.55271e-15, 0, 1.33333, 0, 3.55271e-15, 0, 1.33333, -1.77636e-15, 0.734063, 0.409777)
 light_color = Color(0.894118, 0.639216, 0.239216, 1)
 shadow_enabled = true
 omni_range = 6.5
