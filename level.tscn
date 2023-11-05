@@ -3,8 +3,8 @@
 [ext_resource type="PackedScene" uid="uid://c374f2n2m818j" path="res://player/player.tscn" id="1_wy8p3"]
 [ext_resource type="Script" path="res://level.gd" id="1_xxsr4"]
 [ext_resource type="PackedScene" uid="uid://dfpp2mxpjle8h" path="res://companion/companion.tscn" id="2_lufe8"]
-[ext_resource type="ArrayMesh" uid="uid://nscgux14uj0b" path="res://meshes/environment/Wall_Cube.res" id="4_ibkba"]
 [ext_resource type="Material" uid="uid://bq1pcmh250gky" path="res://materials/BrickFloorTriplanar.tres" id="4_xxatl"]
+[ext_resource type="ArrayMesh" uid="uid://nscgux14uj0b" path="res://meshes/environment/Wall_Cube.res" id="6_8xr75"]
 [ext_resource type="PackedScene" uid="uid://dbls8kubhonhs" path="res://environment/wooden_door.tscn" id="6_nqacp"]
 [ext_resource type="AudioStream" uid="uid://bk8pxlos8vx0g" path="res://audio/sound_files/ambiance/ambiance.wav" id="6_xixtx"]
 [ext_resource type="AudioStream" uid="uid://dqop5jj8oi04i" path="res://audio/sound_files/ambiance/battle_music.mp3" id="7_h0nce"]
@@ -49,7 +49,7 @@ size = Vector3(2, 2, 2)
 
 [sub_resource type="MeshLibrary" id="MeshLibrary_ov6j6"]
 item/0/name = "BrickWall"
-item/0/mesh = ExtResource("4_ibkba")
+item/0/mesh = ExtResource("6_8xr75")
 item/0/mesh_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 item/0/shapes = [SubResource("BoxShape3D_4tm1h"), Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)]
 item/0/navigation_mesh_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
