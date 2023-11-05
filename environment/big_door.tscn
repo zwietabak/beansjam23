@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://1s434e4nkwb2"]
+[gd_scene load_steps=4 format=3 uid="uid://1s434e4nkwb2"]
 
 [ext_resource type="PackedScene" uid="uid://h552ekdt2lc6" path="res://meshes/environment/BigDoor.glb" id="1_gdpsx"]
 [ext_resource type="Script" path="res://environment/big_door.gd" id="2_3k58j"]
+[ext_resource type="AudioStream" uid="uid://c02r1wjcemh33" path="res://audio/sound_files/environment/door-creaking.wav" id="3_3u0fv"]
 
 [node name="BigDoor" instance=ExtResource("1_gdpsx")]
 script = ExtResource("2_3k58j")
@@ -11,3 +12,7 @@ unique_name_in_owner = true
 
 [node name="LeftDoor" parent="." index="2"]
 unique_name_in_owner = true
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." index="3"]
+stream = ExtResource("3_3u0fv")
+bus = &"SoundEffects"
