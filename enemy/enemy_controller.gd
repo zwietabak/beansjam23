@@ -91,6 +91,8 @@ func _physics_process(delta):
 
 	move_and_slide()
 	
+	print(velocity.length())
+	
 	if(velocity.length() > 0):
 		walking_sound.start_walking()
 		running.emit(true)
@@ -135,6 +137,7 @@ func die():
 	velocity.x = 0
 	velocity.z = 0
 	set_disable_mode(1)
+	$CollisionShape3D.disabled = true
 	walking_sound.stop_walking() 
 	on_died.emit()	
 
@@ -143,5 +146,4 @@ func _on_door_smashed():
 	set_process(true)
 	set_physics_process(true)
 	invincible = false
-	if battle_music != null:
-		battle_music.fade_in()
+	
