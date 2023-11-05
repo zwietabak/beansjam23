@@ -9,14 +9,16 @@ const LOOK_SENSITIVITY = 0.0025
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
+@export var companion: CharacterBody3D
+@export var walkink_sounds: PlayerWalkingSounds
+@export var sound_effects: PlayerSoundEffects
+@export var max_health: float = 3
+@export var health_regen_factor: float = 0.05
+
 @onready var camera_pivot = $Camera_Pivot
 @onready var camera = $Camera_Pivot/Camera3D
 @onready var attack_location = $Attack_Location
 @onready var raycast = $Raycast
-
-@export var companion: CharacterBody3D
-@export var walkink_sounds: PlayerWalkingSounds
-@export var sound_effects: PlayerSoundEffects
 
 signal on_attack
 signal on_hit
@@ -28,7 +30,7 @@ var dtheta = 0
 var in_attack_animation = false
 var in_hit_animation = false
 var controls_disabled = true
-var health_points = 4
+var hit_points: float = 0.0
 
 func _ready():
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
@@ -36,6 +38,11 @@ func _ready():
 		init_companion_rotation()
 
 func _physics_process(delta):
+	# Test health regeneration
+	if hit_points > 0.0:
+		hit_points = hit_points - (health_regen_factor * delta)
+		update_blood_effect()
+	
 	# Add the gravity.
 	if not is_on_floor():
 		velocity.y -= gravity * delta
@@ -132,8 +139,9 @@ func take_damage(amount: int):
 	in_hit_animation = true
 	in_attack_animation = false
 	on_hit.emit()
-	health_points -= 1
-	if(health_points <= 0):
+	hit_points += 1
+	update_blood_effect()
+	if(hit_points >= max_health):
 		die()
 
 func die():
@@ -166,3 +174,7 @@ func _on_dialogue_box_dialogue_ended():
 func _on_dialogue_box_dialogue_signal(value):
 	match(value):
 		"enable_controlls": controls_disabled = false
+		
+func update_blood_effect():
+	var tween = create_tween()
+	tween.tween_property($Camera_Pivot/Camera3D/Blood_Effect, 'modulate:a', (hit_points / 2), 0.75)
