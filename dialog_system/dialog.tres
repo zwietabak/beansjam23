@@ -150,7 +150,7 @@ nodes = {
 "speaker": 0
 },
 "1_13": {
-"dialogue": "Press LMB to attack",
+"dialogue": "Press LMB or RT/R2 to attack",
 "offset": Vector2(1840, 1200),
 "options": {
 0: {
@@ -166,7 +166,9 @@ nodes = {
 "speaker": ""
 },
 "1_14": {
-"dialogue": "Use WASD to move",
+"dialogue": "Use W-A-S-D or left stick to move
+
+Use mouse or right stick to rotate",
 "offset": Vector2(1840, 160),
 "options": {
 0: {

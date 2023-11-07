@@ -5,6 +5,7 @@ class_name PlayerController
 const SPEED = 5.0
 const JUMP_VELOCITY = 4.5
 const LOOK_SENSITIVITY = 0.0025
+const LOOK_SENSITIVITY_CONTROLLER = 0.035
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
@@ -54,8 +55,10 @@ func _physics_process(delta):
 		# Get the input direction and handle the movement/deceleration.
 		# As good practice, you should replace UI actions with custom gameplay actions.
 		var input_dir = Vector3.ZERO
+		var cam_input_dir = Vector3.ZERO
 		if(!controls_disabled):
 			input_dir = Input.get_vector("move_left", "move_right", "move_forward", "move_backward")
+			cam_input_dir = Input.get_vector("cam_left", "cam_right", "cam_up", "cam_down")
 		
 		var direction = (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 		if direction:
@@ -77,6 +80,7 @@ func _physics_process(delta):
 			velocity.z = move_toward(velocity.z, 0, SPEED)
 
 		move_and_slide()
+		rotate_y(-cam_input_dir.x * LOOK_SENSITIVITY_CONTROLLER)
 		
 	if (velocity.length() <= 0): 
 		walkink_sounds.stop_walking()
