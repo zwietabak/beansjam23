@@ -14,22 +14,21 @@ func physics_update(_delta: float) -> void:
 
 
 func enter(_msg := {}) -> void:
-	print("Idle")
-	character.in_combat = false
-	
+	character.invincible = true
 	character.velocity.x = 0
 	character.velocity.z = 0
-	
-	for body in character.player_detection.get_overlapping_bodies():
-		if(body.name == "Player"):
-			state_machine.transition_to("Follow")
-			return
 
 
 func exit() -> void:
-	pass
+	character.invincible = false
 
 
 func recive_event(value: String) -> void:
 	match (value):
-		"player_detected": state_machine.transition_to("Follow")
+		"recovered": 
+			var overlapping_boddies = character.damage_detection.get_overlapping_bodies()
+			for body in overlapping_boddies:
+				if(body.name == "Player"):
+					state_machine.transition_to("Attack")
+					return
+			state_machine.transition_to("Follow")

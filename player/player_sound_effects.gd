@@ -7,7 +7,6 @@ var got_hit = load("res://audio/sound_files/player/player_got_hit.mp3")
 var rng = RandomNumberGenerator.new()
 
 func start_sound(sound: String, random_pitch = false):
-	if not playing:
 		match (sound):
 			"HIT": 
 				set_stream(fairy_hit)

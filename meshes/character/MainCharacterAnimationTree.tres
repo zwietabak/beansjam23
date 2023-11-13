@@ -27,7 +27,7 @@ fadeout_time = 0.2
 [sub_resource type="AnimationNodeTimeScale" id="AnimationNodeTimeScale_j22gr"]
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_d8cgj"]
-graph_offset = Vector2(-610.681, 2.56474)
+graph_offset = Vector2(-539.681, 41.5647)
 nodes/Animation/node = SubResource("AnimationNodeAnimation_k53fy")
 nodes/Animation/position = Vector2(-40, 360)
 "nodes/Animation 2/node" = SubResource("AnimationNodeAnimation_a875n")

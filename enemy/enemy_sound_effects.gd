@@ -13,9 +13,8 @@ func _ready():
 var rng = RandomNumberGenerator.new()
 
 func start_sound(sound: String, random_pitch = false, min = 1, max = 2):
-	if not playing:
 		match (sound):
-			"HIT": 
+			"ATTACK": 
 				set_stream(attack_sounds[rng.randf_range(0, attack_sounds.size())])
 			"GOT_HIT": 
 				set_stream(pain)

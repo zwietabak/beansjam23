@@ -23,6 +23,10 @@ buses/default_bus_layout="res://audio/audio_mixer.tres"
 
 SceneTransition="*res://ui/scene_transition.tscn"
 
+[display]
+
+window/size/mode=3
+
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/dialogue_nodes/plugin.cfg", "res://addons/nv.file_system/plugin.cfg", "res://addons/state_machine_generator/plugin.cfg")

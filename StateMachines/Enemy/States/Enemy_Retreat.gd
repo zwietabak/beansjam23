@@ -14,14 +14,13 @@ func physics_update(_delta: float) -> void:
 
 
 func enter(_msg := {}) -> void:
+	print("Retreat")
 	character.in_combat = false
-		
-	character.walking_sound.start_walking()
+	character.battle_music.check_if_enemy_in_combat()
 	character.running.emit(true)
 
 
 func exit() -> void:
-	character.walking_sound.stop_walking()
 	character.running.emit(false)
 
 

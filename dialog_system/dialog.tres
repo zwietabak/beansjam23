@@ -408,7 +408,7 @@ Use mouse or right stick to rotate",
 "speaker": 1
 },
 "1_28": {
-"dialogue": "Common tell me",
+"dialogue": "Come on tell me",
 "offset": Vector2(1420, 2940),
 "options": {
 0: {
@@ -499,7 +499,7 @@ Use mouse or right stick to rotate",
 },
 "size": {
 "x": 300.0,
-"y": 277.0
+"y": 276.999
 },
 "speaker": 0
 },
@@ -515,7 +515,7 @@ Use mouse or right stick to rotate",
 },
 "size": {
 "x": 300.0,
-"y": 277.0
+"y": 276.999
 },
 "speaker": 1
 },
@@ -531,7 +531,7 @@ Use mouse or right stick to rotate",
 },
 "size": {
 "x": 300.0,
-"y": 277.0
+"y": 276.999
 },
 "speaker": 0
 },
@@ -547,7 +547,7 @@ Use mouse or right stick to rotate",
 },
 "size": {
 "x": 300.0,
-"y": 277.0
+"y": 276.999
 },
 "speaker": 1
 },
@@ -563,7 +563,7 @@ Use mouse or right stick to rotate",
 },
 "size": {
 "x": 300.0,
-"y": 277.0
+"y": 276.999
 },
 "speaker": 0
 },
@@ -659,7 +659,7 @@ Use mouse or right stick to rotate",
 },
 "size": {
 "x": 300.0,
-"y": 277.001
+"y": 277.0
 },
 "speaker": 0
 },
@@ -675,7 +675,7 @@ Use mouse or right stick to rotate",
 },
 "size": {
 "x": 300.0,
-"y": 277.001
+"y": 277.0
 },
 "speaker": 1
 },
@@ -691,7 +691,7 @@ Use mouse or right stick to rotate",
 },
 "size": {
 "x": 300.0,
-"y": 277.001
+"y": 277.0
 },
 "speaker": 0
 },

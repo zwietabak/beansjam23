@@ -11,7 +11,6 @@ const LOOK_SENSITIVITY_CONTROLLER = 0.035
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
 @export var companion: CharacterBody3D
-@export var walkink_sounds: PlayerWalkingSounds
 @export var sound_effects: PlayerSoundEffects
 @export var max_health: float = 3
 @export var health_regen_factor: float = 0.05
@@ -71,26 +70,17 @@ func _physics_process(delta):
 			$MainCharacter.look_at(self.position - direction)
 #			var tween_rotate = create_tween()
 #			tween_rotate.tween_property($MainCharacter, "rotation_degrees", self.position - direction, 0.1)
-	
-			
-			if(velocity.length() > 0):
-				walkink_sounds.start_walking()
 		else:
 			velocity.x = move_toward(velocity.x, 0, SPEED)
 			velocity.z = move_toward(velocity.z, 0, SPEED)
 
 		move_and_slide()
 		rotate_y(-cam_input_dir.x * LOOK_SENSITIVITY_CONTROLLER)
-		
-	if (velocity.length() <= 0): 
-		walkink_sounds.stop_walking()
 	
 	if Input.is_action_just_pressed("ui_cancel"):
 		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED if Input.mouse_mode == Input.MOUSE_MODE_VISIBLE else Input.MOUSE_MODE_VISIBLE
 
 	if Input.is_action_just_pressed("attack") and companion != null:
-		walkink_sounds.stop_walking()
-		
 		if !in_attack_animation and !in_hit_animation and !in_dialog:
 			var tween_rotate = create_tween()
 			tween_rotate.tween_property($MainCharacter, "rotation_degrees", Vector3(0, 180, 0), 0.1)
@@ -100,7 +90,6 @@ func _physics_process(delta):
 			
 			var tween = create_tween()
 			var collider = raycast.get_collider()
-			if collider != null: print(collider.name)
 			if collider != null and !collider.is_in_group("enemy") and !collider.is_in_group("door"):
 				var target = raycast.get_collision_point()
 				tween.tween_property(companion, 'position', target, companion.attack_speed)
@@ -138,7 +127,6 @@ func init_companion_rotation():
 	dtheta = (2 * PI / companion.circle_speed)
 
 func take_damage(amount: int):
-	walkink_sounds.stop_walking()
 	sound_effects.start_sound("GOT_HIT")
 	in_hit_animation = true
 	in_attack_animation = false

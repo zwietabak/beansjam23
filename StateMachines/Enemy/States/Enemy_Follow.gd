@@ -14,15 +14,14 @@ func physics_update(_delta: float) -> void:
 
 
 func enter(_msg := {}) -> void:
+	print("Follow")
 	if character.battle_music != null:
 		character.battle_music.fade_in()
-	character.walking_sound.start_walking()
 	character.running.emit(true)
 	character.in_combat = true
 
 
 func exit() -> void:
-	character.walking_sound.stop_walking()
 	character.running.emit(false)
 
 func recive_event(value: String) -> void:

@@ -16,8 +16,6 @@ func _ready():
 		
 func check_if_all_dead():
 	counter += 1
-	print(counter)
-	print(enemies.size())
 	if counter == enemies.size():
 		all_dead.emit()
 	

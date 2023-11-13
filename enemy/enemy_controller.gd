@@ -21,26 +21,26 @@ enum State {
 @onready var state_machine = $EnemyStateMachine as EnemyStateMachine
 
 @export var follow_target: CharacterBody3D
-@export var health_points: int = 3
+@export var health_points: int = 5
 @export var damage_points: int = 1
 @export var sound_effects: EnemySoundEffects
-@export var walking_sound: EnemyWalkingSounds
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
 var invincible = true
-var in_attack_animation = false
 var battle_music: BattleMusicPlayer
 var is_active = false
 var combo = false
 var is_dead = false
 var in_combat = false
+var stagger_resistance = false
 
 signal running(is_running: bool)
 signal attack
 signal attack2
 signal on_died
+signal hit
 
 func _ready():
 	hitbox.connect("body_entered", hitbox_body_entered)
@@ -79,38 +79,32 @@ func walk_back_to_start(delta):
 	move_and_slide()
 
 func attack_player():
-	if(!in_attack_animation):
-		if combo:
-			attack.emit()
-		else:
-			attack2.emit()
+	if combo:
+		attack.emit()
+	else:
+		attack2.emit()
 			
-		combo = !combo
-		velocity.x = 0
-		velocity.z = 0
-		sound_effects.start_sound("HIT")
-		# Play enemy attack animation here instead of waiting...
-		in_attack_animation = true
-		await get_tree().create_timer(2.0).timeout
-		in_attack_animation = false
+	combo = !combo
+	velocity.x = 0
+	velocity.z = 0
+	sound_effects.start_sound("ATTACK")
 
 func do_damage():
-	print("Doing Damge")
 	var overlapping_bodies = damage_detection.get_overlapping_bodies()
 	for body in overlapping_bodies:
 		if(body.name == "Player"):
-			print("Yay i did damage")
 			follow_target.take_damage(damage_points)
-	
+
 
 func take_damage(amount: int):
-	print("HIT")
 	sound_effects.start_sound("GOT_HIT", true, 0.8, 1.2)
 	health_points -= amount
 	Input.start_joy_vibration(0, 1.0, 0.5, 0.35)
-	invincible = true
-	await get_tree().create_timer(1.0).timeout
-	invincible = false
+	#if(!stagger_resistance):
+	#	stagger_resistance = true
+	hit.emit()
+	state_machine.transition_to("Hit")
+	#	($Timer as Timer).start()
 
 func hitbox_body_entered(body):
 	if body.name == "Companion" and !invincible:
@@ -143,19 +137,26 @@ func die():
 	set_disable_mode(1)
 	$CollisionShape3D.disabled = true
 	$Hitbox/CollisionShape3D.disabled = true
-	walking_sound.stop_walking() 
 	on_died.emit()
 	state_machine.transition_to("Inactive")
+	battle_music.check_if_enemy_in_combat()
 
 func _on_door_smashed():
 	state_machine.transition_to("Idle")
-	
 
 func _on_enemy_mesh_animation_signal(value):
-	do_damage()
-
+	match(value):
+		"attack": do_damage()
 
 func _on_anim_finished(anim_name):
-	print(anim_name)
-	if(anim_name == "attack" or "attack2"):
-		state_machine.state.recive_event("attack_end")
+	match(anim_name):
+		"Enemy/EnemyAttack":
+			state_machine.state.recive_event("attack_end")
+		"Enemy/EnemyAttack_Flipped":
+			state_machine.state.recive_event("attack_end")
+		"Enemy/EnemyHit":
+			state_machine.state.recive_event("recovered")
+
+
+func reset_stagger():
+	stagger_resistance = false

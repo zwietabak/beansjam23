@@ -183,9 +183,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 0, 29)
 [node name="Pillar17" parent="Enemy_NavMesh/Node" instance=ExtResource("25_swxd5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 0, 15)
 
-[node name="Pillar18" parent="Enemy_NavMesh/Node" instance=ExtResource("25_swxd5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 15)
-
 [node name="Pillar19" parent="Enemy_NavMesh/Node" instance=ExtResource("25_swxd5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0, 23)
 
@@ -696,28 +693,8 @@ data = {
 }
 metadata/_editor_floor_ = Vector3(0, 0, 0)
 
-[node name="Ambiance" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("6_xixtx")
-autoplay = true
-
-[node name="BattleMusic" type="AudioStreamPlayer" parent="." groups=["BattleMusic"]]
-stream = ExtResource("7_h0nce")
-bus = &"Music"
-script = ExtResource("8_wxx26")
-
 [node name="Timer" type="Timer" parent="."]
 autostart = true
-
-[node name="AudioDialog" type="AudioStreamPlayer" parent="."]
-bus = &"Voice"
-script = ExtResource("9_fj02o")
-player = ExtResource("10_pdg57")
-fairy = ExtResource("11_t252j")
-
-[node name="Scream" type="AudioStreamPlayer3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 40.9054, -0.122034, 8.68273)
-stream = ExtResource("13_lq3vg")
-bus = &"SoundEffects"
 
 [node name="DialogueBox" type="Panel" parent="."]
 visible = false
@@ -781,10 +758,32 @@ transform = Transform3D(4.06554, 0, 0, 0, 4.07325, 0, 0, 0, 4.50567, 60.9392, 2.
 dialogue_box = NodePath("../../DialogueBox")
 dialogue_id = "END"
 
-[node name="ScreamTrigger" type="Area3D" parent="."]
+[node name="Audio" type="Node" parent="."]
+
+[node name="Ambiance" type="AudioStreamPlayer" parent="Audio"]
+stream = ExtResource("6_xixtx")
+autoplay = true
+
+[node name="AudioDialog" type="AudioStreamPlayer" parent="Audio"]
+bus = &"Voice"
+script = ExtResource("9_fj02o")
+player = ExtResource("10_pdg57")
+fairy = ExtResource("11_t252j")
+
+[node name="BattleMusic" type="AudioStreamPlayer" parent="Audio" groups=["BattleMusic"]]
+stream = ExtResource("7_h0nce")
+bus = &"Music"
+script = ExtResource("8_wxx26")
+
+[node name="Scream" type="AudioStreamPlayer3D" parent="Audio"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 40.9054, -0.122034, 8.68273)
+stream = ExtResource("13_lq3vg")
+bus = &"SoundEffects"
+
+[node name="ScreamTrigger" type="Area3D" parent="Audio"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.2558, 1.53474, 26.1428)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="ScreamTrigger"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Audio/ScreamTrigger"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.981361, 0.241207, -0.185057)
 shape = SubResource("BoxShape3D_qa0sr")
 
@@ -1116,18 +1115,17 @@ transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 57.444
 [connection signal="door_smashed" from="Doors/WoodenDoor8" to="Enemy3" method="_on_door_smashed"]
 [connection signal="door_smashed" from="Doors/WoodenDoor9" to="Enemy4" method="_on_door_smashed"]
 [connection signal="door_smashed" from="Doors/WoodenDoor10" to="Enemy5" method="_on_door_smashed"]
-[connection signal="timeout" from="Timer" to="BattleMusic" method="_on_timer_timeout"]
-[connection signal="finished" from="Scream" to="." method="_on_scream_finished"]
 [connection signal="dialogue_ended" from="DialogueBox" to="Player" method="_on_dialogue_box_dialogue_ended"]
 [connection signal="dialogue_signal" from="DialogueBox" to="." method="_on_dialogue_box_dialogue_signal"]
 [connection signal="dialogue_signal" from="DialogueBox" to="Player" method="_on_dialogue_box_dialogue_signal"]
 [connection signal="dialogue_signal" from="DialogueBox" to="Doors/WoodenDoor3" method="_on_dialogue_box_dialogue_signal"]
 [connection signal="dialogue_signal" from="DialogueBox" to="BigDoor" method="_on_dialogue_box_dialogue_signal"]
-[connection signal="dialogue_skiped" from="DialogueBox" to="AudioDialog" method="_on_dialogue_box_dialogue_skiped"]
+[connection signal="dialogue_skiped" from="DialogueBox" to="Audio/AudioDialog" method="_on_dialogue_box_dialogue_skiped"]
 [connection signal="dialogue_started" from="DialogueBox" to="Player" method="_on_dialogue_box_dialogue_started"]
-[connection signal="who_is_talking" from="DialogueBox" to="AudioDialog" method="_on_dialogue_box_who_is_talking"]
+[connection signal="who_is_talking" from="DialogueBox" to="Audio/AudioDialog" method="_on_dialogue_box_who_is_talking"]
 [connection signal="dialog_entered" from="DialogTrigger/dialog_trigger3" to="Player" method="_on_dialog_trigger_3_dialog_entered"]
-[connection signal="body_entered" from="ScreamTrigger" to="." method="_on_scream_trigger_body_entered"]
+[connection signal="finished" from="Audio/Scream" to="." method="_on_scream_finished"]
+[connection signal="body_entered" from="Audio/ScreamTrigger" to="." method="_on_scream_trigger_body_entered"]
 [connection signal="on_died" from="Enemy" to="." method="_on_enemy_on_died"]
 [connection signal="all_dead" from="EnemyGroup" to="." method="_on_enemy_group_all_dead"]
 [connection signal="all_dead" from="EnemyGroup2" to="." method="_on_enemy_group_2_all_dead"]

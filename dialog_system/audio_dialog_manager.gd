@@ -10,10 +10,7 @@ var max_dialog_fairy = 20
 @export var fairy : Character
 
 
-func _on_dialogue_box_who_is_talking(var_name):
-	print("player_dialog: " + str(current_player_dialog))
-	print("fairy_dialog: " + str(current_fairy_dialog))
-	
+func _on_dialogue_box_who_is_talking(var_name):	
 	match (var_name):
 		player.name: 
 			set_stream(load("res://audio/player_dialog/animalese (" + str(current_player_dialog) + ").wav"))
