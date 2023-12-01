@@ -53,7 +53,7 @@ func printState():
 func _process(delta):
 	if(player_state == State.FADEING_OUT):
 		set_volume_db(volume_db - delta * 5)
-		if(volume_db <= -10):
+		if(volume_db <= -30):
 			pause_music()
 	if(player_state == State.FADEING_IN):
 		set_volume_db(volume_db + delta * 10)
