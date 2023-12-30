@@ -2,21 +2,10 @@
 
 https://itch.io/jam/minibeansjam9
 
-[Female Horror Voice: Possessed (Vol 001)](https://freesound.org/people/AlesiaDavina/sounds/676447/) from [AlesiaDavina](https://freesound.org/people/AlesiaDavina/)
-[Dungeon Ambiance](https://freesound.org/people/phlair/sounds/388340/) from [Phlair](https://freesound.org/people/phlair/)
-Music by <a href="https://pixabay.com/users/magnetic_trailer-27466606/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=114918">Magnetic_Trailer</a> from <a href="https://pixabay.com//?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=114918">Pixabay</a>
-Sound Effect from <a href="https://pixabay.com/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=6752">Pixabay</a>
-
-https://directory.audio/sound-effects/horror/633-female-monster-growls
-
-https://freesound.org/people/egomassive/sounds/536777/
-
-https://freesound.org/people/EminYILDIRIM/sounds/541295/
-
-Sound Effect from <a href="https://pixabay.com/sound-effects/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=83735">Pixabay</a>
-
-Sound Effect from <a href="https://pixabay.com/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=98242">Pixabay</a>
-
-Sound Effect by <a href="https://pixabay.com/users/universfield-28281460/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=142375">UNIVERSFIELD</a> from <a href="https://pixabay.com/sound-effects//?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=142375">Pixabay</a>
-
-Sound Effect by <a href="https://pixabay.com/users/soundsforyou-4861230/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=121673">Mikhail</a> from <a href="https://pixabay.com//?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=121673">Pixabay</a>
+<p><strong>Third-Party:</strong><br>Special thanks to Nagi and his awesome&nbsp;<a href="https://godotengine.org/asset-library/asset/2214">dialog system framework</a><br>Special thanks to&nbsp;<a href="https://github.com/Acedio/animalese.js" class="commit-author user-mention" title="View all commits by Acedio">Acedio</a> and his tool to generate animalese sounds&nbsp;</p>
+<p>Sounds</p>
+<ul><li>Female Horror Voice: Possessed (Vol 001) from <a href="https://freesound.org/people/AlesiaDavina/sounds/676447/">AlesiaDavina</a></li><li>Female Monster Growl from <a href="https://directory.audio/sound-effects/horror/633-female-monster-growls" style="font-family: inherit; font-size: inherit;">Yoo-toob-FX</a></li><li>Door Smash sound from <a href="https://freesound.org/people/egomassive/sounds/536777/" style="font-family: inherit; font-size: inherit;">egomassive</a></li><li>Combat Punch <a href="https://freesound.org/people/EminYILDIRIM/sounds/541295/" style="font-family: inherit; font-size: inherit;">EminYILDIRIM</a></li><li>Dungeon Ambiance from <a href="https://freesound.org/people/phlair/sounds/388340/" style="font-family: inherit; font-size: inherit;">Phlair</a></li><li>Battle music by <a href="https://pixabay.com/users/magnetic_trailer-27466606/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=114918" style="font-family: inherit; font-size: inherit;">Magnetic_Trailer</a> from <a href="https://pixabay.com//?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=114918" style="font-family: inherit; font-size: inherit;">Pixabay</a></li><li>Sound Effects from <a href="https://pixabay.com/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=6752" style="font-family: inherit; font-size: inherit;">Pixabay</a></li></ul>
+<p>Graphics</p>
+<ul><li>PBR textures from&nbsp; <a href="https://www.textures.com/" target="_blank">Textures.com</a>&nbsp;</li><li>Animations from <a href="https://www.mixamo.com/#/" target="_blank">Mixamo</a><a href="https://www.mixamo.com/#/" target="_blank"></a></li></ul>
+<p>Font</p>
+<ul><li>"Volcanic Dungeon" by <a href="https://www.dafont.com/de/volcanic-dungeon.font" target="_blank">Darrell Flood</a></li></ul>
