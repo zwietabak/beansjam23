@@ -14,7 +14,6 @@ func physics_update(_delta: float) -> void:
 
 
 func enter(_msg := {}) -> void:
-	print("Inacive")
 	character.velocity.x = 0
 	character.velocity.z = 0
 

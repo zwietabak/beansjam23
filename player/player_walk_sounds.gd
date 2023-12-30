@@ -6,11 +6,11 @@ var right_step_sounds = []
 var rng = RandomNumberGenerator.new()
 
 func _ready():
-	left_step_sounds.append(load("res://audio/sound_files/player/Footsteps/left_step_1.wav"))
-	left_step_sounds.append(load("res://audio/sound_files/player/Footsteps/left_step_2.wav"))
+	left_step_sounds.append(load("res://audio/sound_files/player/footsteps/left_step_1.mp3"))
+	left_step_sounds.append(load("res://audio/sound_files/player/footsteps/left_step_2.mp3"))
 	
-	right_step_sounds.append(load("res://audio/sound_files/player/Footsteps/right_step_1.wav"))
-	right_step_sounds.append(load("res://audio/sound_files/player/Footsteps/right_step_2.wav"))
+	right_step_sounds.append(load("res://audio/sound_files/player/footsteps/right_step_1.mp3"))
+	right_step_sounds.append(load("res://audio/sound_files/player/footsteps/right_step_2.mp3"))
 
 func left_step():
 		set_stream(left_step_sounds[rng.randi_range(0, left_step_sounds.size() - 1)])
