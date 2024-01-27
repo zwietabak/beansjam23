@@ -27,7 +27,7 @@ fadeout_time = 0.2
 [sub_resource type="AnimationNodeTimeScale" id="AnimationNodeTimeScale_j22gr"]
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_d8cgj"]
-graph_offset = Vector2(-644.338, -4.34755)
+graph_offset = Vector2(-660.399, 164.409)
 nodes/Animation/node = SubResource("AnimationNodeAnimation_k53fy")
 nodes/Animation/position = Vector2(-40, 360)
 "nodes/Animation 2/node" = SubResource("AnimationNodeAnimation_a875n")
@@ -47,7 +47,7 @@ nodes/TimeScale/position = Vector2(400, 500)
 "nodes/TimeScale 2/node" = SubResource("AnimationNodeTimeScale_kh2kw")
 "nodes/TimeScale 2/position" = Vector2(140, 340)
 nodes/output/position = Vector2(900, 400)
-node_connections = [&"output", 0, &"Attack", &"Attack", 0, &"GetHit", &"Attack", 1, &"TimeScale", &"GetHit", 0, &"Running", &"GetHit", 1, &"TimeScale 2", &"Running", 0, &"Animation 2", &"Running", 1, &"Animation 3", &"TimeScale", 0, &"Animation 4", &"TimeScale 2", 0, &"Animation"]
+node_connections = [&"Attack", 0, &"GetHit", &"Attack", 1, &"TimeScale", &"GetHit", 0, &"Running", &"GetHit", 1, &"TimeScale 2", &"Running", 0, &"Animation 2", &"Running", 1, &"Animation 3", &"TimeScale", 0, &"Animation 4", &"TimeScale 2", 0, &"Animation", &"output", 0, &"Attack"]
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_m4kr6"]
 animation = &"Death"
